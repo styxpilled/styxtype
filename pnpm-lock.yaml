@@ -11,6 +11,9 @@ importers:
       '@fontsource-variable/public-sans':
         specifier: ^5.1.0
         version: 5.1.0
+      '@fontsource-variable/shantell-sans':
+        specifier: ^5.1.0
+        version: 5.1.0
     devDependencies:
       '@sveltejs/adapter-auto':
         specifier: ^3.0.0
@@ -238,6 +241,9 @@ packages:
 
   '@fontsource-variable/public-sans@5.1.0':
     resolution: {integrity: sha512-MxBOQcJNa4+Im4nSdLr2+lUVrTrbLm+kQOWZGaWO/aq5oBOqJrW9OzYCi7uBr3174B1q7eJWTlofo4+UbiHehg==}
+
+  '@fontsource-variable/shantell-sans@5.1.0':
+    resolution: {integrity: sha512-ISwq/hb1nqvvwPKPjEMYSVnQqLv/fVvOL9dlGwuMP+C+XsFEp2OtNIy9lyNE8qj+ASoRtATW7LSwM/F9PIXAig==}
 
   '@humanwhocodes/module-importer@1.0.1':
     resolution: {integrity: sha512-bxveV4V8v5Yb4ncFTT3rPSgZBOpCkjfK0y4oVVVJwIuDVBRMDXrPyXRL988i5ap9m9bnyEEjWfm5WkBmtffLfA==}
@@ -1226,6 +1232,8 @@ snapshots:
       levn: 0.4.1
 
   '@fontsource-variable/public-sans@5.1.0': {}
+
+  '@fontsource-variable/shantell-sans@5.1.0': {}
 
   '@humanwhocodes/module-importer@1.0.1': {}
 
