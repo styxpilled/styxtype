@@ -1,0 +1,101 @@
+@font-face {
+	font-family: 'Cooper*';
+	src:
+		local('Cooper*'),
+		url('/font-source/Cooper/webfont/Cooper-Regular.woff2') format('woff2');
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: 'Cooper*';
+	src:
+		local('Cooper*'),
+		url('/font-source/Cooper/webfont/Cooper-Italic.woff2') format('woff2');
+	font-weight: 400;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Cooper*';
+	src:
+		local('Cooper*'),
+		url('/font-source/Cooper/webfont/Cooper-Medium.woff2') format('woff2');
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: 'Cooper*';
+	src:
+		local('Cooper*'),
+		url('/font-source/Cooper/webfont/Cooper-MediumItalic.woff2') format('woff2');
+	font-weight: 500;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Cooper*';
+	src:
+		local('Cooper*'),
+		url('/font-source/Cooper/webfont/Cooper-SemiBold.woff2') format('woff2');
+	font-weight: 600;
+}
+
+@font-face {
+	font-family: 'Cooper*';
+	src:
+		local('Cooper*'),
+		url('/font-source/Cooper/webfont/Cooper-SemiBoldItalic.woff2') format('woff2');
+	font-weight: 600;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Cooper*';
+	src:
+		local('Cooper*'),
+		url('/font-source/Cooper/webfont/Cooper-Bold.woff2') format('woff2');
+	font-weight: 700;
+}
+
+@font-face {
+	font-family: 'Cooper*';
+	src:
+		local('Cooper*'),
+		url('/font-source/Cooper/webfont/Cooper-BoldItalic.woff2') format('woff2');
+	font-weight: 700;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Cooper*';
+	src:
+		local('Cooper*'),
+		url('/font-source/Cooper/webfont/Cooper-ExtraBold.woff2') format('woff2');
+	font-weight: 800;
+}
+
+@font-face {
+	font-family: 'Cooper*';
+	src:
+		local('Cooper*'),
+		url('/font-source/Cooper/webfont/Cooper-ExtraBoldItalic.woff2') format('woff2');
+	font-weight: 800;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Cooper*';
+	src:
+		local('Cooper*'),
+		url('/font-source/Cooper/webfont/Cooper-Black.woff2') format('woff2');
+	font-weight: 900;
+}
+
+@font-face {
+	font-family: 'Cooper*';
+	src:
+		local('Cooper*'),
+		url('/font-source/Cooper/webfont/Cooper-BlackItalic.woff2') format('woff2');
+	font-weight: 900;
+	font-style: italic;
+}

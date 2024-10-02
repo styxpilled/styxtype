@@ -9,17 +9,40 @@
 	let { children } = $props();
 </script>
 
-<div id="main">
+<div id="main" class="noise">
 	<Header />
-	{@render children()}
+	<main class="noise">{@render children()}</main>
 </div>
+
 <div id="overlay"></div>
 
 <style>
 	#main {
 		height: 100dvh;
 		width: 100dvw;
-		background-color: whitesmoke;
+		--background: lightskyblue;
+	}
+
+	main {
+		height: calc(100dvh - 4rem);
+		width: calc(100dvw - 1rem);
+
+		padding: 1rem;
+		margin: 0 0.5rem;
+		--background: whitesmoke;
+		border-radius: 1rem;
+		border: 2px solid var(--background);
+	}
+
+	:global(.noise) {
+		background:
+			linear-gradient(to left, var(--background, red) 100dvw, blue),
+			repeating-radial-gradient(#828282 0 0.0001%, rgba(244, 244, 244, 0.486) 0 0.0002%) 10% 0/2500px
+				2500px,
+			repeating-conic-gradient(rgb(0, 0, 0) 0 0.0001%, rgb(255, 255, 255) 0 0.0002%) 60% 60% /
+				2500px 2500px;
+		background-position: center;
+		background-blend-mode: overlay, difference, difference;
 	}
 
 	#overlay {
@@ -30,10 +53,10 @@
 		height: 100dvh;
 		width: 100dvw;
 		/* BY GODS IT WORKS */
-		background:
+		/* background:
 			repeating-radial-gradient(#3d3d3d 0 0.0001%, #717171 0 0.0002%) 50% 0/2500px 2500px,
 			repeating-conic-gradient(#323232 0 0.0001%, #818181 0 0.0002%) 60% 60% / 2500px 2500px;
 		background-blend-mode: difference;
-		mix-blend-mode: overlay;
+		mix-blend-mode: overlay; */
 	}
 </style>
