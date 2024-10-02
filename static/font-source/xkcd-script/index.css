@@ -1,0 +1,7 @@
+@font-face {
+	font-family: 'xkcd-script';
+	src:
+		local('xkcd-script'),
+		url('/font-source/xkcd-script/xkcd-script.woff') format('woff');
+	font-weight: 400;
+}
