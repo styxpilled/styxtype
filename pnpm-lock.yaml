@@ -8,10 +8,19 @@ importers:
 
   .:
     dependencies:
+      '@fontsource-variable/jost':
+        specifier: ^5.1.0
+        version: 5.1.0
       '@fontsource-variable/public-sans':
         specifier: ^5.1.0
         version: 5.1.0
       '@fontsource-variable/shantell-sans':
+        specifier: ^5.1.0
+        version: 5.1.0
+      '@fontsource/bagnard':
+        specifier: ^5.1.0
+        version: 5.1.0
+      '@fontsource/young-serif':
         specifier: ^5.1.0
         version: 5.1.0
     devDependencies:
@@ -239,11 +248,20 @@ packages:
     resolution: {integrity: sha512-vH9PiIMMwvhCx31Af3HiGzsVNULDbyVkHXwlemn/B0TFj/00ho3y55efXrUZTfQipxoHC5u4xq6zblww1zm1Ig==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
+  '@fontsource-variable/jost@5.1.0':
+    resolution: {integrity: sha512-o5McVXK8JZY/gTwgWWMDXy0jZ3DHAJzd8B5UzfLAVrWjWN+12W0vmvHwzAO6UMJffWkWRuSvzWKbIUK0YZeHdw==}
+
   '@fontsource-variable/public-sans@5.1.0':
     resolution: {integrity: sha512-MxBOQcJNa4+Im4nSdLr2+lUVrTrbLm+kQOWZGaWO/aq5oBOqJrW9OzYCi7uBr3174B1q7eJWTlofo4+UbiHehg==}
 
   '@fontsource-variable/shantell-sans@5.1.0':
     resolution: {integrity: sha512-ISwq/hb1nqvvwPKPjEMYSVnQqLv/fVvOL9dlGwuMP+C+XsFEp2OtNIy9lyNE8qj+ASoRtATW7LSwM/F9PIXAig==}
+
+  '@fontsource/bagnard@5.1.0':
+    resolution: {integrity: sha512-LCKKOyG7V2071hHjnBkI+9bfZwLFPpI2hJ3Gity2fvEy+JN6NIdfeljeur/2DBSIqqDATSO6Lt1QkyO4IIwzUg==}
+
+  '@fontsource/young-serif@5.1.0':
+    resolution: {integrity: sha512-Co85at1TfR7FCmF2VNIGy9ufjLbZvMZFEe2Mq298uHeGXkvQdk7zN13NqH54Lh6XO8GACz9DBENCxqolTnAkPA==}
 
   '@humanwhocodes/module-importer@1.0.1':
     resolution: {integrity: sha512-bxveV4V8v5Yb4ncFTT3rPSgZBOpCkjfK0y4oVVVJwIuDVBRMDXrPyXRL988i5ap9m9bnyEEjWfm5WkBmtffLfA==}
@@ -1231,9 +1249,15 @@ snapshots:
     dependencies:
       levn: 0.4.1
 
+  '@fontsource-variable/jost@5.1.0': {}
+
   '@fontsource-variable/public-sans@5.1.0': {}
 
   '@fontsource-variable/shantell-sans@5.1.0': {}
+
+  '@fontsource/bagnard@5.1.0': {}
+
+  '@fontsource/young-serif@5.1.0': {}
 
   '@humanwhocodes/module-importer@1.0.1': {}
 
