@@ -1,0 +1,11 @@
+@font-face {
+	font-family: 'Gnomon Foreground';
+	src: local('Gnomon Foreground'), url('/font-source/Gnomon/Gnomon-Foreground.ttf');
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: 'Gnomon Simple';
+	src: local('Gnomon Simple'), url('/font-source/Gnomon/Gnomon-Simple.ttf');
+	font-weight: 400;
+}
