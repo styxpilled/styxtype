@@ -11,10 +11,12 @@
 <div class="preview noise" style:font-weight={weight}>
 	<h3>Cooper<span style="color: #743e3e;">*</span></h3>
 	<p>
-		<em>Cooper*</em> by <em><a href="https://indestructibletype.com">Owen Earl</a></em> is a revival
-		of a 1922 font by Oswald Bruce Cooper. The original font is most known for it's iconic
-		<em><a href="https://en.wikipedia.org/wiki/Cooper_Black">Cooper Black</a></em> typeface - one you've
-		definitely seen. This revival aims to shine some light on the more lightweight variants of the font.
+		<em><a href="https://indestructibletype.com/Cooper/">Cooper*</a></em> by
+		<em><a href="https://indestructibletype.com">Owen Earl</a></em>
+		is a revival of a 1922 font family by Oswald Bruce Cooper. The original is most known for it's
+		iconic
+		<em><a href="https://en.wikipedia.org/wiki/Cooper_Black">Cooper Black</a></em> font. This revival
+		aims to shine some light on the more lightweight variants of the font.
 	</p>
 	<label>
 		<span></span>

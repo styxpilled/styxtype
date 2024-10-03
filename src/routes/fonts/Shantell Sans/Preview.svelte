@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '@fontsource-variable/shantell-sans/full.css';
 	let weight = $state(400);
-	let min = 100;
+	let min = 300;
 	let max = 900;
 </script>
 
@@ -12,7 +12,7 @@
 		typographic play, and animation.
 	</p>
 	<label>
-		<span></span>
+		<span class="label">Weight:</span><span>{weight}</span>
 		<input type="range" bind:value={weight} {min} {max} step="100" />
 	</label>
 </div>
@@ -27,11 +27,11 @@
 		color: white;
 
 		background-color: black;
+		--background: black;
 		border-radius: 1rem;
 		font-size: 1.5rem;
 
 		& > * {
-			max-width: 50dvw;
 			text-align: center;
 		}
 	}
@@ -59,5 +59,10 @@
 		h3 {
 			animation-play-state: paused !important;
 		}
+	}
+
+	p,
+	label {
+		max-width: 50dvw;
 	}
 </style>

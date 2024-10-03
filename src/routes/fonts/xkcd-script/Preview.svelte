@@ -3,7 +3,7 @@
 </svelte:head>
 
 <div class="preview">
-	<h3>xdcd-script</h3>
+	<h3>xkcd-script</h3>
 	<p>
 		Derived from the handwriting of @randallmunroe, the author of<a href="https://xkcd.com/">xkcd</a
 		>. What you see in the comics is actually his handwriting!

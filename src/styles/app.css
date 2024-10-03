@@ -18,7 +18,7 @@
 @property --background {
 	syntax: '<color>';
 	inherits: false;
-	initial-value: #f00;
+	/* initial-value: #f00; */
 }
 
 ol,
@@ -85,4 +85,8 @@ ul {
 
 .mono {
 	font-family: monospace;
+}
+
+a:hover {
+	text-decoration: underline;
 }

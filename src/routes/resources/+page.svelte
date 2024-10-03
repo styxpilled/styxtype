@@ -1,5 +1,5 @@
 <script lang="ts">
-	const resources = ['https://www.canva.com/learn/typography-terms/'];
+	const resources = ['https://www.canva.com/learn/typography-terms/', 'https://fontsinuse.com/'];
 </script>
 
 <ul>

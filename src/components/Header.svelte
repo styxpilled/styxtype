@@ -21,7 +21,7 @@
 			</li>
 		</ul>
 	</nav>
-	<nav>
+	<nav class="right">
 		<ul>
 			<li>
 				<a href="/serif">pairings</a>
@@ -40,7 +40,7 @@
 	header {
 		display: flex;
 		justify-content: space-between;
-		padding: 0 1rem;
+		padding-left: 1rem;
 		height: 4rem;
 		--background: lightskyblue;
 		/* background-color: lightskyblue; */
@@ -52,6 +52,7 @@
 
 		& > * {
 			display: flex;
+			flex: 1;
 			align-items: center;
 		}
 	}
@@ -59,5 +60,9 @@
 	ul {
 		display: flex;
 		gap: 1rem;
+	}
+
+	.right {
+		justify-content: flex-end;
 	}
 </style>
