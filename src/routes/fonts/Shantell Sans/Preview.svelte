@@ -19,25 +19,13 @@
 
 <style>
 	.preview {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-
 		font-family: 'Shantell Sans Variable', 'Wingdings';
 		color: white;
 
 		background-color: black;
-		--background: black;
-		border-radius: 1rem;
-		font-size: 1.5rem;
-
-		& > * {
-			text-align: center;
-		}
 	}
 
 	h3 {
-		font-size: 8rem;
 		font-variation-settings:
 			'opsz' 96,
 			'BNCE' 25,
@@ -59,10 +47,5 @@
 		h3 {
 			animation-play-state: paused !important;
 		}
-	}
-
-	p,
-	label {
-		max-width: 50dvw;
 	}
 </style>

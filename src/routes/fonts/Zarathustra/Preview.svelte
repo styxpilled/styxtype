@@ -2,7 +2,7 @@
 	<link rel="stylesheet" href="/font-source/Zarathustra/index.css" />
 </svelte:head>
 
-<div class="preview noise">
+<div class="preview noise noise-border">
 	<h3>Zarathustra</h3>
 	<p>
 		<a href="https://github.com/lorene-cn/zarathustra-typeface"><em>Zarathustra</em></a> by
@@ -13,22 +13,12 @@
 
 <style>
 	.preview {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-
 		font-family: 'Zarathustra', 'Wingdings';
 		color: #58180d;
 
-		--background: white;
-		border-radius: 1rem;
-		border: 2px solid #f5f5f5;
+		--background: #faf8e5;
+		border: 2px solid #f2f0d8;
 		font-size: 1.5rem;
-
-		& > * {
-			max-width: 50dvw;
-			text-align: center;
-		}
 	}
 
 	h3 {

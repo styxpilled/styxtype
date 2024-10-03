@@ -23,20 +23,11 @@
 
 <style>
 	.preview {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-
 		font-family: 'Departure Mono', 'Wingdings';
 		color: #eee;
 		background-color: #444;
-
+		border-radius: 0;
 		font-size: 22px;
-
-		& > * {
-			max-width: 50dvw;
-			text-align: center;
-		}
 	}
 
 	h3 {

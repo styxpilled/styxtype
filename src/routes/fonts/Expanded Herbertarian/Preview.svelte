@@ -20,18 +20,8 @@
 
 		font-family: 'Expanded Herbertarian', 'Wingdings';
 		color: #f1a55a;
-		/* background-color: #1d1b1a; */
 
 		--background-gradient: radial-gradient(at left top, #7a2405, #070402);
-
-		border-radius: 1rem;
-		font-size: 1.5rem;
-		padding-top: 1rem;
-
-		& > * {
-			max-width: 50dvw;
-			text-align: center;
-		}
 	}
 
 	h3 {

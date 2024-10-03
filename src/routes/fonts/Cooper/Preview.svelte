@@ -8,13 +8,12 @@
 	<link rel="stylesheet" href="/font-source/Cooper/index.css" />
 </svelte:head>
 
-<div class="preview noise" style:font-weight={weight}>
+<div class="preview noise noise-border" style:font-weight={weight}>
 	<h3>Cooper<span style="color: #743e3e;">*</span></h3>
 	<p>
 		<em><a href="https://indestructibletype.com/Cooper/">Cooper*</a></em> by
 		<em><a href="https://indestructibletype.com">Owen Earl</a></em>
-		is a revival of a 1922 font family by Oswald Bruce Cooper. The original is most known for it's
-		iconic
+		is a revival of a 1922 font family by Oswald Bruce Cooper. The original is most known for it's iconic
 		<em><a href="https://en.wikipedia.org/wiki/Cooper_Black">Cooper Black</a></em> font. This revival
 		aims to shine some light on the more lightweight variants of the font.
 	</p>
@@ -26,25 +25,9 @@
 
 <style>
 	.preview {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-
 		font-family: 'Cooper*', 'Wingdings';
 		color: #224d77;
 
 		--background: #f2ecd9;
-		border-radius: 1rem;
-		border: 2px solid var(--background);
-		font-size: 1.5rem;
-
-		& > * {
-			max-width: 50dvw;
-			text-align: center;
-		}
-	}
-
-	h3 {
-		font-size: 8rem;
 	}
 </style>
