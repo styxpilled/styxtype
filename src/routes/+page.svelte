@@ -34,7 +34,19 @@
 		text-align: center;
 	}
 
-	:global(:where(.preview-wrapper) > .preview > h3) {
+	:global(:where(.preview-wrapper) > .preview > h3:not(.size-override)) {
 		font-size: 8rem;
+	}
+
+	:global(:where(.preview-wrapper) > .preview > label) {
+		display: flex;
+		width: 40rem;
+		align-items: center;
+	}
+
+	:global(:where(.preview-wrapper) > .preview > label > span.label) {
+		display: inline;
+		width: 14rem;
+		text-align: right;
 	}
 </style>

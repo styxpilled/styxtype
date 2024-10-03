@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@fontsource-variable/besley':
+        specifier: ^5.1.0
+        version: 5.1.0
       '@fontsource-variable/jost':
         specifier: ^5.1.0
         version: 5.1.0
@@ -247,6 +250,9 @@ packages:
   '@eslint/plugin-kit@0.2.0':
     resolution: {integrity: sha512-vH9PiIMMwvhCx31Af3HiGzsVNULDbyVkHXwlemn/B0TFj/00ho3y55efXrUZTfQipxoHC5u4xq6zblww1zm1Ig==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@fontsource-variable/besley@5.1.0':
+    resolution: {integrity: sha512-9x52xNdryKgKWMLHjgcroBTZXlxEgjTOrIJ1rRO7E/ZSNN0Z4ZCccSvEd+WeGZBiTnwqf5fuNFnVd5wyOmT3eQ==}
 
   '@fontsource-variable/jost@5.1.0':
     resolution: {integrity: sha512-o5McVXK8JZY/gTwgWWMDXy0jZ3DHAJzd8B5UzfLAVrWjWN+12W0vmvHwzAO6UMJffWkWRuSvzWKbIUK0YZeHdw==}
@@ -1248,6 +1254,8 @@ snapshots:
   '@eslint/plugin-kit@0.2.0':
     dependencies:
       levn: 0.4.1
+
+  '@fontsource-variable/besley@5.1.0': {}
 
   '@fontsource-variable/jost@5.1.0': {}
 
