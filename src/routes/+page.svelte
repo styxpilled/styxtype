@@ -34,7 +34,7 @@
 		text-align: center;
 	}
 
-	:global(:where(.preview-wrapper) > .preview > h3:not(.size-override)) {
+	:global(:where(.preview-wrapper .preview) h3:not(.size-override)) {
 		font-size: 8rem;
 	}
 

@@ -1,7 +1,8 @@
 <script lang="ts">
 	import Header from '$components/Header.svelte';
-	import '$styles/app.css';
+
 	import '$styles/remedy.css';
+	import '$styles/app.css';
 	import '$styles/buttons.css';
 
 	import '@fontsource-variable/public-sans';
@@ -11,24 +12,25 @@
 
 <div id="main" class="noise">
 	<Header />
-	<main class="noise">{@render children()}</main>
-	<div></div>
+	<main class="noise-light">
+		{@render children()}
+	</main>
 </div>
 
 <style>
 	#main {
 		min-height: 100dvh;
-		/* width: 100dvw; */
 		--background: lightskyblue;
-		overflow: hidden;
-		overflow-y: scroll;
+		/* overflow: hidden;
+		overflow-y: scroll; */
 		padding-right: 0.5rem;
+		border-radius: 0;
 	}
 
 	main {
-		min-height: calc(100dvh - 4rem);
+		min-height: calc(100dvh - 4.5rem);
 		width: calc(100dvw - 1.5rem);
-		overflow: hidden;
+		/* overflow: hidden; */
 
 		padding: 1rem;
 		margin: 0 0.5rem;
