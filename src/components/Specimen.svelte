@@ -74,6 +74,7 @@
 		border-radius: 1rem;
 		width: calc(100dvw - 3.5rem);
 		height: 32rem;
+		overflow: hidden;
 	}
 
 	.specimen *::selection {

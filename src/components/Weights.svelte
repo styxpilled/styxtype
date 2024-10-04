@@ -9,6 +9,7 @@
 </script>
 
 <div>
+	<h3>Weights</h3>
 	<ol>
 		{#each weights as weight}
 			<li>
@@ -19,6 +20,10 @@
 </div>
 
 <style>
+	div {
+		padding-left: 1rem;
+	}
+
 	li {
 		font-size: 4rem;
 	}

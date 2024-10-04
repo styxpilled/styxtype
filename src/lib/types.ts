@@ -10,6 +10,8 @@ export type Author = {
 
 export type Category = 'serif' | 'sans-serif' | 'display' | 'monospace' | 'script';
 
+export type License = 'SIL' | (string & {});
+
 export type CSSSlider = {
 	label: string;
 	cssProperty: string;
