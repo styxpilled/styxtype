@@ -4,8 +4,10 @@
 	// https://open-foundry.com/fonts/bagnard_regular
 </script>
 
-<div class="preview noise noise-border">
-	<h3>Bagnard</h3>
+<div class="preview noise">
+	<a href="/fonts/Bagnard">
+		<h3>Bagnard</h3>
+	</a>
 	<p>
 		<em><a href="https://github.com/sebsan/Bagnard">Bagnard</a></em> by
 		<em>Sebastien Sanfilippo</em> was inspired by the graffitis of an anonymous prisoner of the napoleonic
@@ -23,6 +25,6 @@
 	}
 
 	a:hover {
-		color: #c83737;
+		color: #f7bae4;
 	}
 </style>

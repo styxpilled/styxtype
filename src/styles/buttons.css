@@ -14,8 +14,8 @@ input[type='text'],
 input[type='number'],
 textarea,
 .btn {
-	border-radius: 8px;
-	padding: 0.125rem 0.375rem;
+	border-radius: 1rem;
+	padding: 0.125rem 0.75rem;
 	font-family: inherit;
 	background-color: var(--color-secondary);
 	transition:
@@ -26,11 +26,14 @@ textarea,
 	align-items: center;
 	justify-content: center;
 	gap: 0.25rem;
-	border: 1px solid rgb(75, 75, 75);
 
 	&:hover {
 		background-color: var(--color-secondary-highlighted);
 	}
+}
+
+a.btn {
+	text-decoration: none;
 }
 
 textarea {

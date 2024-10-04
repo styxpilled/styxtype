@@ -64,7 +64,8 @@
 
 	.static {
 		display: inline-block;
-		width: 4ch;
+		width: 6ch;
+		text-align: left;
 	}
 
 	label {

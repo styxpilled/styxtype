@@ -21,9 +21,12 @@
 	#main {
 		min-height: 100dvh;
 		--background: lightskyblue;
+		--bg-root: lightskyblue;
+
 		/* overflow: hidden;
 		overflow-y: scroll; */
 		padding-right: 0.5rem;
+		padding-bottom: 0.001rem;
 		border-radius: 0;
 	}
 
@@ -35,8 +38,7 @@
 		padding: 1rem;
 		margin: 0 0.5rem;
 		margin-bottom: 0.5rem;
-		--background: whitesmoke;
 		border-radius: 1rem;
-		border: 2px solid var(--background);
+		--background: whitesmoke;
 	}
 </style>

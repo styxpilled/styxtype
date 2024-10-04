@@ -1,5 +1,7 @@
 :root {
-	font-family: 'Public Sans Variable', Helvetica, Arial, sans-serif;
+	--font-ui: 'Public Sans Variable', Helvetica, Arial, sans-serif;
+
+	font-family: var(--font-ui);
 
 	color: black;
 	background-color: var(--color-bg);
@@ -30,6 +32,7 @@
 			var(--bg-size) var(--bg-size); */
 	background-blend-mode: overlay, difference;
 	border-radius: 1rem;
+	background-attachment: fixed;
 }
 
 .noise-light {
@@ -39,6 +42,7 @@
 		),
 		url('/noise2.png'), url('/noise3-light.png');
 	background-blend-mode: overlay, difference;
+	background-attachment: fixed;
 }
 
 ol,

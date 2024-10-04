@@ -1,1 +1,4 @@
-// place files you want to import through the `$lib` alias in this folder.
+export const characterSets = {
+	latinBasic:
+		'!"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~'
+};
