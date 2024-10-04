@@ -2,7 +2,7 @@
 	<link rel="stylesheet" href="/font-source/Zarathustra/index.css" />
 </svelte:head>
 
-<div class="preview noise noise-border">
+<div class="preview noise">
 	<h3>Zarathustra</h3>
 	<p>
 		<a href="https://github.com/lorene-cn/zarathustra-typeface"><em>Zarathustra</em></a> by

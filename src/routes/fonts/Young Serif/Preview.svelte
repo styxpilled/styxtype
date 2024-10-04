@@ -2,7 +2,7 @@
 	import '@fontsource/young-serif';
 </script>
 
-<div class="preview noise noise-border">
+<div class="preview noise">
 	<h3>Young Serif</h3>
 	<p>
 		<a href="https://github.com/noirblancrouge/YoungSerif"><em>Young Serif</em></a> by the
@@ -17,31 +17,35 @@
 	.preview {
 		font-family: 'Young Serif', 'Wingdings';
 		color: #fbcea0;
-		--background: #120f0c;
+		--background: #211c16;
 	}
 
 	h3 {
-		background: linear-gradient(
-			135deg,
-			#fbcea0 0%,
-			#fbcea0 20%,
-			#fbcfa0 40%,
-			#fff 60%,
-			#fbcfa0 80%,
-			#fbcfa0 100%
-		);
+		background: url('/noise2.png'),
+			linear-gradient(
+				135deg,
+				#fbcea0 0%,
+				#fbcea0 20%,
+				#fbcfa0 40%,
+				#fff 60%,
+				#fbcfa0 80%,
+				#fbcfa0 100%
+			),
+			url('/noise2.png');
 
+		background-blend-mode: overlay;
 		-webkit-background-clip: text;
 		background-clip: text;
 		-webkit-text-fill-color: transparent;
-		background-position: 0%;
-		background-size: 300%;
+		background-position: 0%, 0%;
+		background-size: 256px, 300%;
+		background-repeat: repeat;
 
 		padding: 0 0.5ch;
 		transition: background-position 0.5s linear;
 
 		&:hover {
-			background-position: 100%;
+			background-position: 0%, 100%, 0%;
 		}
 	}
 

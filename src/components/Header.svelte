@@ -42,8 +42,8 @@
 		justify-content: space-between;
 		padding-left: 1rem;
 		height: 4rem;
+		width: calc(100dvw - 1.5rem);
 		--background: lightskyblue;
-		/* background-color: lightskyblue; */
 		color: black;
 
 		text-transform: uppercase;

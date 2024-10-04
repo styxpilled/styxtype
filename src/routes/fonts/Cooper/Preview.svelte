@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="/font-source/Cooper/index.css" />
 </svelte:head>
 
-<div class="preview noise noise-border" style:font-weight={weight}>
+<div class="preview noise" style:font-weight={weight}>
 	<h3>Cooper<span style="color: #743e3e;">*</span></h3>
 	<p>
 		<em><a href="https://indestructibletype.com/Cooper/">Cooper*</a></em> by

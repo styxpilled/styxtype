@@ -6,7 +6,7 @@
 	const max = 900;
 </script>
 
-<div class="preview noise noise-border" style:font-weight={weight}>
+<div class="preview noise" style:font-weight={weight}>
 	<h3>Besley<span style="color: #471313;">*</span></h3>
 	<p>
 		<a href="https://indestructibletype.com/Besley"><em>Besley*</em></a> by
