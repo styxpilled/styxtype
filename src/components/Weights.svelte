@@ -8,7 +8,7 @@
 	} = $props();
 </script>
 
-<div>
+<div class="flexible">
 	<h3>Weights</h3>
 	<ol>
 		{#each weights as weight}

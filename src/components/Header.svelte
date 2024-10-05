@@ -1,12 +1,12 @@
 <script lang="ts">
 </script>
 
-<header class="noise">
+<header class="noise row responsive-row">
 	<div>
 		<a href="/">styxtype</a>
 	</div>
 	<nav>
-		<ul>
+		<ul class="row wrap">
 			<li>
 				<a href="/serif">serif</a>
 			</li>
@@ -22,7 +22,7 @@
 		</ul>
 	</nav>
 	<nav class="right">
-		<ul>
+		<ul class="row wrap">
 			<li>
 				<a href="/serif">pairings</a>
 			</li>
@@ -41,7 +41,7 @@
 		display: flex;
 		justify-content: space-between;
 		padding-left: 1rem;
-		height: 4rem;
+		min-height: 4rem;
 		width: calc(100dvw - 1.5rem);
 		--background: lightskyblue;
 		color: black;
@@ -57,9 +57,12 @@
 		}
 	}
 
-	ul {
-		display: flex;
+	ul.row.responsive-row {
 		gap: 1rem;
+
+		@media (min-width: 512px) {
+			flex-direction: row;
+		}
 	}
 
 	.right {

@@ -4,7 +4,6 @@
 	import Characters from '$components/Characters.svelte';
 	import Specimen from '$components/Specimen.svelte';
 	import Weights from '$components/Weights.svelte';
-	import { characterSets } from '$lib';
 	import { author, characters, description, license, links, title } from './data';
 	import Bird from './theBird.svelte';
 	import DropCap from './DropCap.svelte';
@@ -30,9 +29,9 @@
 		</div>
 	</div>
 	<Specimen />
-	<div class="details row space">
+	<div class="details row responsive-row space">
 		<Weights weights={[{ italic: false, label: 'Regular', value: 400 }]} />
-		<p>
+		<p class="flexible">
 			{description}
 		</p>
 	</div>
@@ -49,6 +48,25 @@
 			<h3>Alenthiel</h3>
 			<h2>A DETAILED HISTORY OF VALINOR</h2>
 		</div>
+		<div class="bottom">
+			<div>
+				<h2>Laughing Cavalier</h2>
+			</div>
+			<p>
+				By <a
+					href="https://en.wikipedia.org/wiki/en:Frans_Hals"
+					class="extiw"
+					title="w:en:Frans Hals"><span title="Dutch painter (1580—1666)">Frans Hals</span></a
+				>
+				-
+				<a
+					rel="nofollow"
+					class="external free"
+					href="https://www.oxfordartonline.com/page/wallace-collection-guide"
+					>https://www.oxfordartonline.com/page/wallace-collection-guide</a
+				>, Public Domain, <a href="https://commons.wikimedia.org/w/index.php?curid=2169368">Link</a>
+			</p>
+		</div>
 	</div>
 </div>
 
@@ -61,6 +79,12 @@
 	.header {
 		display: flex;
 		justify-content: space-between;
+		flex-direction: column;
+		gap: 1rem;
+
+		@media (min-width: 1024px) {
+			flex-direction: row;
+		}
 	}
 
 	.title {
@@ -71,6 +95,10 @@
 
 	.info {
 		font-family: var(--font-ui);
+	}
+
+	.links {
+		flex-wrap: wrap;
 	}
 
 	.btn.noise {
@@ -95,18 +123,31 @@
 
 	p {
 		font-size: 1.5rem;
-		max-width: 40dvw;
 	}
 
 	.mosaic {
 		display: grid;
-		grid-template-columns: 2fr 1.5fr 1.5fr;
-		grid-template-rows: 1fr 1fr 1fr;
-		gap: 2rem 2rem;
-		grid-template-areas:
-			'bird drop-cap drop-cap'
-			'bird blue blue'
-			'bottom bottom .';
+
+		@media (min-width: 240px) {
+			grid-template-columns: minmax(240px, 1fr);
+			grid-template-rows: repeat(7, minmax(240px, max-content));
+			gap: 2rem 2rem;
+			grid-template-areas:
+				'bird'
+				'drop-cap'
+				'blue'
+				'bottom';
+		}
+
+		@media (min-width: 1024px) {
+			grid-template-columns: 2fr 1.5fr 1.5fr;
+			grid-template-rows: 1fr 1fr 1fr;
+			gap: 2rem 2rem;
+			grid-template-areas:
+				'bird drop-cap drop-cap'
+				'bird blue blue'
+				'bottom bottom empty';
+		}
 	}
 
 	.drop-cap {
@@ -116,12 +157,11 @@
 	.blue {
 		grid-area: blue;
 		--background: #344265;
-		display: flex;
-		justify-content: space-between;
 		padding: 2rem;
 		margin-bottom: 1rem;
 
 		& h3 {
+			float: left;
 			color: #98a3b5;
 		}
 
@@ -129,7 +169,34 @@
 			font-size: 5rem;
 			color: #e2dbc5;
 			text-align: right;
-			max-width: 55%;
+			margin-left: auto;
+			max-width: 15ch;
+		}
+	}
+
+	.bottom {
+		grid-area: bottom;
+		background: linear-gradient(to left, #000 0%, transparent 50%, transparent 80%, #000000a0 100%),
+			url('./cavalier.jpg');
+		color: #f5dc91;
+		text-align: center;
+		display: flex;
+		min-height: 32rem;
+		justify-content: space-between;
+		align-items: center;
+		position: relative;
+		background-size: 100%;
+		background-position: center;
+		box-shadow: 0 0 1rem 1rem #f1f1f1 inset;
+		transition: background-size 500ms ease-in-out;
+
+		&:hover {
+			background-size: 110%;
+		}
+
+		& > * {
+			max-width: 26rem;
+			rotate: -90deg;
 		}
 	}
 

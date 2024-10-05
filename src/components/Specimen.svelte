@@ -88,6 +88,7 @@
 
 	.sliders.row {
 		gap: 2rem;
+		flex-wrap: wrap;
 	}
 
 	span.label {
