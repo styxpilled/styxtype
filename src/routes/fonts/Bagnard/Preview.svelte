@@ -1,12 +1,13 @@
 <script lang="ts">
 	import '@fontsource/bagnard';
+	import { title } from './data';
 	// https://fontsource.org/fonts/bagnard/install
 	// https://open-foundry.com/fonts/bagnard_regular
 </script>
 
-<div class="preview noise">
+<div class="preview noise" style="view-transition-name: font-preview-{title}">
 	<a href="/fonts/Bagnard">
-		<h3>Bagnard</h3>
+		<h3 style="view-transition-name: font-title-{title}">{title}</h3>
 	</a>
 	<p>
 		<em><a href="https://github.com/sebsan/Bagnard">Bagnard</a></em> by

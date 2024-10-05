@@ -12,7 +12,7 @@
 <div class="font col">
 	<div class="header">
 		<div class="title noise">
-			<h2>{title}</h2>
+			<h2 style="view-transition-name: font-title-{title}">{title}</h2>
 			<h4>by {author.name}</h4>
 		</div>
 		<div class="info col">

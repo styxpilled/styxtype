@@ -40,6 +40,7 @@
 	header {
 		display: flex;
 		justify-content: space-between;
+		view-transition-name: header;
 		padding-left: 1rem;
 		min-height: 4rem;
 		width: calc(100dvw - 1.5rem);
