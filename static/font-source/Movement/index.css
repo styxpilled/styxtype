@@ -1,0 +1,6 @@
+/* Movement, by NM type & Design Indaba 2019. */
+@font-face {
+	font-family: 'Movement';
+	src: local('Movement Regular'), url('/font-source/Movement/MovementV.ttf');
+	font-weight: 400;
+}

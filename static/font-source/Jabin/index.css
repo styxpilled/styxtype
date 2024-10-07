@@ -1,0 +1,9 @@
+@font-face {
+	font-family: 'https://www.fridamedrano.com/jabin';
+	font-family: 'Jabin Typeface';
+	src:
+		local('Jabin Typeface'),
+		url('/font-source/Jabin/Jabin.woff2') format('woff2'),
+		url('/font-source/Jabin/Jabin.ttf');
+	font-weight: 80;
+}
