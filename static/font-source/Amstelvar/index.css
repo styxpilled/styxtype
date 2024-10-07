@@ -1,0 +1,14 @@
+@font-face {
+	font-family: 'Amstelvar Roman';
+	src:
+		local('Amstelvar Roman'),
+		url('/font-source/Amstelvar/AmstelvarRoman.ttf') format('woff2');
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: 'Amstelvar';
+	src: local('Amstelvar') url('/font-source/Amstelvar/AmstelvarItalic.ttf');
+	font-weight: 400;
+	font-style: italic;
+}

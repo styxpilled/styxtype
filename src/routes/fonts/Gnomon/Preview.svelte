@@ -37,29 +37,25 @@
 	.preview {
 		font-family: 'Gnomon Simple', 'Wingdings';
 		background-color: #ffaacc;
+		--background: #ffaacc;
 		color: white;
 	}
 
 	.title {
 		position: relative;
-		font-size: 8rem;
-		height: 8rem;
-		width: 8ch;
-	}
-
-	h3 {
-		top: 0;
-		/* left: calc(50% - 3ch); */
-		position: absolute;
+		z-index: 5;
 		font-size: 8rem;
 		line-height: 1;
 	}
 
 	.shadow {
+		top: 0;
+		position: absolute;
 		color: #ff0066;
 		font-variation-settings:
 			'DIST' 100,
 			'TOTD' 500;
+		z-index: -1;
 	}
 
 	.static {

@@ -1,0 +1,9 @@
+@font-face {
+	font-family: 'Golos UI VF';
+	src:
+		url('/font-source/GolosUI/GolosUI.woff2') format('woff2'),
+		url('/font-source/GolosUI/GolosUI.woff') format('woff'),
+		url('/font-source/GolosUI/GolosUI.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
