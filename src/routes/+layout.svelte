@@ -7,6 +7,7 @@
 	import '$styles/buttons.css';
 
 	import '@fontsource-variable/public-sans';
+	import Screensaver from '$components/Screensaver.svelte';
 
 	let { children } = $props();
 
@@ -26,6 +27,7 @@
 
 <div id="main" class="noise">
 	<Header />
+	<Screensaver />
 	<main class="noise-light" bind:this={main}>
 		{@render children()}
 	</main>

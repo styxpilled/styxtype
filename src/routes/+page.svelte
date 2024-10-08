@@ -29,7 +29,7 @@
 		padding-bottom: 2rem;
 	}
 
-	:global(:where(.preview-wrapper > .preview > *)) {
+	:global(:where(.preview-wrapper > .preview > *:not(.bg))) {
 		max-width: 50dvw;
 		text-align: center;
 	}
