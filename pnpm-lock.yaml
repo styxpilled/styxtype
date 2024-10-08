@@ -11,6 +11,9 @@ importers:
       '@fontsource-variable/besley':
         specifier: ^5.1.0
         version: 5.1.0
+      '@fontsource-variable/josefin-sans':
+        specifier: ^5.1.0
+        version: 5.1.0
       '@fontsource-variable/jost':
         specifier: ^5.1.0
         version: 5.1.0
@@ -21,6 +24,15 @@ importers:
         specifier: ^5.1.0
         version: 5.1.0
       '@fontsource/bagnard':
+        specifier: ^5.1.0
+        version: 5.1.0
+      '@fontsource/calistoga':
+        specifier: ^5.1.0
+        version: 5.1.0
+      '@fontsource/cookie':
+        specifier: ^5.1.0
+        version: 5.1.0
+      '@fontsource/merriweather':
         specifier: ^5.1.0
         version: 5.1.0
       '@fontsource/young-serif':
@@ -254,6 +266,9 @@ packages:
   '@fontsource-variable/besley@5.1.0':
     resolution: {integrity: sha512-9x52xNdryKgKWMLHjgcroBTZXlxEgjTOrIJ1rRO7E/ZSNN0Z4ZCccSvEd+WeGZBiTnwqf5fuNFnVd5wyOmT3eQ==}
 
+  '@fontsource-variable/josefin-sans@5.1.0':
+    resolution: {integrity: sha512-QePgC0aZAm/Xlc0/3w7BKxNqAIIlqRmatbOEPGVy4fqX16f32q154ipM7lKc48Rm4xjVWre+6ZkEIkZYRy3erQ==}
+
   '@fontsource-variable/jost@5.1.0':
     resolution: {integrity: sha512-o5McVXK8JZY/gTwgWWMDXy0jZ3DHAJzd8B5UzfLAVrWjWN+12W0vmvHwzAO6UMJffWkWRuSvzWKbIUK0YZeHdw==}
 
@@ -265,6 +280,15 @@ packages:
 
   '@fontsource/bagnard@5.1.0':
     resolution: {integrity: sha512-LCKKOyG7V2071hHjnBkI+9bfZwLFPpI2hJ3Gity2fvEy+JN6NIdfeljeur/2DBSIqqDATSO6Lt1QkyO4IIwzUg==}
+
+  '@fontsource/calistoga@5.1.0':
+    resolution: {integrity: sha512-gUABkstnQep0WzfczyY0nsXXQAX4m8D791p3BKVyyHPcVVChRVBG7HnkIZsOP8rs/O8nMtyNFrC04hEB+e2m6g==}
+
+  '@fontsource/cookie@5.1.0':
+    resolution: {integrity: sha512-YaLI4bdEbzcnbqPL70hztT/dRY6/B9/I+D4cyFHmIfZM/qh+PSk0URk+82GjKjTiHeWUq3s9NupUmRVFE4SUfg==}
+
+  '@fontsource/merriweather@5.1.0':
+    resolution: {integrity: sha512-CliXFoCACKkrx8G93xGw6cD7RYCOytuY/Afe1W/htsRRlaSyGA6HGNQzQJc6NKzjs9XenBH2CcMQsONyppd+uQ==}
 
   '@fontsource/young-serif@5.1.0':
     resolution: {integrity: sha512-Co85at1TfR7FCmF2VNIGy9ufjLbZvMZFEe2Mq298uHeGXkvQdk7zN13NqH54Lh6XO8GACz9DBENCxqolTnAkPA==}
@@ -1257,6 +1281,8 @@ snapshots:
 
   '@fontsource-variable/besley@5.1.0': {}
 
+  '@fontsource-variable/josefin-sans@5.1.0': {}
+
   '@fontsource-variable/jost@5.1.0': {}
 
   '@fontsource-variable/public-sans@5.1.0': {}
@@ -1264,6 +1290,12 @@ snapshots:
   '@fontsource-variable/shantell-sans@5.1.0': {}
 
   '@fontsource/bagnard@5.1.0': {}
+
+  '@fontsource/calistoga@5.1.0': {}
+
+  '@fontsource/cookie@5.1.0': {}
+
+  '@fontsource/merriweather@5.1.0': {}
 
   '@fontsource/young-serif@5.1.0': {}
 

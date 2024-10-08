@@ -72,8 +72,8 @@
 		font-family: 'Amstelvar Roman', 'Wingdings';
 		color: rgb(39, 34, 34);
 
-		--background: #e36b49;
-		--background-gradient: radial-gradient(at center top, #f5704b, #a52501);
+		--background: #b0bf9a;
+		--background-gradient: radial-gradient(at center top, #b0bf9a, #434343);
 	}
 
 	h3 {
