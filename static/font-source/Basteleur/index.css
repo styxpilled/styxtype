@@ -1,0 +1,19 @@
+@font-face {
+	font-family: 'Basteleur Moonlight';
+	src:
+		local('Basteleur Moonlight'),
+		url('/font-source/Basteleur/BasteleurMoonlight.woff2') format('woff2'),
+		url('/font-source/Basteleur/BasteleurMoonlight.woff') format('woff'),
+		url('/font-source/Basteleur/BasteleurMoonlight.otf');
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: 'Basteleur Bold';
+	src:
+		local('Basteleur Bold'),
+		url('/font-source/Basteleur/BasteleurBold.woff2') format('woff2'),
+		url('/font-source/Basteleur/BasteleurBold.woff') format('woff'),
+		url('/font-source/Basteleur/BasteleurBold.otf');
+	font-weight: 400;
+}

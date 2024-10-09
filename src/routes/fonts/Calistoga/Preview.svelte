@@ -13,10 +13,10 @@
 		<p>since 1986</p>
 	</div>
 	<p class="description">
-		Calistoga is a cheerful, space saving display typeface with vintage US railroad flavor.
-		Calistoga includes proportional, tabular, old style and lining figures. It also offers
-		fractions, superiors, inferiors, a broad range of symbols, and it includes case sensitive forms.
-		Calistoga is an original typeface designed by Yvonne Schuttler.
+		Calistoga by Yvonne Schuttler is a cheerful, space saving display typeface with vintage US
+		railroad flavor. Calistoga includes proportional, tabular, old style and lining figures. It also
+		offers fractions, superiors, inferiors, a broad range of symbols, and it includes case sensitive
+		forms.
 	</p>
 </div>
 
