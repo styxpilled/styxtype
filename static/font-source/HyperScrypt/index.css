@@ -1,0 +1,11 @@
+@font-face {
+	font-family: 'Hyper Scrypt';
+	font-style: normal;
+	font-display: swap;
+	font-weight: 400;
+	src:
+		local('Hyper Scrypt Stencil'),
+		url('/font-source/HyperScrypt/HyperScrypt.woff2') format('woff2'),
+		url('/font-source/HyperScrypt/HyperScrypt.woff') format('woff'),
+		url('/font-source/HyperScrypt/HyperScrypt.ttf');
+}

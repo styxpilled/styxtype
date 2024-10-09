@@ -21,7 +21,8 @@
 	</div>
 	<p>
 		<a href="https://indestructibletype.com/Gnomon">GNOMON*</a> is an experimental typeface by
-		<a href="https://indestructibletype.com">Owen Earl</a>, taking advantage
+		<a href="https://indestructibletype.com">Owen Earl</a>, taking advantage of modern OpenType
+		features.
 	</p>
 	<label>
 		<span class="label">Time of Day:</span><span class="static">{timeOfDay}</span>
