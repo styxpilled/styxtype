@@ -1,0 +1,17 @@
+@font-face {
+	font-family: 'Pilowlava Regular';
+	src:
+		local('Pilowlava Regular'),
+		url('/font-source/Pilowlava/PilowlavaRegular.woff2') format('woff2'),
+		url('/font-source/Pilowlava/PilowlavaRegular.woff') format('woff');
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: 'Pilowlava Atome';
+	src:
+		local('Pilowlava Atome'),
+		url('/font-source/Pilowlava/PilowlavaAtome.woff2') format('woff2'),
+		url('/font-source/Pilowlava/PilowlavaAtome.woff') format('woff');
+	font-weight: 400;
+}
