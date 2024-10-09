@@ -1,0 +1,11 @@
+@font-face {
+	font-family: 'Jellee Bold';
+	font-style: normal;
+	font-display: swap;
+	font-weight: 700;
+	src:
+		local('Jellee Bold'),
+		url('/font-source/Jellee/Jellee.woff2') format('woff2'),
+		url('/font-source/Jellee/Jellee.woff') format('woff'),
+		url('/font-source/Jellee/Jellee.otf');
+}
