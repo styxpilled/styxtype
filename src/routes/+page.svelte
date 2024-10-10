@@ -15,10 +15,18 @@
 		color: black;
 		display: flex;
 		flex-direction: column;
+		align-items: center;
 		gap: 1rem;
 	}
 
+	.preview-wrapper {
+		min-width: 100%;
+		display: flex;
+		justify-content: center;
+	}
+
 	:global(:where(.preview-wrapper > .preview)) {
+		flex: 1;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -35,7 +43,7 @@
 	}
 
 	:global(:where(.preview-wrapper .preview) h3:not(.size-override)) {
-		font-size: 8rem;
+		font-size: clamp(16px, 8vw, 8rem);
 	}
 
 	:global(:where(.preview-wrapper) > .preview > label) {
