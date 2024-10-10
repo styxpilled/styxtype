@@ -8,29 +8,29 @@
 	<nav>
 		<ul class="row wrap">
 			<li>
-				<a href="/serif">serif</a>
+				<a href="/">serif</a>
 			</li>
 			<li>
-				<a href="/sans-serif">sans-serif</a>
+				<a href="/">sans-serif</a>
 			</li>
 			<li>
-				<a href="/serif">display</a>
+				<a href="/">display</a>
 			</li>
 			<li>
-				<a href="/sans-serif">monospace</a>
+				<a href="/">monospace</a>
 			</li>
 		</ul>
 	</nav>
 	<nav class="right">
 		<ul class="row wrap">
 			<li>
-				<a href="/serif">pairings</a>
+				<a href="/">pairings</a>
 			</li>
 			<li>
-				<a href="/resources">resources</a>
+				<a href="/">resources</a>
 			</li>
 			<li>
-				<a href="/battle">battle</a>
+				<a href="/">battle</a>
 			</li>
 		</ul>
 	</nav>
