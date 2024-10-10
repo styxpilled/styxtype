@@ -1,0 +1,44 @@
+@font-face {
+	font-family: 'Westgate';
+	src:
+		local('Westgate'),
+		url('/font-source/Westgate/font/Westgate-Thin.woff2') format('woff2'),
+		url('/font-source/Westgate/font/Westgate-Thin.woff') format('woff');
+	font-weight: 100;
+}
+
+@font-face {
+	font-family: 'Westgate';
+	src:
+		local('Westgate'),
+		url('/font-source/Westgate/font/Westgate-Light.woff2') format('woff2'),
+		url('/font-source/Westgate/font/Westgate-Light.woff') format('woff');
+	font-weight: 200;
+}
+
+@font-face {
+	font-family: 'Westgate';
+	src:
+		local('Westgate'),
+		url('/font-source/Westgate/font/Westgate-Regular.woff2') format('woff2'),
+		url('/font-source/Westgate/font/Westgate-Regular.woff') format('woff');
+	font-weight: 300;
+}
+
+@font-face {
+	font-family: 'Westgate';
+	src:
+		local('Westgate'),
+		url('/font-source/Westgate/font/Westgate-Semibold.woff2') format('woff2'),
+		url('/font-source/Westgate/font/Westgate-Semibold.woff') format('woff');
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: 'Westgate';
+	src:
+		local('Westgate'),
+		url('/font-source/Westgate/font/Westgate-Bold.woff2') format('woff2'),
+		url('/font-source/Westgate/font/Westgate-Bold.woff') format('woff');
+	font-weight: 500;
+}
