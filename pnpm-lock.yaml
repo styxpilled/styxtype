@@ -11,6 +11,12 @@ importers:
       '@fontsource-variable/besley':
         specifier: ^5.1.0
         version: 5.1.0
+      '@fontsource-variable/fredoka':
+        specifier: ^5.1.0
+        version: 5.1.0
+      '@fontsource-variable/gluten':
+        specifier: ^5.1.0
+        version: 5.1.0
       '@fontsource-variable/josefin-sans':
         specifier: ^5.1.0
         version: 5.1.0
@@ -268,6 +274,12 @@ packages:
 
   '@fontsource-variable/besley@5.1.0':
     resolution: {integrity: sha512-9x52xNdryKgKWMLHjgcroBTZXlxEgjTOrIJ1rRO7E/ZSNN0Z4ZCccSvEd+WeGZBiTnwqf5fuNFnVd5wyOmT3eQ==}
+
+  '@fontsource-variable/fredoka@5.1.0':
+    resolution: {integrity: sha512-tINQ0oZFeNfUN/vuJrDl8KwsPEjYJKsWXZZtInvsFrTOEAmUDSjFLolksiCJwSc/AxXrmjWeUyjs8WjZPvWt4g==}
+
+  '@fontsource-variable/gluten@5.1.0':
+    resolution: {integrity: sha512-IMpLu0sw9KKE87dZG05kQJvtBGL7Tfjg0Tp6y91pavp++L44h1hN1NO7bp0tb/Ml2+eFWC9O75Y6kdXgH52VGA==}
 
   '@fontsource-variable/josefin-sans@5.1.0':
     resolution: {integrity: sha512-QePgC0aZAm/Xlc0/3w7BKxNqAIIlqRmatbOEPGVy4fqX16f32q154ipM7lKc48Rm4xjVWre+6ZkEIkZYRy3erQ==}
@@ -1288,6 +1300,10 @@ snapshots:
       levn: 0.4.1
 
   '@fontsource-variable/besley@5.1.0': {}
+
+  '@fontsource-variable/fredoka@5.1.0': {}
+
+  '@fontsource-variable/gluten@5.1.0': {}
 
   '@fontsource-variable/josefin-sans@5.1.0': {}
 
