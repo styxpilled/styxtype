@@ -122,11 +122,19 @@ ul {
 	background-color: transparent;
 }
 
-.hr {
-	height: 1px;
-	min-height: 1px;
+.hr,
+hr {
+	display: block;
+	height: 2px;
+	min-height: 2px;
 	width: 100%;
-	background-color: var(--color-secondary-light);
+	background-color: currentColor;
+}
+
+.hr.thick,
+hr.thick {
+	height: 4px;
+	min-height: 4px;
 }
 
 .mono {

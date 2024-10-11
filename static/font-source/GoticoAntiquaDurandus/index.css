@@ -1,0 +1,9 @@
+@font-face {
+	font-family: 'Gotico Antiqua Durandus';
+	font-style: normal;
+	font-display: swap;
+	font-weight: 400;
+	src:
+		url('/font-source/GoticoAntiquaDurandus/GoticoAntiquaDurandus.woff2') format('woff2'),
+		url('/font-source/GoticoAntiquaDurandus/GoticoAntiquaDurandus.woff') format('woff');
+}
