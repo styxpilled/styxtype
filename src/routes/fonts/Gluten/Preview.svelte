@@ -2,6 +2,7 @@
 	import '@fontsource-variable/gluten/slnt.css';
 	import type { CSSSlider } from '$lib/types';
 	import { variationStyle } from '$lib';
+	import Sliders from '$components/Sliders.svelte';
 
 	let sliders = $state<CSSSlider[]>([
 		{
@@ -30,23 +31,7 @@
 		A variable width font which can lean both left and right, and goes from a thin scribble to a truly
 		lavish weight.
 	</p>
-	{#each sliders as slider}
-		<label>
-			<span class="label">{slider.label}</span><span
-				style:width={slider.max.toString().length +
-					(slider.step || 5).toString().length +
-					(slider.min < 0 ? 1 : 0) +
-					'ch'}>{slider.value}</span
-			>
-			<input
-				type="range"
-				bind:value={slider.value}
-				min={slider.min}
-				max={slider.max}
-				step={slider.step || 1}
-			/>
-		</label>
-	{/each}
+	<Sliders bind:sliders />
 </div>
 
 <style>

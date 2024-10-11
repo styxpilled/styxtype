@@ -1,5 +1,6 @@
 <script lang="ts">
 	import type { CSSSlider } from '$lib/types';
+	import Sliders from './Sliders.svelte';
 
 	let {
 		sliders = $bindable([
@@ -37,23 +38,7 @@
 
 <div class="specimen">
 	<div class="sliders row">
-		{#each sliders as slider}
-			<label>
-				<span class="label">{slider.label}:</span><span
-					style:width={slider.max.toString().length +
-						(slider.step || 5).toString().length +
-						(slider.min < 0 ? 1 : 0) +
-						'ch'}>{slider.value}</span
-				>
-				<input
-					type="range"
-					bind:value={slider.value}
-					min={slider.min}
-					max={slider.max}
-					step={slider.step}
-				/>
-			</label>
-		{/each}
+		<Sliders bind:sliders />
 	</div>
 	<div
 		class="showcase"
@@ -89,9 +74,5 @@
 	.sliders.row {
 		gap: 2rem;
 		flex-wrap: wrap;
-	}
-
-	span.label {
-		white-space: pre;
 	}
 </style>

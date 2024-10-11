@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Sliders from '$components/Sliders.svelte';
 	import { variationStyle } from '$lib';
 	import type { CSSSlider } from '$lib/types';
 
@@ -55,17 +56,7 @@
 		Belgium from the sixteenth century to the development of Times Roman in the 1930s. It has 12
 		variable axes.
 	</p>
-	{#each sliders as slider}
-		<label>
-			<span class="label">{slider.label}</span><span
-				style:width={slider.max.toString().length +
-					(slider.step || 5).toString().length +
-					(slider.min < 0 ? 1 : 0) +
-					'ch'}>{slider.value}</span
-			>
-			<input type="range" bind:value={slider.value} min={slider.min} max={slider.max} />
-		</label>
-	{/each}
+	<Sliders bind:sliders />
 </div>
 
 <style>

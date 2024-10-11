@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Sliders from '$components/Sliders.svelte';
 	import { variationStyle } from '$lib';
 	import type { CSSSlider } from '$lib/types';
 
@@ -30,17 +31,7 @@
 	<p>
 		Golos UI was designed by Alexandra Korolkova and Vitaly Kuzmin and released by Paratype in 2020.
 	</p>
-	{#each sliders as slider}
-		<label>
-			<span class="label">{slider.label}</span><span
-				style:width={slider.max.toString().length +
-					(slider.step || 5).toString().length +
-					(slider.min < 0 ? 1 : 0) +
-					'ch'}>{slider.value}</span
-			>
-			<input type="range" bind:value={slider.value} min={slider.min} max={slider.max} />
-		</label>
-	{/each}
+	<Sliders bind:sliders />
 </div>
 
 <style>

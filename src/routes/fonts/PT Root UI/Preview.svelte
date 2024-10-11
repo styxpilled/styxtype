@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Sliders from '$components/Sliders.svelte';
 	import { variationStyle } from '$lib';
 	import type { CSSSlider } from '$lib/types';
 
@@ -26,17 +27,7 @@
 		all weights. This is especially convenient for headers, menu bars and interface elements.
 	</p>
 	<p>PT Root UI was designed by Vitaly Kuzmin and released by Paratype in 2018.</p>
-	{#each sliders as slider}
-		<label>
-			<span class="label">{slider.label}</span><span
-				style:width={slider.max.toString().length +
-					(slider.step || 5).toString().length +
-					(slider.min < 0 ? 1 : 0) +
-					'ch'}>{slider.value}</span
-			>
-			<input type="range" bind:value={slider.value} min={slider.min} max={slider.max} />
-		</label>
-	{/each}
+	<Sliders bind:sliders />
 </div>
 
 <style>

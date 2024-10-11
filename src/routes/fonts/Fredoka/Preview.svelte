@@ -2,6 +2,7 @@
 	import '@fontsource-variable/fredoka/wdth.css';
 	import type { CSSSlider } from '$lib/types';
 	import { variationStyle } from '$lib';
+	import Sliders from '$components/Sliders.svelte';
 
 	let sliders = $state<CSSSlider[]>([
 		{
@@ -19,11 +20,6 @@
 			value: 100
 		}
 	]);
-
-	let weight = $state(500);
-	const min = 300;
-	const max = 700;
-	const step = 100;
 </script>
 
 <div class="preview" style={variationStyle(sliders)}>
@@ -32,17 +28,7 @@
 		Fredoka is a big, round, bold font that is perfect for adding a little fun to any headline or
 		large text.
 	</p>
-	{#each sliders as slider}
-		<label>
-			<span class="label">{slider.label}</span><span
-				style:width={slider.max.toString().length +
-					(slider.step || 5).toString().length +
-					(slider.min < 0 ? 1 : 0) +
-					'ch'}>{slider.value}</span
-			>
-			<input type="range" bind:value={slider.value} min={slider.min} max={slider.max} />
-		</label>
-	{/each}
+	<Sliders bind:sliders />
 </div>
 
 <style>

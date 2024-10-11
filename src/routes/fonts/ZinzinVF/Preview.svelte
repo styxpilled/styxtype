@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Sliders from '$components/Sliders.svelte';
 	import { variationStyle } from '$lib';
 	import type { CSSSlider } from '$lib/types';
 
@@ -28,17 +29,7 @@
 		A variable test font based on Cinzel and Cinzel Decorative. The swash axis gradually replaces
 		the uppercase with swash glyphs and the lowercase with larger capitals.
 	</p>
-	{#each sliders as slider}
-		<label>
-			<span class="label">{slider.label}</span><span
-				style:width={slider.max.toString().length +
-					(slider.step || 5).toString().length +
-					(slider.min < 0 ? 1 : 0) +
-					'ch'}>{slider.value}</span
-			>
-			<input type="range" bind:value={slider.value} min={slider.min} max={slider.max} />
-		</label>
-	{/each}
+	<Sliders bind:sliders />
 </div>
 
 <style>
@@ -52,9 +43,5 @@
 
 	h3 {
 		text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
-	}
-
-	label {
-		width: 50rem;
 	}
 </style>

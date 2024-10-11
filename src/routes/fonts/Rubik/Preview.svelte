@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Sliders from '$components/Sliders.svelte';
 	import { variationStyle } from '$lib';
 	import type { CSSSlider } from '$lib/types';
 
@@ -30,17 +31,7 @@
 		</a>. Rubik is a 5 weight family with Roman and Italic styles, that accompanies Rubik Mono One,
 		a monospaced variation of the Black roman design.
 	</p>
-	{#each sliders as slider}
-		<label>
-			<span class="label">{slider.label}</span><span
-				style:width={slider.max.toString().length +
-					(slider.step || 5).toString().length +
-					(slider.min < 0 ? 1 : 0) +
-					'ch'}>{slider.value}</span
-			>
-			<input type="range" bind:value={slider.value} min={slider.min} max={slider.max} />
-		</label>
-	{/each}
+	<Sliders bind:sliders />
 </div>
 
 <style>
@@ -50,9 +41,5 @@
 
 		--background: #e83956;
 		background-color: #e83956;
-	}
-
-	label {
-		width: 50rem;
 	}
 </style>
