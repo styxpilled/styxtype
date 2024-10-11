@@ -1,4 +1,4 @@
-import type { CSSSlider } from './types';
+import type { CSSSlider, Setting } from './types';
 
 export const characterSets = {
 	latinBasic:
@@ -13,6 +13,24 @@ export const variationStyle = (properties: CSSSlider[]) => {
 		out += `"${property.cssProperty}" ${property.value}`;
 		if (i < properties.length - 1) {
 			out += ', ';
+		}
+	}
+	out += ';';
+
+	return out;
+};
+
+export const fontSettings = (settings: Setting[]) => {
+	let out = 'font-feature-settings: ';
+	let incr = 0;
+	for (let i = 0; i < settings.length; i++) {
+		const setting = settings[i];
+		if (setting.checked) {
+			if (incr !== 0) {
+				out += ', ';
+			}
+			incr++;
+			out += `"${setting.value}"`;
 		}
 	}
 	out += ';';

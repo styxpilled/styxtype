@@ -27,3 +27,9 @@ export type Weight = {
 	value: number;
 	italic: boolean;
 };
+
+export type Setting = {
+	label: string;
+	value: string;
+	checked: boolean;
+};
