@@ -50,8 +50,4 @@
 	h3 {
 		text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
 	}
-
-	label {
-		width: 50rem;
-	}
 </style>

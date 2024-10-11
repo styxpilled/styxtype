@@ -29,6 +29,9 @@ importers:
       '@fontsource-variable/shantell-sans':
         specifier: ^5.1.0
         version: 5.1.0
+      '@fontsource-variable/space-grotesk':
+        specifier: ^5.1.0
+        version: 5.1.0
       '@fontsource/bagnard':
         specifier: ^5.1.0
         version: 5.1.0
@@ -292,6 +295,9 @@ packages:
 
   '@fontsource-variable/shantell-sans@5.1.0':
     resolution: {integrity: sha512-ISwq/hb1nqvvwPKPjEMYSVnQqLv/fVvOL9dlGwuMP+C+XsFEp2OtNIy9lyNE8qj+ASoRtATW7LSwM/F9PIXAig==}
+
+  '@fontsource-variable/space-grotesk@5.1.0':
+    resolution: {integrity: sha512-K2mwQYNyLook6EbtMB+Ix8srQsYZRigfxayoSGl1QsgVAk/J21s0FMZu0FWzTvONyQkYAR704rLfYSstVMi6jQ==}
 
   '@fontsource/bagnard@5.1.0':
     resolution: {integrity: sha512-LCKKOyG7V2071hHjnBkI+9bfZwLFPpI2hJ3Gity2fvEy+JN6NIdfeljeur/2DBSIqqDATSO6Lt1QkyO4IIwzUg==}
@@ -1312,6 +1318,8 @@ snapshots:
   '@fontsource-variable/public-sans@5.1.0': {}
 
   '@fontsource-variable/shantell-sans@5.1.0': {}
+
+  '@fontsource-variable/space-grotesk@5.1.0': {}
 
   '@fontsource/bagnard@5.1.0': {}
 

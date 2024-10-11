@@ -55,8 +55,4 @@
 			2px 2px rgba(0, 0, 0, 0.7),
 			5px 5px 6px rgba(0, 0, 0, 0.5);
 	}
-
-	label {
-		width: 50rem;
-	}
 </style>

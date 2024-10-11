@@ -1,0 +1,9 @@
+@font-face {
+	font-family: 'Libertine Super Variable';
+	font-style: normal;
+	font-weight: normal;
+	font-display: auto;
+	src:
+		url('/font-source/LibertineSuper/LibertineSuper.woff2') format('woff2'),
+		url('/font-source/LibertineSuper/LibertineSuper.ttf');
+}

@@ -74,10 +74,4 @@
 			-2px -2px rgba(255, 255, 255, 0.333),
 			2px 2px 7px rgba(0, 0, 0, 0.5);
 	}
-
-	label {
-		word-break: keep-all;
-		white-space: pre;
-		/* width: 5rem; */
-	}
 </style>

@@ -16,7 +16,9 @@
 	.preview {
 		font-family: 'Gotico Antiqua Durandus', 'Wingdings';
 		color: black;
-
+		font-feature-settings:
+			'kern' on,
+			'liga' on;
 		--background: rgb(235, 221, 170);
 	}
 
