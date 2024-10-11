@@ -1,0 +1,94 @@
+@font-face {
+	font-family: 'Nyght Serif';
+	src:
+		local('Nyght Serif'),
+		url('/font-source/NyghtSerif/font/NyghtSerif-Light.woff2') format('woff2'),
+		url('/font-source/NyghtSerif/font/NyghtSerif-Light.woff') format('woff');
+	font-weight: 300;
+}
+
+@font-face {
+	font-family: 'Nyght Serif';
+	src:
+		local('Nyght Serif'),
+		url('/font-source/NyghtSerif/font/NyghtSerif-LightItalic.woff2') format('woff2'),
+		url('/font-source/NyghtSerif/font/NyghtSerif-LightItalic.woff') format('woff');
+	font-weight: 300;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Nyght Serif';
+	src:
+		local('Nyght Serif'),
+		url('/font-source/NyghtSerif/font/NyghtSerif-Regular.woff2') format('woff2'),
+		url('/font-source/NyghtSerif/font/NyghtSerif-Regular.woff') format('woff');
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: 'Nyght Serif';
+	src:
+		local('Nyght Serif'),
+		url('/font-source/NyghtSerif/font/NyghtSerif-RegularItalic.woff2') format('woff2'),
+		url('/font-source/NyghtSerif/font/NyghtSerif-RegularItalic.woff') format('woff');
+	font-weight: 400;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Nyght Serif';
+	src:
+		local('Nyght Serif'),
+		url('/font-source/NyghtSerif/font/NyghtSerif-Medium.woff2') format('woff2'),
+		url('/font-source/NyghtSerif/font/NyghtSerif-Medium.woff') format('woff');
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: 'Nyght Serif';
+	src:
+		local('Nyght Serif'),
+		url('/font-source/NyghtSerif/font/NyghtSerif-MediumItalic.woff2') format('woff2'),
+		url('/font-source/NyghtSerif/font/NyghtSerif-MediumItalic.woff') format('woff');
+	font-weight: 500;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Nyght Serif';
+	src:
+		local('Nyght Serif'),
+		url('/font-source/NyghtSerif/font/NyghtSerif-Bold.woff2') format('woff2'),
+		url('/font-source/NyghtSerif/font/NyghtSerif-Bold.woff') format('woff');
+	font-weight: 600;
+}
+
+@font-face {
+	font-family: 'Nyght Serif';
+	src:
+		local('Nyght Serif'),
+		url('/font-source/NyghtSerif/font/NyghtSerif-BoldItalic.woff2') format('woff2'),
+		url('/font-source/NyghtSerif/font/NyghtSerif-BoldItalic.woff') format('woff');
+	font-weight: 600;
+	font-style: italic;
+}
+
+@font-face {
+	font-family: 'Nyght Serif';
+	src:
+		local('Nyght Serif'),
+		url('/font-source/NyghtSerif/font/NyghtSerif-Dark.woff2') format('woff2'),
+		url('/font-source/NyghtSerif/font/NyghtSerif-Dark.woff') format('woff');
+	font-weight: 700;
+}
+
+@font-face {
+	font-family: 'Nyght Serif';
+	src:
+		local('Nyght Serif'),
+		url('/font-source/NyghtSerif/font/NyghtSerif-DarkItalic.woff2') format('woff2'),
+		url('/font-source/NyghtSerif/font/NyghtSerif-DarkItalic.woff') format('woff');
+	font-weight: 700;
+	font-style: italic;
+}
