@@ -47,12 +47,13 @@
 	<link rel="stylesheet" href="/font-source/Amstelvar/index.css" />
 </svelte:head>
 
-<div class="preview noise" style={variationStyle(sliders)}>
+<div class="preview noise-light" style={variationStyle(sliders)}>
 	<h3>Amstelvar</h3>
+	<hr class="thick" />
 	<p>
-		Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam, quod accusantium? Optio quidem
-		dolorum, minus modi perspiciatis aliquid tempore explicabo eaque consequuntur amet omnis impedit
-		sint ratione, quasi pariatur nesciunt.
+		Amstelvar by David Berlow is inspired by the typeface designs used in The Netherlands and
+		Belgium from the sixteenth century to the development of Times Roman in the 1930s. It has 12
+		variable axes.
 	</p>
 	{#each sliders as slider}
 		<label>
@@ -70,17 +71,17 @@
 <style>
 	.preview {
 		font-family: 'Amstelvar Roman', 'Wingdings';
-		color: rgb(39, 34, 34);
+		color: #2e2e2e;
 
-		--background: #b0bf9a;
-		--background-gradient: radial-gradient(at center top, #b0bf9a, #434343);
+		--background: #ecebe7;
+		--background-gradient: radial-gradient(at center top, #ecebe7 50%, #b0b0ad);
 	}
 
 	h3 {
+		line-height: 1;
 		text-shadow:
 			-2px -2px rgba(255, 255, 255, 0.333),
 			2px 2px 7px rgba(0, 0, 0, 0.5);
-		/* text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5); */
 	}
 
 	label {

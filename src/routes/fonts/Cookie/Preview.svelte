@@ -1,9 +1,6 @@
 <script lang="ts">
 	import { font } from './data';
 	import '@fontsource/cookie';
-	let weight = $state(600);
-	const min = 400;
-	const max = 900;
 </script>
 
 <div class="preview noise">

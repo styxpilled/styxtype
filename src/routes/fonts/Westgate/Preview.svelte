@@ -38,4 +38,9 @@
 	p {
 		font-family: var(--font-ui);
 	}
+
+	*::selection {
+		background-color: #0d9e8f;
+		color: #ffd243;
+	}
 </style>

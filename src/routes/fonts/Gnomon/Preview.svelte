@@ -68,4 +68,9 @@
 	label {
 		color: #ff0066;
 	}
+
+	*::selection {
+		color: #ff0066;
+		background-color: #ffffffc7;
+	}
 </style>
