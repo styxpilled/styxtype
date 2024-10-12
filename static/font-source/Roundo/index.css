@@ -1,0 +1,31 @@
+@font-face {
+	font-family: 'Roundo';
+	src: url('/font-source/Roundo/Roundo-ExtraLight.otf'),
+		url('/font-source/Roundo/Roundo-ExtraLight.ttf');
+	font-weight: 200;
+}
+
+@font-face {
+	font-family: 'Roundo';
+	src: url('/font-source/Roundo/Roundo-Light.otf'), url('/font-source/Roundo/Roundo-Light.ttf');
+	font-weight: 300;
+}
+
+@font-face {
+	font-family: 'Roundo';
+	src: url('/font-source/Roundo/Roundo-Regular.otf'), url('/font-source/Roundo/Roundo-Regular.ttf');
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: 'Roundo';
+	src: url('/font-source/Roundo/Roundo-Medium.otf'), url('/font-source/Roundo/Roundo-Medium.ttf');
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: 'Roundo';
+	src: url('/font-source/Roundo/Roundo-SemiBold.otf'),
+		url('/font-source/Roundo/Roundo-SemiBold.ttf');
+	font-weight: 600;
+}
