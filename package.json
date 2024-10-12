@@ -36,6 +36,7 @@
 		"@fontsource-variable/gluten": "^5.1.0",
 		"@fontsource-variable/josefin-sans": "^5.1.0",
 		"@fontsource-variable/jost": "^5.1.0",
+		"@fontsource-variable/outfit": "^5.1.0",
 		"@fontsource-variable/public-sans": "^5.1.0",
 		"@fontsource-variable/shantell-sans": "^5.1.0",
 		"@fontsource-variable/space-grotesk": "^5.1.0",
@@ -43,6 +44,7 @@
 		"@fontsource/calistoga": "^5.1.0",
 		"@fontsource/cookie": "^5.1.0",
 		"@fontsource/merriweather": "^5.1.0",
+		"@fontsource/titan-one": "^5.1.0",
 		"@fontsource/young-serif": "^5.1.0"
 	}
 }

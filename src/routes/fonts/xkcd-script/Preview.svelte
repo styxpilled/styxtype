@@ -5,9 +5,8 @@
 <div class="preview">
 	<h3>xkcd-script</h3>
 	<p>
-		Derived from the handwriting of @randallmunroe, the author of <a href="https://xkcd.com/"
-			>xkcd</a
-		>. What you see in the comics is actually his handwriting!
+		Derived from the handwriting of <a href="https://x.com/xkcd">@randallmunroe</a>, the author of
+		<a href="https://xkcd.com/">xkcd</a>. What you see in the comics is actually his handwriting!
 	</p>
 </div>
 

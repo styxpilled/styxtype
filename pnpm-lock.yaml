@@ -23,6 +23,9 @@ importers:
       '@fontsource-variable/jost':
         specifier: ^5.1.0
         version: 5.1.0
+      '@fontsource-variable/outfit':
+        specifier: ^5.1.0
+        version: 5.1.0
       '@fontsource-variable/public-sans':
         specifier: ^5.1.0
         version: 5.1.0
@@ -42,6 +45,9 @@ importers:
         specifier: ^5.1.0
         version: 5.1.0
       '@fontsource/merriweather':
+        specifier: ^5.1.0
+        version: 5.1.0
+      '@fontsource/titan-one':
         specifier: ^5.1.0
         version: 5.1.0
       '@fontsource/young-serif':
@@ -290,6 +296,9 @@ packages:
   '@fontsource-variable/jost@5.1.0':
     resolution: {integrity: sha512-o5McVXK8JZY/gTwgWWMDXy0jZ3DHAJzd8B5UzfLAVrWjWN+12W0vmvHwzAO6UMJffWkWRuSvzWKbIUK0YZeHdw==}
 
+  '@fontsource-variable/outfit@5.1.0':
+    resolution: {integrity: sha512-WUZiMehPerX/sUWC65Ku9hQ741cJtkCiy5T9XSZd1XbyYudNd/qoZSbUyEbiC00+4rGheNcKzaFdMGp5uonQog==}
+
   '@fontsource-variable/public-sans@5.1.0':
     resolution: {integrity: sha512-MxBOQcJNa4+Im4nSdLr2+lUVrTrbLm+kQOWZGaWO/aq5oBOqJrW9OzYCi7uBr3174B1q7eJWTlofo4+UbiHehg==}
 
@@ -310,6 +319,9 @@ packages:
 
   '@fontsource/merriweather@5.1.0':
     resolution: {integrity: sha512-CliXFoCACKkrx8G93xGw6cD7RYCOytuY/Afe1W/htsRRlaSyGA6HGNQzQJc6NKzjs9XenBH2CcMQsONyppd+uQ==}
+
+  '@fontsource/titan-one@5.1.0':
+    resolution: {integrity: sha512-nRZSxqYqKVXs71mxEnJ9hrF02uBztbvf2Df0+orH5LrqYhmU6Ie/AS0zG/dDSpUuJdlU0qi4wsYyGET1UdzAIw==}
 
   '@fontsource/young-serif@5.1.0':
     resolution: {integrity: sha512-Co85at1TfR7FCmF2VNIGy9ufjLbZvMZFEe2Mq298uHeGXkvQdk7zN13NqH54Lh6XO8GACz9DBENCxqolTnAkPA==}
@@ -1315,6 +1327,8 @@ snapshots:
 
   '@fontsource-variable/jost@5.1.0': {}
 
+  '@fontsource-variable/outfit@5.1.0': {}
+
   '@fontsource-variable/public-sans@5.1.0': {}
 
   '@fontsource-variable/shantell-sans@5.1.0': {}
@@ -1328,6 +1342,8 @@ snapshots:
   '@fontsource/cookie@5.1.0': {}
 
   '@fontsource/merriweather@5.1.0': {}
+
+  '@fontsource/titan-one@5.1.0': {}
 
   '@fontsource/young-serif@5.1.0': {}
 
