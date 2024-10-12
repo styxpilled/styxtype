@@ -8,6 +8,8 @@ export const fonts = [
 	'Cooper',
 	'Departure Mono',
 	'Expanded Herbertarian',
+	'Federo',
+	'Fraunces',
 	'Fredoka',
 	'Glacial Indifference',
 	'Gluten',

@@ -22,57 +22,37 @@
 		color: #ef5924;
 		display: flex;
 		padding: 0;
-		--size: 128px;
-
-		--c1: #ed1d78;
-		--c2: #f9ae39;
-		--c3: #ef5924;
-		--c4: #642c91;
 
 		background:
-			radial-gradient(
-				var(--size) at 100% 0,
-				var(--c4) 6.25%,
-				var(--c2) 6.3% 18.75%,
-				var(--c1) 18.8% 31.25%,
-				var(--c2) 31.3% 43.75%,
-				var(--c1) 43.8% 56.25%,
-				var(--c2) 56.3% 68.75%,
-				#0000 0
-			),
-			radial-gradient(
-				var(--size) at 0 0,
-				var(--c4) 6.25%,
-				var(--c2) 6.3% 18.75%,
-				var(--c1) 18.8% 31.25%,
-				var(--c2) 31.3% 43.75%,
-				var(--c1) 43.8% 56.25%,
-				var(--c2) 56.3% 68.75%,
-				#0000 0
-			),
-			radial-gradient(
-				var(--size) at 0 100%,
-				var(--c4) 6.25%,
-				var(--c2) 6.3% 18.75%,
-				var(--c1) 18.8% 31.25%,
-				var(--c2) 31.3% 43.75%,
-				var(--c1) 43.8% 56.25%,
-				var(--c2) 56.3% 68.75%,
-				#0000 0
-			),
-			radial-gradient(
-					var(--size) at 100% 100%,
-					var(--c4) 6.25%,
-					var(--c2) 6.3% 18.75%,
-					var(--c1) 18.8% 31.25%,
-					var(--c2) 31.3% 43.75%,
-					var(--c4) 43.8% 56.25%,
-					var(--c2) 56.3% 68.75%,
-					#0000 0
-				)
-				var(--c1);
-		background-size: var(--size) var(--size);
-		background-color: var(--c1);
+			0% 0% / 100px 100px repeat
+				radial-gradient(
+					circle farthest-side at 100% 100%,
+					#5000e6ff 0% 12.5%,
+					#5987fcff 12.5% 25%,
+					#4a55f2ff 25% 37.5%,
+					#808080ff 37.5% 50%,
+					#37383eff 50% 62.5%,
+					#4a55f2ff 62.5% 75%,
+					#5987fcff 75% 87.5%,
+					#5c59fc00 87.5% 100%
+				),
+			0% 0% / 100px 100px repeat
+				radial-gradient(
+					circle farthest-side at 0% 0%,
+					#5c59fc00 0% 12.5%,
+					#5987fcff 12.5% 25%,
+					#4a55f2ff 25% 37.5%,
+					#37383eff 37.5% 50%,
+					#808080ff 50% 62.5%,
+					#4a55f2ff 62.5% 75%,
+					#5987fcff 75% 87.5%,
+					#5000e6ff 87.5% 100%,
+					#ffffff00 100% 100%
+				),
+			linear-gradient(to top, #8000ffff 0%, #004cffff 100%),
+			radial-gradient(farthest-corner at 50% 100%, #ff008499 0%, #0084ffff 100%);
+		background-blend-mode: screen;
+
 		box-shadow: 0 0 0.5rem 0.5rem #f1f1f1 inset;
 	}
 

@@ -44,6 +44,9 @@ importers:
       '@fontsource/cookie':
         specifier: ^5.1.0
         version: 5.1.0
+      '@fontsource/federo':
+        specifier: ^5.1.0
+        version: 5.1.0
       '@fontsource/merriweather':
         specifier: ^5.1.0
         version: 5.1.0
@@ -316,6 +319,9 @@ packages:
 
   '@fontsource/cookie@5.1.0':
     resolution: {integrity: sha512-YaLI4bdEbzcnbqPL70hztT/dRY6/B9/I+D4cyFHmIfZM/qh+PSk0URk+82GjKjTiHeWUq3s9NupUmRVFE4SUfg==}
+
+  '@fontsource/federo@5.1.0':
+    resolution: {integrity: sha512-rGF6NvYd/QOvPBLbqqWlPWzsocnb0z8fX5VCYaq2UdOqWzWs7OYoFN6asxysUDo7Z27qn27O3uJg9PmUY7bk7Q==}
 
   '@fontsource/merriweather@5.1.0':
     resolution: {integrity: sha512-CliXFoCACKkrx8G93xGw6cD7RYCOytuY/Afe1W/htsRRlaSyGA6HGNQzQJc6NKzjs9XenBH2CcMQsONyppd+uQ==}
@@ -1340,6 +1346,8 @@ snapshots:
   '@fontsource/calistoga@5.1.0': {}
 
   '@fontsource/cookie@5.1.0': {}
+
+  '@fontsource/federo@5.1.0': {}
 
   '@fontsource/merriweather@5.1.0': {}
 

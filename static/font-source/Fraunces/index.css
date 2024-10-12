@@ -1,0 +1,12 @@
+@font-face {
+	font-family: 'Fraunces';
+	src: url('/font-source/Fraunces/Fraunces.woff2');
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: 'Fraunces';
+	src: url('/font-source/Fraunces/Fraunces-Italic.woff2');
+	font-weight: 400;
+	font-style: italic;
+}
