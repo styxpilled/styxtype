@@ -61,5 +61,19 @@
 
 	p {
 		color: #fefefe;
+
+		&::selection {
+			background-color: #fefefe;
+			color: #000;
+		}
+	}
+
+	h3,
+	a {
+		color: #e89c22;
+		&::selection {
+			color: #000;
+			background-color: #e89c22;
+		}
 	}
 </style>

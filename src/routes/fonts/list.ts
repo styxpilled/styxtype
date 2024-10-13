@@ -1,4 +1,5 @@
 export const fonts = [
+	'Afacad Flux',
 	'Amstelvar',
 	'Bagnard',
 	'Basteleur',
@@ -26,6 +27,7 @@ export const fonts = [
 	'Sinistre',
 	'Jost',
 	'Libertine Super',
+	'Limelight',
 	'Merriweather',
 	'Minipax',
 	'Movement',
