@@ -31,6 +31,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@fontsource-variable/afacad-flux": "^5.0.1",
 		"@fontsource-variable/besley": "^5.1.0",
 		"@fontsource-variable/fredoka": "^5.1.0",
 		"@fontsource-variable/gluten": "^5.1.0",
@@ -44,6 +45,7 @@
 		"@fontsource/calistoga": "^5.1.0",
 		"@fontsource/cookie": "^5.1.0",
 		"@fontsource/federo": "^5.1.0",
+		"@fontsource/limelight": "^5.1.0",
 		"@fontsource/merriweather": "^5.1.0",
 		"@fontsource/titan-one": "^5.1.0",
 		"@fontsource/young-serif": "^5.1.0"

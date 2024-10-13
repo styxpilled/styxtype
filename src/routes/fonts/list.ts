@@ -13,6 +13,7 @@ export const fonts = [
 	'Federo',
 	'Fraunces',
 	'Fredoka',
+	'Gensco',
 	'Glacial Indifference',
 	'Gluten',
 	'Gnomon',
