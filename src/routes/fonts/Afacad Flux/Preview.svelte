@@ -2,7 +2,8 @@
 	import '@fontsource-variable/afacad-flux/slnt.css';
 	import type { CSSSlider } from '$lib/types';
 	import Sliders from '$components/Sliders.svelte';
-	import { variationStyle } from '$lib';
+	import { formatDescription, variationStyle } from '$lib';
+	import { font } from './data';
 
 	let sliders = $state<CSSSlider[]>([
 		{
@@ -25,9 +26,7 @@
 <div class="preview" style={variationStyle(sliders)}>
 	<h3>Afacad Flux</h3>
 	<p>
-		The letters and numerals of <a href="https://github.com/Dicotype/Afacad">Afacad Flux</a> by
-		<a href="https://github.com/ktkm">Kristian Möller</a> were meticulously crafted to harmonise with
-		the architectural proportions and materials employed by Architect Sture Elmén during the 1940s.
+		{@html formatDescription(font)}
 	</p>
 	<Sliders bind:sliders />
 </div>

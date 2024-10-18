@@ -12,7 +12,6 @@ export const fonts = [
 	'Expanded Herbertarian',
 	'Federo',
 	'Fraunces',
-	'Fredoka',
 	'Gensco',
 	'Glacial Indifference',
 	'Gluten',

@@ -1,20 +1,18 @@
 <script lang="ts">
 	import '@fontsource/bagnard';
-	import { title } from './data';
+	import { font } from './data';
+	import { formatDescription } from '$lib';
 	// https://fontsource.org/fonts/bagnard/install
 	// https://open-foundry.com/fonts/bagnard_regular
 </script>
 
-<div class="preview noise" style="view-transition-name: font-preview-{title}">
+<div class="preview noise" style="view-transition-name: font-preview-{font.title}">
 	<a href="/fonts/Bagnard">
-		<h3 style="view-transition-name: font-title-{title}">{title}</h3>
+		<h3 style="view-transition-name: font-title-{font.title}">{font.title}</h3>
 	</a>
 	<p>
-		<em><a href="https://github.com/sebsan/Bagnard">Bagnard</a></em> by
-		<em>Sebastien Sanfilippo</em> was inspired by the graffitis of an anonymous prisoner of the napoleonic
-		wars.
+		{@html formatDescription(font)}
 	</p>
-	<p></p>
 </div>
 
 <style>

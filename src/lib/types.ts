@@ -33,3 +33,14 @@ export type Setting = {
 	value: string;
 	checked: boolean;
 };
+
+export type Font = {
+	title: string;
+	author: Author;
+	href?: string;
+	category: Category;
+	links: Link[];
+	description: string;
+	characters: string;
+	license: License;
+};

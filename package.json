@@ -33,7 +33,6 @@
 	"dependencies": {
 		"@fontsource-variable/afacad-flux": "^5.0.1",
 		"@fontsource-variable/besley": "^5.1.0",
-		"@fontsource-variable/fredoka": "^5.1.0",
 		"@fontsource-variable/gluten": "^5.1.0",
 		"@fontsource-variable/josefin-sans": "^5.1.0",
 		"@fontsource-variable/jost": "^5.1.0",
@@ -47,6 +46,7 @@
 		"@fontsource/federo": "^5.1.0",
 		"@fontsource/limelight": "^5.1.0",
 		"@fontsource/merriweather": "^5.1.0",
+		"@fontsource/quando": "^5.1.0",
 		"@fontsource/titan-one": "^5.1.0",
 		"@fontsource/young-serif": "^5.1.0"
 	}

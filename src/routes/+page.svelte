@@ -1,16 +1,64 @@
 <script lang="ts">
-	export let data;
+	import { previews } from '$lib/state.svelte.js';
+
+	let { data } = $props();
+	let showing = $state(false);
 </script>
 
+<svelte:window
+	onmousemove={(e) => {
+		if (window.innerHeight - e.y < 150) {
+			showing = true;
+		} else {
+			showing = false;
+		}
+	}}
+/>
+
 <ul class="previews">
-	{#each data.previews as preview}
+	{#each data.previews as Preview}
 		<li class="preview-wrapper">
-			<svelte:component this={preview.default} />
+			<Preview.default />
 		</li>
 	{/each}
 </ul>
+<div class="typetest noise-light" class:showing>
+	<input
+		type="text"
+		class="inherit"
+		placeholder="Preview text here..."
+		bind:value={previews.heading}
+	/>
+</div>
 
 <style>
+	.typetest {
+		--width: 20ch;
+		padding: 0.25rem 1rem;
+		font-size: 4rem;
+		border-radius: 1rem;
+		position: fixed;
+		bottom: -10rem;
+		transition: bottom 500ms ease-in-out;
+		width: var(--width);
+		left: calc(50% - var(--width) / 2);
+		--background: #87ccf8;
+		z-index: 254;
+
+		&.showing,
+		&:has(> input:focus) {
+			bottom: 1rem;
+		}
+
+		& > input {
+			width: calc(var(--width) - 1rem);
+
+			&::placeholder {
+				color: rgba(245, 245, 245, 0.632);
+			}
+		}
+	}
+
 	ul.previews {
 		color: black;
 		display: flex;

@@ -1,7 +1,9 @@
 <script lang="ts">
 	import Sliders from '$components/Sliders.svelte';
-	import { variationStyle } from '$lib';
+	import { formatDescription, variationStyle } from '$lib';
+	import { previews } from '$lib/state.svelte';
 	import type { CSSSlider } from '$lib/types';
+	import { font } from './data';
 
 	('ops GRAD XTRA XOPQ YOPQ YTLC YTUC YTAS YTDE YTFI');
 
@@ -49,12 +51,12 @@
 </svelte:head>
 
 <div class="preview noise-light" style={variationStyle(sliders)}>
-	<h3>Amstelvar</h3>
+	<h3>
+		{previews.heading || font.title}
+	</h3>
 	<hr class="thick" />
 	<p>
-		Amstelvar by David Berlow is inspired by the typeface designs used in The Netherlands and
-		Belgium from the sixteenth century to the development of Times Roman in the 1930s. It has 12
-		variable axes.
+		{@html formatDescription(font)}
 	</p>
 	<Sliders bind:sliders />
 </div>

@@ -44,22 +44,19 @@ importers:
       '@fontsource/calistoga':
         specifier: ^5.1.0
         version: 5.1.0
-      '@fontsource/caudex':
-        specifier: ^5.1.0
-        version: 5.1.0
       '@fontsource/cookie':
         specifier: ^5.1.0
         version: 5.1.0
       '@fontsource/federo':
         specifier: ^5.1.0
         version: 5.1.0
-      '@fontsource/kurale':
-        specifier: ^5.1.0
-        version: 5.1.0
       '@fontsource/limelight':
         specifier: ^5.1.0
         version: 5.1.0
       '@fontsource/merriweather':
+        specifier: ^5.1.0
+        version: 5.1.0
+      '@fontsource/quando':
         specifier: ^5.1.0
         version: 5.1.0
       '@fontsource/titan-one':
@@ -332,23 +329,20 @@ packages:
   '@fontsource/calistoga@5.1.0':
     resolution: {integrity: sha512-gUABkstnQep0WzfczyY0nsXXQAX4m8D791p3BKVyyHPcVVChRVBG7HnkIZsOP8rs/O8nMtyNFrC04hEB+e2m6g==}
 
-  '@fontsource/caudex@5.1.0':
-    resolution: {integrity: sha512-ITU46v9K7eZd0SFxcwX0dyk4AoxTCjfiN9oxI8lS8JFKIAjWOgtwFrxYpkKbm4+JXrzbEXvh6BW1R8y03gxGSA==}
-
   '@fontsource/cookie@5.1.0':
     resolution: {integrity: sha512-YaLI4bdEbzcnbqPL70hztT/dRY6/B9/I+D4cyFHmIfZM/qh+PSk0URk+82GjKjTiHeWUq3s9NupUmRVFE4SUfg==}
 
   '@fontsource/federo@5.1.0':
     resolution: {integrity: sha512-rGF6NvYd/QOvPBLbqqWlPWzsocnb0z8fX5VCYaq2UdOqWzWs7OYoFN6asxysUDo7Z27qn27O3uJg9PmUY7bk7Q==}
 
-  '@fontsource/kurale@5.1.0':
-    resolution: {integrity: sha512-vAF3KuB9/R8N3GjQSTyV/xk3nzrYAHsvvtxRUry714RIxJxk/Uus+MmXMMIXEcWXBuFdSatBuEHSSeROSmVfTA==}
-
   '@fontsource/limelight@5.1.0':
     resolution: {integrity: sha512-AOg/DpNiaMgg9X0xp4giO8Pq5eFTijlNrRe9nSiHXwg+et+SaXuwFW7CMpTWxJQlAODjsflMUrBCDHU6TS13RQ==}
 
   '@fontsource/merriweather@5.1.0':
     resolution: {integrity: sha512-CliXFoCACKkrx8G93xGw6cD7RYCOytuY/Afe1W/htsRRlaSyGA6HGNQzQJc6NKzjs9XenBH2CcMQsONyppd+uQ==}
+
+  '@fontsource/quando@5.1.0':
+    resolution: {integrity: sha512-g1aT9Bw1LCOgCeESU1x+bc3+3OBbMUohoxGlu0US9d7AffMSJ0yQvxX1RYg8bENAhLzmyW+G2LO9StkwgORZqA==}
 
   '@fontsource/titan-one@5.1.0':
     resolution: {integrity: sha512-nRZSxqYqKVXs71mxEnJ9hrF02uBztbvf2Df0+orH5LrqYhmU6Ie/AS0zG/dDSpUuJdlU0qi4wsYyGET1UdzAIw==}
@@ -1371,17 +1365,15 @@ snapshots:
 
   '@fontsource/calistoga@5.1.0': {}
 
-  '@fontsource/caudex@5.1.0': {}
-
   '@fontsource/cookie@5.1.0': {}
 
   '@fontsource/federo@5.1.0': {}
 
-  '@fontsource/kurale@5.1.0': {}
-
   '@fontsource/limelight@5.1.0': {}
 
   '@fontsource/merriweather@5.1.0': {}
+
+  '@fontsource/quando@5.1.0': {}
 
   '@fontsource/titan-one@5.1.0': {}
 

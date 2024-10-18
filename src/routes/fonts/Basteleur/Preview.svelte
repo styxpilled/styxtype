@@ -1,16 +1,16 @@
+<script lang="ts">
+	import { formatDescription } from '$lib';
+	import { font } from './data';
+</script>
+
 <svelte:head>
 	<link rel="stylesheet" href="/font-source/Basteleur/index.css" />
 </svelte:head>
 
-<!-- https://velvetyne.fr/fonts/basteleur/ -->
-
 <div class="preview noise">
-	<h3>Basteleur</h3>
+	<h3>{font.title}</h3>
 	<p>
-		Designed with the Tarot de Marseille in mind, Basteleur by Keussel is a blend of medieval-ish
-		and cooperblack-ish typeface. The Basteleur Arcana represents a lot of things a designer can
-		experience: new beginnings, having fun, crafting, but also a lack of confidence and having hard
-		time to finish projects.
+		{@html formatDescription(font)}
 	</p>
 </div>
 

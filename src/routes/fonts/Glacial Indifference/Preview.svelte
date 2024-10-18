@@ -23,7 +23,7 @@
 	.preview {
 		font-family: 'Glacial Indifference', 'Wingdings';
 		color: black;
-		background-color: white;
+		background-color: #c2fd0b;
 	}
 
 	h3 {

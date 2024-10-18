@@ -1,10 +1,17 @@
+<script lang="ts">
+	import { formatDescription } from '$lib';
+	import { font } from './data';
+</script>
+
 <svelte:head>
 	<link rel="stylesheet" href="/font-source/Beon/index.css" />
 </svelte:head>
 
 <div class="preview">
-	<h3>«Beon»</h3>
-	<p>Beon by Bastien Sozeau is a single-weight stencil typeface imitating neon tube signs.</p>
+	<h3>«{font.title}»</h3>
+	<p>
+		{@html formatDescription(font)}
+	</p>
 </div>
 
 <style>

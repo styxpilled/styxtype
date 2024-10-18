@@ -4,7 +4,7 @@
 	import Characters from '$components/Characters.svelte';
 	import Specimen from '$components/Specimen.svelte';
 	import Weights from '$components/Weights.svelte';
-	import { author, characters, description, license, links, title } from './data';
+	import { font } from './data';
 	import Bird from './theBird.svelte';
 	import DropCap from './DropCap.svelte';
 </script>
@@ -12,18 +12,18 @@
 <div class="font col">
 	<div class="header">
 		<div class="title noise">
-			<h2 style="view-transition-name: font-title-{title}">{title}</h2>
-			<h4>by {author.name}</h4>
+			<h2 style="view-transition-name: font-title-{font.title}">{font.title}</h2>
+			<h4>by {font.author.name}</h4>
 		</div>
 		<div class="info col">
 			<div class="links row">
-				{#each links as link}
+				{#each font.links as link}
 					<h5><a class="btn noise" href={link.href}>{link.label}</a></h5>
 				{/each}
 			</div>
 			<div class="">
-				<h5 class="license {license} noise">
-					License: {license}
+				<h5 class="license {font.license} noise">
+					License: {font.license}
 				</h5>
 			</div>
 		</div>
@@ -32,10 +32,10 @@
 	<div class="details row responsive-row space">
 		<Weights weights={[{ italic: false, label: 'Regular', value: 400 }]} />
 		<p class="flexible">
-			{description}
+			{font.description}
 		</p>
 	</div>
-	<Characters {characters} />
+	<Characters characters={font.characters} />
 	<div class="mosaic">
 		<div class="sheet">
 			<div class="background noise-overlay"></div>
