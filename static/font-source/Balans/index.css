@@ -1,0 +1,11 @@
+@font-face {
+	font-family: 'Balans';
+	src: local('Balans'), url('/font-source/Balans/Balans-Normal.ttf');
+	font-weight: 400;
+}
+
+@font-face {
+	font-family: 'Balans Line';
+	src: local('Balans'), url('/font-source/Balans/Balans-Line.ttf');
+	font-weight: 400;
+}

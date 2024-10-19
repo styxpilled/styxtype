@@ -12,5 +12,10 @@ export const font: Font = {
 		'*\\·•:,…!¡.?¿»’;/|¦{}[]()_—–-«‹›„“”‘‚†‡@&§≈~÷=≠>≥<≤¬−×+∞±#∅%‰∂∏√∑∫ΔΩμπ◊¶°№©®™ℓ℮ƒ£$€¥¤¢',
 	description: '%TITLE% by %AUTHOR% is a single-weight stencil typeface imitating neon tube signs.',
 	license: 'SIL',
-	links: []
+	links: [
+		{
+			href: 'https://github.com/noirblancrouge/Beon',
+			label: 'GitHub'
+		}
+	]
 };
