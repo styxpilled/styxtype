@@ -50,8 +50,23 @@
 			--background-gradient,
 			linear-gradient(to left, var(--background, red) 100dvw, blue)
 		),
+		url('/noise4.png');
+	background: var(
+			--background-gradient,
+			linear-gradient(to left, var(--background, red) 100dvw, blue)
+		),
 		url('/noise2.png'), url('/noise3-light.png');
 	background-blend-mode: overlay, difference;
+	background-attachment: fixed;
+}
+
+.noise-film {
+	background: var(
+			--background-gradient,
+			linear-gradient(to left, var(--background, red) 100dvw, blue)
+		),
+		url('/noise4.png');
+	background-blend-mode: overlay;
 	background-attachment: fixed;
 }
 
@@ -149,6 +164,11 @@ hr.thick {
 	}
 }
 
+*::selection {
+	color: var(--background, white);
+	background-color: var(--color, black);
+}
+
 h3 > a:hover,
 a:has(h3):hover {
 	text-decoration: underline;
@@ -175,4 +195,18 @@ h4 {
 
 h5 {
 	font-size: 1.75rem;
+}
+
+input[type='text'].inherit {
+	font-size: inherit;
+	padding: 0;
+	max-width: 100%;
+	display: block;
+	outline: none;
+	border: none;
+	text-align: inherit;
+
+	&:focus {
+		outline: none;
+	}
 }
