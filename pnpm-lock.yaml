@@ -14,9 +14,6 @@ importers:
       '@fontsource-variable/besley':
         specifier: ^5.1.0
         version: 5.1.0
-      '@fontsource-variable/fredoka':
-        specifier: ^5.1.0
-        version: 5.1.0
       '@fontsource-variable/gluten':
         specifier: ^5.1.0
         version: 5.1.0
@@ -24,6 +21,9 @@ importers:
         specifier: ^5.1.0
         version: 5.1.0
       '@fontsource-variable/jost':
+        specifier: ^5.1.0
+        version: 5.1.0
+      '@fontsource-variable/ojuju':
         specifier: ^5.1.0
         version: 5.1.0
       '@fontsource-variable/outfit':
@@ -38,6 +38,9 @@ importers:
       '@fontsource-variable/space-grotesk':
         specifier: ^5.1.0
         version: 5.1.0
+      '@fontsource-variable/suse':
+        specifier: ^5.1.0
+        version: 5.1.0
       '@fontsource/bagnard':
         specifier: ^5.1.0
         version: 5.1.0
@@ -45,6 +48,9 @@ importers:
         specifier: ^5.1.0
         version: 5.1.0
       '@fontsource/cookie':
+        specifier: ^5.1.0
+        version: 5.1.0
+      '@fontsource/darumadrop-one':
         specifier: ^5.1.0
         version: 5.1.0
       '@fontsource/federo':
@@ -63,6 +69,9 @@ importers:
         specifier: ^5.1.0
         version: 5.1.0
       '@fontsource/young-serif':
+        specifier: ^5.1.0
+        version: 5.1.0
+      '@fontsource/zen-tokyo-zoo':
         specifier: ^5.1.0
         version: 5.1.0
     devDependencies:
@@ -299,9 +308,6 @@ packages:
   '@fontsource-variable/besley@5.1.0':
     resolution: {integrity: sha512-9x52xNdryKgKWMLHjgcroBTZXlxEgjTOrIJ1rRO7E/ZSNN0Z4ZCccSvEd+WeGZBiTnwqf5fuNFnVd5wyOmT3eQ==}
 
-  '@fontsource-variable/fredoka@5.1.0':
-    resolution: {integrity: sha512-tINQ0oZFeNfUN/vuJrDl8KwsPEjYJKsWXZZtInvsFrTOEAmUDSjFLolksiCJwSc/AxXrmjWeUyjs8WjZPvWt4g==}
-
   '@fontsource-variable/gluten@5.1.0':
     resolution: {integrity: sha512-IMpLu0sw9KKE87dZG05kQJvtBGL7Tfjg0Tp6y91pavp++L44h1hN1NO7bp0tb/Ml2+eFWC9O75Y6kdXgH52VGA==}
 
@@ -310,6 +316,9 @@ packages:
 
   '@fontsource-variable/jost@5.1.0':
     resolution: {integrity: sha512-o5McVXK8JZY/gTwgWWMDXy0jZ3DHAJzd8B5UzfLAVrWjWN+12W0vmvHwzAO6UMJffWkWRuSvzWKbIUK0YZeHdw==}
+
+  '@fontsource-variable/ojuju@5.1.0':
+    resolution: {integrity: sha512-qD3hdunb/F0bzb9XmFRdegPI5ymAMLrG860Gbl9E2LhERDVUfR7qF7BKIK0/ZIQCRsvthl1HljXUHSbeowS5Pg==}
 
   '@fontsource-variable/outfit@5.1.0':
     resolution: {integrity: sha512-WUZiMehPerX/sUWC65Ku9hQ741cJtkCiy5T9XSZd1XbyYudNd/qoZSbUyEbiC00+4rGheNcKzaFdMGp5uonQog==}
@@ -323,6 +332,9 @@ packages:
   '@fontsource-variable/space-grotesk@5.1.0':
     resolution: {integrity: sha512-K2mwQYNyLook6EbtMB+Ix8srQsYZRigfxayoSGl1QsgVAk/J21s0FMZu0FWzTvONyQkYAR704rLfYSstVMi6jQ==}
 
+  '@fontsource-variable/suse@5.1.0':
+    resolution: {integrity: sha512-fYYCThVCocwb1yqnDRns3r1zVmL1du4Xkhvut8KFDpgkpfShyoiDGn32Ie/Aw1SrtdSGpPzIRL6JJFszptVIPQ==}
+
   '@fontsource/bagnard@5.1.0':
     resolution: {integrity: sha512-LCKKOyG7V2071hHjnBkI+9bfZwLFPpI2hJ3Gity2fvEy+JN6NIdfeljeur/2DBSIqqDATSO6Lt1QkyO4IIwzUg==}
 
@@ -331,6 +343,9 @@ packages:
 
   '@fontsource/cookie@5.1.0':
     resolution: {integrity: sha512-YaLI4bdEbzcnbqPL70hztT/dRY6/B9/I+D4cyFHmIfZM/qh+PSk0URk+82GjKjTiHeWUq3s9NupUmRVFE4SUfg==}
+
+  '@fontsource/darumadrop-one@5.1.0':
+    resolution: {integrity: sha512-p/CBcwqNUficPEzgej3rOHlkLVT7O3UiaPLZsstHzRossAQe1Ykx3PLYT4vVsiTi31DxHEjyqa4Wo4djxA3t2g==}
 
   '@fontsource/federo@5.1.0':
     resolution: {integrity: sha512-rGF6NvYd/QOvPBLbqqWlPWzsocnb0z8fX5VCYaq2UdOqWzWs7OYoFN6asxysUDo7Z27qn27O3uJg9PmUY7bk7Q==}
@@ -349,6 +364,9 @@ packages:
 
   '@fontsource/young-serif@5.1.0':
     resolution: {integrity: sha512-Co85at1TfR7FCmF2VNIGy9ufjLbZvMZFEe2Mq298uHeGXkvQdk7zN13NqH54Lh6XO8GACz9DBENCxqolTnAkPA==}
+
+  '@fontsource/zen-tokyo-zoo@5.1.0':
+    resolution: {integrity: sha512-Dm+tSfFSc5sFrefrHIeemW2l05LvMmotRJY66B/vl37XcP2+/Qzx3jmsnk2B+cQrczLXMDCifYKexFSwr/swOg==}
 
   '@humanwhocodes/module-importer@1.0.1':
     resolution: {integrity: sha512-bxveV4V8v5Yb4ncFTT3rPSgZBOpCkjfK0y4oVVVJwIuDVBRMDXrPyXRL988i5ap9m9bnyEEjWfm5WkBmtffLfA==}
@@ -1345,13 +1363,13 @@ snapshots:
 
   '@fontsource-variable/besley@5.1.0': {}
 
-  '@fontsource-variable/fredoka@5.1.0': {}
-
   '@fontsource-variable/gluten@5.1.0': {}
 
   '@fontsource-variable/josefin-sans@5.1.0': {}
 
   '@fontsource-variable/jost@5.1.0': {}
+
+  '@fontsource-variable/ojuju@5.1.0': {}
 
   '@fontsource-variable/outfit@5.1.0': {}
 
@@ -1361,11 +1379,15 @@ snapshots:
 
   '@fontsource-variable/space-grotesk@5.1.0': {}
 
+  '@fontsource-variable/suse@5.1.0': {}
+
   '@fontsource/bagnard@5.1.0': {}
 
   '@fontsource/calistoga@5.1.0': {}
 
   '@fontsource/cookie@5.1.0': {}
+
+  '@fontsource/darumadrop-one@5.1.0': {}
 
   '@fontsource/federo@5.1.0': {}
 
@@ -1378,6 +1400,8 @@ snapshots:
   '@fontsource/titan-one@5.1.0': {}
 
   '@fontsource/young-serif@5.1.0': {}
+
+  '@fontsource/zen-tokyo-zoo@5.1.0': {}
 
   '@humanwhocodes/module-importer@1.0.1': {}
 
