@@ -12,7 +12,6 @@
 		<em><a href="https://indestructibletype.com">Owen Earl</a></em> is a spiritual successor to the famous
 		Futura typeface.
 	</p>
-	<p>Wes Anderson, anyone?</p>
 	<label>
 		<span class="label">Weight:</span><span>{weight}</span>
 		<input type="range" bind:value={weight} {min} {max} />
