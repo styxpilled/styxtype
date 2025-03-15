@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { formatDescription } from '$lib';
+	import { previews } from '$lib/state.svelte';
 
 	import { font } from './data';
 </script>
@@ -9,7 +10,7 @@
 </svelte:head>
 
 <div class="preview">
-	<h3>{font.title}</h3>
+	<h3>{previews.heading || font.title}</h3>
 	<p>
 		{@html formatDescription(font)}
 	</p>
@@ -28,7 +29,7 @@
 
 	h3 {
 		font-size: 7rem;
-		text-transform: uppercase;
+		/* text-transform: uppercase; */
 	}
 
 	h3::selection {

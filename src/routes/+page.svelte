@@ -81,8 +81,15 @@
 
 		border-radius: 1rem;
 		font-size: 1.5rem;
-		padding-top: 1rem;
+		padding-top: 3rem;
 		padding-bottom: 2rem;
+	}
+
+	:global(:where(.preview-wrapper > .preview h3)) {
+		padding-bottom: 2rem;
+		word-wrap: break-word;
+		overflow-wrap: break-word;
+		word-break: break-all;
 	}
 
 	:global(:where(.preview-wrapper > .preview > *:not(.bg))) {

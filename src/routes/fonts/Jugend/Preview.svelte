@@ -1,3 +1,7 @@
+<script lang="ts">
+	import { previews } from '$lib/state.svelte';
+</script>
+
 <svelte:head>
 	<link rel="stylesheet" href="/font-source/Jugend/index.css" />
 </svelte:head>
@@ -5,7 +9,7 @@
 <div class="preview noise">
 	<!-- https://skrr-type.com/jugend -->
 	<!-- Benoît Ferran -->
-	<h3>JugenD</h3>
+	<h3>{previews.heading || 'JugenD'}</h3>
 	<p>
 		Jugend is a display monospace family taking its roots in a lettering from the
 		Jugendstil/Art-nouveau magazine of the same name, originally published in 1896. From these five

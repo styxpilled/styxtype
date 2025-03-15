@@ -1,9 +1,13 @@
+<script lang="ts">
+	import { previews } from '$lib/state.svelte';
+</script>
+
 <svelte:head>
 	<link rel="stylesheet" href="/font-source/departure-mono/index.css" />
 </svelte:head>
 
 <div class="preview">
-	<h3 class="size-override">Departure Mono</h3>
+	<h3 class="size-override">{previews.heading || 'Departure Mono'}</h3>
 	<p>
 		<a href="https://departuremono.com/">Departure Mono</a> by
 		<a href="https://www.helenazhang.com/">Helena Zhang</a> is a monospaced pixel font inspired by the

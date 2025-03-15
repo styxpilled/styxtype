@@ -4,6 +4,8 @@
 	import Sliders from '$components/Sliders.svelte';
 	import { formatDescription, variationStyle } from '$lib';
 	import { font } from './data';
+	import TextPreview from '$components/TextPreview.svelte';
+	import { previews } from '$lib/state.svelte';
 
 	let sliders = $state<CSSSlider[]>([
 		{
@@ -24,7 +26,7 @@
 </script>
 
 <div class="preview" style={variationStyle(sliders)}>
-	<h3>Afacad Flux</h3>
+	<h3>{previews.heading || font.title}</h3>
 	<p>
 		{@html formatDescription(font)}
 	</p>

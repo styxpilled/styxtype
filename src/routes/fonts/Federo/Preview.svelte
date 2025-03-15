@@ -1,9 +1,10 @@
 <script lang="ts">
+	import { previews } from '$lib/state.svelte';
 	import '@fontsource/federo';
 </script>
 
 <div class="preview noise">
-	<h3>Federo</h3>
+	<h3>{previews.heading || 'Federo'}</h3>
 	<p>
 		<a href="https://github.com/cyrealtype/Federo">Federo</a> by Olexa Volochay is a display webfont
 		that references Jakob Erbar's Feder Grotesk. The goal was to keep the typeface as close as possible

@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { previews } from '$lib/state.svelte';
+
 	let weight = $state(400);
 	const min = 400;
 	const max = 700;
@@ -11,7 +13,7 @@
 </svelte:head>
 
 <div class="preview" style="font-weight: {weight};">
-	<h3>Glacial Indifference</h3>
+	<h3>{previews.heading || 'Glacial Indifference'}</h3>
 	<p>Glacial Indifference is a simple geometric typeface.</p>
 	<label>
 		<span class="label">Weight:</span><span>{weight}</span>
@@ -27,8 +29,7 @@
 	}
 
 	h3 {
-		text-transform: uppercase;
-		line-height: 1;
 		font-size: 7rem;
+		letter-spacing: -0.02em;
 	}
 </style>

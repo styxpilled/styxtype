@@ -1,9 +1,13 @@
+<script lang="ts">
+	import { previews } from '$lib/state.svelte';
+</script>
+
 <svelte:head>
 	<link rel="stylesheet" href="/font-source/Jellee/index.css" />
 </svelte:head>
 
 <div class="preview">
-	<h3>Jellee</h3>
+	<h3>{previews.heading || 'Jellee'}</h3>
 	<p>
 		Jellee is a rounded and soft sans serif typeface for posters, headlines, and titles. Great for
 		cool and friendly animations.

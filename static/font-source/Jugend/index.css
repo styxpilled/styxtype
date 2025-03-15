@@ -1,0 +1,15 @@
+@font-face {
+	font-family: 'Jugend';
+	font-style: normal;
+	font-display: swap;
+	src:
+		url('/font-source/Jugend/Jugend.woff2') format('woff2'),
+		url('/font-source/Jugend/Jugend.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Jugend 1896';
+	font-style: normal;
+	font-display: swap;
+	src: url('/font-source/Jugend/Jugend-1896.otf');
+}

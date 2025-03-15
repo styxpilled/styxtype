@@ -1,0 +1,6 @@
+@font-face {
+	font-family: 'Vulnus';
+	src: local('Vulnus'), url('/font-source/Vulnus/Vulnus.woff2'),
+		url('/font-source/Vulnus/Vulnus.otf'), url('/font-source/Vulnus/Vulnus.ttf');
+	font-weight: 400;
+}

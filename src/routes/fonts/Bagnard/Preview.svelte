@@ -2,13 +2,14 @@
 	import '@fontsource/bagnard';
 	import { font } from './data';
 	import { formatDescription } from '$lib';
+	import { previews } from '$lib/state.svelte';
 	// https://fontsource.org/fonts/bagnard/install
 	// https://open-foundry.com/fonts/bagnard_regular
 </script>
 
-<div class="preview noise" style="view-transition-name: font-preview-{font.title}">
+<div class="preview noise">
 	<a href="/fonts/Bagnard">
-		<h3 style="view-transition-name: font-title-{font.title}">{font.title}</h3>
+		<h3>{previews.heading || font.title}</h3>
 	</a>
 	<p>
 		{@html formatDescription(font)}

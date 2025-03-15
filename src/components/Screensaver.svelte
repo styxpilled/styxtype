@@ -20,7 +20,7 @@
 />
 
 <div class="screensaver col space" class:showing>
-	{#each { length: 3 } as _, i}
+	{#each { length: 1 } as _, i}
 		<p class="marquee-content" style="--delay: {i * 3000}ms;">
 			{#each 'styxtype - a libre font collection'.split('') as char, i}
 				<span style="--index: {i};">{char}</span>

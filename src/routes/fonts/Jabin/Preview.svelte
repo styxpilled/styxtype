@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { previews } from '$lib/state.svelte';
+
 	let weight = $state(80);
 	let min = 40;
 	let max = 120;
@@ -12,7 +14,7 @@
 </svelte:head>
 
 <div class="preview noise" style="font-variation-settings: {`"wght" ${weight}, "XXXX" ${shwish};`}">
-	<h3>Jabin</h3>
+	<h3>{previews.heading || 'Jabin'}</h3>
 	<p>
 		<em><a href="https://www.fridamedrano.com/jabin">Jabin</a></em> by
 		<em><a href="https://www.fridamedrano.com">Frida Medrano</a></em> was inspired by George Shelley's

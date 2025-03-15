@@ -2,6 +2,7 @@
 	import MultiCheckbox from '$components/MultiCheckbox.svelte';
 	import Sliders from '$components/Sliders.svelte';
 	import { fontSettings, variationStyle } from '$lib';
+	import { previews } from '$lib/state.svelte';
 	import type { CSSSlider, Setting } from '$lib/types';
 
 	let sliders = $state<CSSSlider[]>([
@@ -48,7 +49,7 @@
 </svelte:head>
 
 <div class="preview noise" style="{variationStyle(sliders)} {fontSettings(settings)}">
-	<h3>Libertine Super</h3>
+	<h3>{previews.heading || 'Libertine Super'}</h3>
 	<p>
 		<a href="https://noirblancrouge.com/fonts/libertinesuper/">Libertine Super</a> by the
 		<a href="https://noirblancrouge.com">NoirBlancRouge</a> foundry is a sans-serif with decorative lines,

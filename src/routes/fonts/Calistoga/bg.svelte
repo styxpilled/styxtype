@@ -30,8 +30,11 @@
 		width: 18rem;
 		clip-path: url(#myClip);
 		scale: 1.6;
-		top: 38.5%;
-		left: 33%;
+		top: 25%;
+		/* top: 38.5%;
+		left: 33%; */
+		left: 50%;
+		transform: translate(-25%);
 		background-size: 64px 64px;
 	}
 

@@ -3,6 +3,7 @@
 	import type { CSSSlider } from '$lib/types';
 	import { variationStyle } from '$lib';
 	import Sliders from '$components/Sliders.svelte';
+	import { previews } from '$lib/state.svelte';
 
 	let sliders = $state<CSSSlider[]>([
 		{
@@ -24,7 +25,7 @@
 </script>
 
 <div class="preview noise" style={variationStyle(sliders)}>
-	<h3>Gluten</h3>
+	<h3>{previews.heading || 'Gluten'}</h3>
 	<p>
 		<a href="https://etceteratype.co/gluten">Gluten</a> by
 		<a href="https://tyfromtheinternet.com">Ty Finck</a> is "slightly loud, very round, and 100% fun".
@@ -39,5 +40,10 @@
 		font-family: 'Gluten Variable', 'Wingdings';
 		color: #fbf15f;
 		--background: #3b7fd0;
+	}
+
+	*::selection {
+		color: #3b7fd0;
+		background-color: #7eb5f8;
 	}
 </style>

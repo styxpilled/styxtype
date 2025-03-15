@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { formatDescription } from '$lib';
+	import { previews } from '$lib/state.svelte';
 	import { font } from './data';
 </script>
 
@@ -9,7 +10,7 @@
 
 <div class="preview">
 	<p class="spacer">&lt===&lt&lt===&lt&lt=&gt&gt===&gt&gt===&gt</p>
-	<h3>&lt/Lilex/&gt</h3>
+	<h3>&lt/{previews.heading || 'Lilex'}/&gt</h3>
 	<p class="spacer">&lt===&lt&lt===&lt&lt=&gt&gt===&gt&gt===&gt</p>
 	<p>
 		{@html formatDescription(font)}
@@ -27,6 +28,7 @@
 
 	h3 {
 		line-height: 1;
+		padding-bottom: 0;
 	}
 
 	.spacer {

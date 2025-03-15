@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { previews } from '$lib/state.svelte';
+
 	let timeOfDay = $state(10);
 	const todMin = 6;
 	const todmax = 18;
@@ -15,9 +17,11 @@
 <div class="preview">
 	<div class="title">
 		<h3 class="shadow" style:font-variation-settings={`"DIST" ${distance}, "TOTD" ${timeOfDay}`}>
-			GNOMON*
+			{previews.heading || 'GNOMON*'}
 		</h3>
-		<h3 style:font-variation-settings={`"DIST" 0, "TOTD" 6`}>GNOMON*</h3>
+		<h3 style:font-variation-settings={`"DIST" 0, "TOTD" 6`}>
+			{previews.heading || 'GNOMON*'}
+		</h3>
 	</div>
 	<p>
 		<a href="https://indestructibletype.com/Gnomon">GNOMON*</a> is an experimental typeface by

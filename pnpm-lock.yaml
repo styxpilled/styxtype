@@ -56,9 +56,6 @@ importers:
       '@fontsource/federo':
         specifier: ^5.1.0
         version: 5.1.0
-      '@fontsource/limelight':
-        specifier: ^5.1.0
-        version: 5.1.0
       '@fontsource/merriweather':
         specifier: ^5.1.0
         version: 5.1.0
@@ -349,9 +346,6 @@ packages:
 
   '@fontsource/federo@5.1.0':
     resolution: {integrity: sha512-rGF6NvYd/QOvPBLbqqWlPWzsocnb0z8fX5VCYaq2UdOqWzWs7OYoFN6asxysUDo7Z27qn27O3uJg9PmUY7bk7Q==}
-
-  '@fontsource/limelight@5.1.0':
-    resolution: {integrity: sha512-AOg/DpNiaMgg9X0xp4giO8Pq5eFTijlNrRe9nSiHXwg+et+SaXuwFW7CMpTWxJQlAODjsflMUrBCDHU6TS13RQ==}
 
   '@fontsource/merriweather@5.1.0':
     resolution: {integrity: sha512-CliXFoCACKkrx8G93xGw6cD7RYCOytuY/Afe1W/htsRRlaSyGA6HGNQzQJc6NKzjs9XenBH2CcMQsONyppd+uQ==}
@@ -1390,8 +1384,6 @@ snapshots:
   '@fontsource/darumadrop-one@5.1.0': {}
 
   '@fontsource/federo@5.1.0': {}
-
-  '@fontsource/limelight@5.1.0': {}
 
   '@fontsource/merriweather@5.1.0': {}
 

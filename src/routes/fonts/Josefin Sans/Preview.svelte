@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { previews } from '$lib/state.svelte';
 	import '@fontsource-variable/josefin-sans';
 	import '@fontsource-variable/josefin-sans/wght-italic.css';
 	let weight = $state(400);
@@ -9,12 +10,10 @@
 </script>
 
 <div class="preview" style:font-weight={weight}>
-	<h3>
-		Josefin Sans
-		<!-- {#each 'Josefin Sans'.split('') as char, i}
+	<h3>{previews.heading || 'Josefin Sans'}</h3>
+	<!-- {#each 'Josefin Sans'.split('') as char, i}
 			<span style="color: {colors[i % colors.length]}">{char}</span>
 		{/each} -->
-	</h3>
 	<p>
 		<em><a href="https://indestructibletype.com/Jost">Josefin Sans</a></em> by
 		<em><a href="https://indestructibletype.com">Santiago Orozco</a></em> is inspired by geometric sans

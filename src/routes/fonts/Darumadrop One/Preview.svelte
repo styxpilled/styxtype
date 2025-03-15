@@ -1,10 +1,11 @@
 <script lang="ts">
+	import { previews } from '$lib/state.svelte';
 	import '@fontsource/darumadrop-one';
 </script>
 
 <!-- https://fonts.google.com/specimen/Darumadrop+One -->
 <div class="preview noise-light">
-	<h3>Darumadrop One</h3>
+	<h3>{previews.heading || 'Darumdrop One'}</h3>
 	<p>
 		Darumdrop is a flavorful handwritten font inspired by Japanese handwriting and "Daruma Otoshi"
 		which is a Japanese folk craft game.

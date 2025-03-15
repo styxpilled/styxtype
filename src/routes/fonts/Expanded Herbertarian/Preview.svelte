@@ -1,9 +1,13 @@
+<script lang="ts">
+	import { previews } from '$lib/state.svelte';
+</script>
+
 <svelte:head>
 	<link rel="stylesheet" href="/font-source/ExpandedHerbertarian/index.css" />
 </svelte:head>
 
 <div class="preview noise">
-	<h3>Expanded Herbertarian</h3>
+	<h3>{previews.heading || 'Expanded Herbertarian'}</h3>
 	<p>
 		A digitization and expansion of <a
 			href="https://fontsinuse.com/uses/43515/the-mystery-of-the-dune-font">Davison Art Nouveau</a

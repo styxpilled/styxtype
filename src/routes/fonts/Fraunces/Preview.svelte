@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Sliders from '$components/Sliders.svelte';
 	import { variationStyle } from '$lib';
+	import { previews } from '$lib/state.svelte';
 	import type { CSSSlider } from '$lib/types';
 
 	let sliders = $state<CSSSlider[]>([
@@ -43,7 +44,7 @@
 </svelte:head>
 
 <div class="preview noise-light" style={variationStyle(sliders)}>
-	<h3>Fraunces</h3>
+	<h3>{previews.heading || 'Fraunces'}</h3>
 	<p>
 		<a href="https://fraunces.undercase.xyz/">Fraunces</a> is a display, "Old Style" soft-serif typeface
 		inspired by the mannerisms of early 20th century typefaces such as Windsor, Souvenir, and the Cooper

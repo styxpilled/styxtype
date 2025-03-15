@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { previews } from '$lib/state.svelte';
 	import '@fontsource-variable/besley';
 	import '@fontsource-variable/besley/wght-italic.css';
 	let weight = $state(600);
@@ -7,7 +8,13 @@
 </script>
 
 <div class="preview noise" style:font-weight={weight}>
-	<h3>Besley<span style="color: #471313;">*</span></h3>
+	<h3>
+		{#if previews.heading}
+			{previews.heading}
+		{:else}
+			Besley<span style="color: #471313;">*</span>
+		{/if}
+	</h3>
 	<p>
 		<a href="https://indestructibletype.com/Besley"><em>Besley*</em></a> by
 		<a href="https://indestructibletype.com/"><em>Owen Earl</em></a> is an antique slab serif with a

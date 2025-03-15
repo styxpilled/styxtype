@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { previews } from '$lib/state.svelte';
 	import '@fontsource-variable/jost';
 	let weight = $state(400);
 	let min = 100;
@@ -6,7 +7,13 @@
 </script>
 
 <div class="preview" style:font-weight={weight}>
-	<h3>Jost<span style="color: #c83737;">*</span></h3>
+	<h3>
+		{#if previews.heading}
+			{previews.heading}
+		{:else}
+			Jost<span style="color: #c83737;">*</span>
+		{/if}
+	</h3>
 	<p>
 		<em><a href="https://indestructibletype.com/Jost">Jost*</a></em> by
 		<em><a href="https://indestructibletype.com">Owen Earl</a></em> is a spiritual successor to the famous

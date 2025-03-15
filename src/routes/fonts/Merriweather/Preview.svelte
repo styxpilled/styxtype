@@ -1,6 +1,4 @@
 <script lang="ts">
-	import '@fontsource-variable/shantell-sans/full.css';
-
 	import '@fontsource/merriweather/300.css';
 	import '@fontsource/merriweather/400.css';
 	import '@fontsource/merriweather/700.css';
@@ -9,6 +7,7 @@
 	import '@fontsource/merriweather/400-italic.css';
 	import '@fontsource/merriweather/700-italic.css';
 	import '@fontsource/merriweather/900-italic.css';
+	import { previews } from '$lib/state.svelte';
 
 	// Sorkin Type, Eben Sorkin
 	// https://github.com/SorkinType/Merriweather/
@@ -19,7 +18,7 @@
 </script>
 
 <div class="preview noise-light" style:font-weight={weight}>
-	<h3>Merriweather</h3>
+	<h3>{previews.heading || 'Merriweather'}</h3>
 	<p>
 		Merriweather was designed to be a text face that is pleasant to read on screens. It features a
 		very large x height, slightly condensed letterforms, a mild diagonal stress, sturdy serifs and

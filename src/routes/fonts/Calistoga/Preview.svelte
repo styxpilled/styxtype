@@ -1,6 +1,7 @@
 <script lang="ts">
 	import '@fontsource/calistoga';
 	import Bg from './bg.svelte';
+	import { previews } from '$lib/state.svelte';
 
 	// github.com/SorkinType/Calistoga
 	// https://fonts.google.com/specimen/Calistoga
@@ -8,9 +9,11 @@
 
 <div class="preview noise">
 	<div class="header-container">
-		<h3 class="noise-light">Calistoga</h3>
+		<h3 class="noise-light">{previews.heading || 'Calistoga'}</h3>
 		<Bg />
-		<p>since 1986</p>
+		{#if !previews.heading}
+			<p>since 1986</p>
+		{/if}
 	</div>
 	<p class="description">
 		Calistoga by Yvonne Schuttler is a cheerful, space saving display typeface with vintage US
@@ -25,16 +28,18 @@
 		font-family: 'Calistoga', 'Wingdings';
 		color: #edd8bf;
 		--background: #2f2934;
+		position: relative;
 	}
 
 	.header-container {
-		position: relative;
 		margin-bottom: 1rem;
 
 		& p {
 			position: absolute;
 			bottom: 1rem;
-			left: calc(50% - 4ch);
+			top: 40%;
+			left: 50%;
+			transform: translate(-50%);
 		}
 	}
 

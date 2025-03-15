@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Sliders from '$components/Sliders.svelte';
+	import { previews } from '$lib/state.svelte';
 	import type { CSSSlider } from '$lib/types';
 
 	let sliders = $state<CSSSlider[]>([
@@ -35,7 +36,7 @@
 </svelte:head>
 
 <div class="preview noise-light" style="font-family: '{getFamily(sliders[0])}', 'Wingdings';">
-	<h3>Gensco</h3>
+	<h3>{previews.heading || 'Gensco'}</h3>
 	<p>
 		<a href="https://fonderiz.fr/gensco/">Gensco</a> by
 		<a href="https://cedricrossignolbrunet.com/">Cédric Rossignol-Brunet</a>, Gensco is a typeface
