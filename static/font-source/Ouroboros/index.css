@@ -1,6 +1,0 @@
-@font-face {
-	font-family: 'Ouroboros';
-	src: local('Ouroboros'), url('/font-source/Ouroboros/Ouroboros.woff2'),
-		url('/font-source/Ouroboros/Ouroboros.woff'), url('/font-source/Ouroboros/Ouroboros.ttf');
-	font-weight: 400;
-}

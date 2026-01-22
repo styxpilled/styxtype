@@ -1,0 +1,7 @@
+ignoredBuiltDependencies:
+  - deasync
+
+onlyBuiltDependencies:
+  - esbuild
+  - puppeteer
+  - ttf2woff2
