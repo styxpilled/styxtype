@@ -1,7 +1,6 @@
 /**
  * @import { Font } from "./fonts"
  */
-
 /**
  * @type {Font[]}
  */
@@ -15,7 +14,6 @@ export const fonts = [
 		href: 'https://github.com/Dicotype/Afacad',
 		description: `The letters and numerals of {{name}} by {{author}} were meticulously crafted to harmonise with	the architectural proportions and materials employed by Architect Sture Elmén during the 1940s.`,
 		category: 'sans-serif',
-
 		license: 'SIL',
 		links: [],
 		font: () => '@fontsource-variable/afacad-flux/files/afacad-flux-latin-standard-normal.woff2'
@@ -28,8 +26,7 @@ export const fonts = [
 		},
 		href: 'https://github.com/googlefonts/AntonFont',
 		description: `MISSING DESCRIPTION`,
-		category: 'sans-serif',
-
+		category: 'display',
 		license: 'SIL',
 		links: [],
 		font: () => '@fontsource/anton/files/anton-latin-400-normal.woff2',
@@ -89,7 +86,6 @@ export const fonts = [
 		href: 'https://indestructibletype.com/Besley.html',
 		description: `%TITLE% by %AUTHOR% is an antique slab serif with a timeless feel. It features large, sturdy serifs which convey stability and trustworthyness.`,
 		category: 'serif',
-
 		license: 'SIL',
 		links: [],
 		font: () => '@fontsource-variable/besley/files/besley-latin-wght-normal.woff2'
@@ -100,7 +96,6 @@ export const fonts = [
 		href: null,
 		description: `%TITLE% by %AUTHOR% is a cheerful, space saving display typeface with vintage US railroad flavor. Calistoga includes proportional, tabular, old style and lining figures. It also offers fractions, superiors, inferiors, a broad range of symbols, and it includes case sensitive forms.`,
 		category: 'serif',
-
 		license: 'SIL',
 		links: [],
 		font: () => '@fontsource/calistoga/files/calistoga-latin-400-normal.woff2'
@@ -136,7 +131,6 @@ export const fonts = [
 		href: 'https://indestructibletype.com/Besley.html',
 		description: `%TITLE% by %AUTHOR% is a revival of a 1922 font family by Oswald Bruce Cooper. The original is most known for it's iconic Cooper Black font. This revival aims to shine some light on the more lightweight variants of the font.`,
 		category: 'serif',
-
 		license: 'SIL',
 		links: [],
 		font: () => '#fonts/Cooper/webfont/Cooper-Bold.woff2'
@@ -147,7 +141,6 @@ export const fonts = [
 		href: null,
 		description: `%TILE% is a flavorful handwritten font inspired by Japanese handwriting and "Daruma Otoshi", a Japanese folk craft game.`,
 		category: 'sans-serif',
-
 		license: 'SIL',
 		links: [],
 		font: () => '@fontsource/darumadrop-one/files/darumadrop-one-latin-400-normal.woff2'
@@ -162,7 +155,6 @@ export const fonts = [
 		description: `%TITLE% by %AUTHOR% is a monospaced pixel font inspired by the
 		constraints of early command-line and graphical user interfaces, the tiny pixel fonts of the late	90s/early 00s, and sci-fi concepts from film and television.trustworthyness.`,
 		category: 'monospace',
-
 		license: 'SIL',
 		links: [],
 		font: () => '#fonts/departure-mono/departure-mono.woff2'
@@ -212,7 +204,6 @@ export const fonts = [
 		author: null,
 		href: 'https://fraunces.undercase.xyz',
 		category: 'sans-serif',
-
 		description: `%TITLE% is a display, "Old Style" soft-serif typeface inspired by the mannerisms of early 20th century typefaces such as Windsor, Souvenir, and the Cooper Series.`,
 		license: 'SIL',
 		links: [],
@@ -226,7 +217,6 @@ export const fonts = [
 		},
 		href: 'https://etceteratype.co/gluten',
 		category: 'sans-serif',
-
 		description: `%TITLE% by %AUTHOR% is a display webfont
 		that references Jakob Erbar's Feder Grotesk. The goal was to keep the typeface as close as possible	to the original 1909 design while adapting it for crisp web typography.`,
 		license: 'SIL',
@@ -238,7 +228,6 @@ export const fonts = [
 		author: null,
 		href: null,
 		category: 'serif',
-
 		description: `%TITLE%, first used in Mainz by Peter Schoffer & Johann Fust for Guillaume Durand’s Rationale Divinorum Officorum in the XIV century.`,
 		license: 'SIL',
 		links: [],
@@ -249,7 +238,6 @@ export const fonts = [
 		author: null,
 		href: null,
 		category: 'sans-serif',
-
 		description: `%TITLE% is a rounded and soft sans serif typeface for posters, headlines, and titles. Great for cool and friendly animations.`,
 		license: 'SIL',
 		links: [],
@@ -263,7 +251,6 @@ export const fonts = [
 		},
 		href: 'https://etceteratype.co/gluten',
 		category: 'sans-serif',
-
 		description: `%TITLE% by %AUTHOR% is inspired by geometric sans serifs of the 1920 like Futura.`,
 		license: 'SIL',
 		links: [],
@@ -278,7 +265,6 @@ export const fonts = [
 		href: 'https://indestructibletype.com/Jost.html',
 		description: `%TITLE% by %AUTHOR% is a spiritual successor to the famous Futura typeface.`,
 		category: 'serif',
-
 		license: 'SIL',
 		links: [],
 		font: () => '@fontsource-variable/jost/files/jost-latin-wght-normal.woff2'
@@ -288,7 +274,6 @@ export const fonts = [
 		author: null,
 		href: 'https://lilex.myrt.co/',
 		category: 'monospace',
-
 		description:
 			'%TITLE% is an extended font on top of IBM Plex Mono designed for developers. It contains ligatures, special characters (e.g. PowerLine), Greek and exists in a variable format.',
 		license: 'SIL',
@@ -305,7 +290,6 @@ export const fonts = [
 		author: null,
 		href: '',
 		category: 'serif',
-
 		description:
 			'%TITLE% was designed to be a text face that is pleasant to read on screens. It features a very large x height, slightly condensed letterforms, a mild diagonal stress, sturdy serifs and open forms.',
 		license: 'SIL',
@@ -317,7 +301,6 @@ export const fonts = [
 		author: null,
 		href: '',
 		category: 'serif',
-
 		description: `%TITLE%, inspired by George Orwell's 1984. It's been designed to fit with the atmosphere of the Orwellian dystopia. Although Minipax remains a rather transparent text typeface, many of its distinctive features have been crafted to reflect de dusty and gritty universe of the novel.'`,
 		license: 'SIL',
 		links: [],
@@ -332,7 +315,6 @@ export const fonts = [
 		href: 'https://www.tunera.xyz/fonts/nyght-serif',
 		description: `%TITLE% by %AUTHOR% is a spiritual successor to the famous Futura typeface.`,
 		category: 'serif',
-
 		license: 'SIL',
 		links: [],
 		font: () => '#fonts/NyghtSerif/font/NyghtSerif-Dark.woff2'
@@ -345,7 +327,6 @@ export const fonts = [
 			href: ''
 		},
 		category: 'serif',
-
 		description:
 			'%TITLE% is a reverse contrast variable typeface inspired by African Masquerades. The masks worn by the Dogon dancers from Mali inspired the aperture shaping, and counterform placement within many of the letterforms.',
 		license: 'SIL',
@@ -369,7 +350,6 @@ export const fonts = [
 			href: ''
 		},
 		category: 'serif',
-
 		description: `%TITLE% is a font for alchemists, witches, heretics, outsiders and curious people in general. It's inspired by early art-nouveau styles, which were sometimes used in relation with magical themes and symbolism, so it comes together with a set of alchemical and astronomical symbols.`,
 		license: 'SIL',
 		links: [
@@ -393,7 +373,6 @@ export const fonts = [
 		href: 'https://github.com/Outfitio/Outfit-Fonts',
 		description: `%TITLE% is a geometric sans-serif typeface designed as the brand typeface for for brand automation company outfit.io by %AUTHOR%.`,
 		category: 'serif',
-
 		license: 'SIL',
 		links: [],
 		font: () => '@fontsource-variable/outfit/files/outfit-latin-wght-normal.woff2'
@@ -408,7 +387,6 @@ export const fonts = [
 		Traces of Art Deco, Bauhaus and hints of Constructivism are preserved in the digital typeface,
 		promising a progressive and influential voice when used in proper manners.`,
 		category: 'serif',
-
 		license: 'SIL',
 		links: [],
 		font: () => '#fonts/Patriot/font/Patriot-UltraBold.woff2'
@@ -422,7 +400,6 @@ export const fonts = [
 		href: 'https://www.tunera.xyz/fonts/picaflor/',
 		description: `%TITLE% by %AUTHOR% is a hybrid display typeface with calligraphic details - French didone meet Spanish vernacular exhuberance.`,
 		category: 'serif',
-
 		license: 'SIL',
 		links: [],
 		font: () => '#fonts/Picaflor/font/Picaflor-12pt.woff2'
@@ -436,7 +413,6 @@ export const fonts = [
 		href: 'https://www.tunera.xyz/fonts/picaflor/',
 		description: `%TITLE% by %AUTHOR% is a distinctly French serif, evoking the feel of a warm inn serving ale.`,
 		category: 'serif',
-
 		license: 'SIL',
 		links: [],
 		font: () => '#fonts/Pouler/Pouler.woff2'
@@ -450,7 +426,6 @@ export const fonts = [
 		href: null,
 		description: `%TITLE% is a sans serif font family with slightly rounded corners designed by Philipp Hubert and Sebastian Fischer. Rubik is a 5 weight family with Roman and Italic styles, that accompanies Rubik Mono One, a monospaced variation of the Black roman design.`,
 		category: 'sans-serif',
-
 		license: 'SIL',
 		links: [],
 		font: () => '#fonts/Rubik/RubikVariable.ttf'
@@ -464,7 +439,6 @@ export const fonts = [
 		href: null,
 		description: `%TITLE% from %AUTHOR% is a marker-style font built for creative expression, typographic play, and animation.`,
 		category: 'sans-serif',
-
 		license: 'SIL',
 		links: [],
 		font: () => '@fontsource-variable/shantell-sans/files/shantell-sans-latin-wght-normal.woff2'
@@ -478,7 +452,6 @@ export const fonts = [
 		href: 'https://www.collletttivo.it/typefaces/sinistre',
 		description: `%TITLE% by %AUTHOR% combines the Uncial minuscule, Roman proportions and subtle hints of Fraktur into soft letterforms and sharp terminations.`,
 		category: 'sans-serif',
-
 		license: 'SIL',
 		links: [],
 		font: () => '#fonts/Sinistre/SinistreVF.woff2'
@@ -492,7 +465,6 @@ export const fonts = [
 		href: 'https://floriankarsten.github.io/space-grotesk',
 		description: `%TITLE% is a proportional sans-serif typeface variant based on Colophon Foundry's fixed-width Space Mono family (2016). Originally designed by %AUTHOR% in 2018, Space Grotesk retains the monospace's idiosyncratic details while optimizing for improved readability at non-display sizes.`,
 		category: 'sans-serif',
-
 		license: 'SIL',
 		links: [],
 		font: () => '@fontsource-variable/space-grotesk/files/space-grotesk-latin-wght-normal.woff2'
@@ -503,7 +475,6 @@ export const fonts = [
 		href: null,
 		description: `MISSING DESCRIPTION`,
 		category: 'sans-serif',
-
 		license: 'SIL',
 		links: [],
 		font: () => '@fontsource/staatliches/files/staatliches-latin-400-normal.woff2'
@@ -517,7 +488,6 @@ export const fonts = [
 		href: '',
 		description: `%TITLE% is a sans-serif typeface designed by %AUTHOR%, embodying a unique hybrid between geometric and monospaced features. It was comissioned by the SUSE open-source software company to serve as their brand typeface.`,
 		category: 'sans-serif',
-
 		license: 'SIL',
 		links: [],
 		font: () => '@fontsource-variable/suse/files/suse-latin-wght-normal.woff2'
@@ -530,8 +500,7 @@ export const fonts = [
 		},
 		href: 'https://fonts.google.com/specimen/Titan+One',
 		description: `%TITLE% by %AUTHOR% is a really fat display type with a happy and cheerful personality. It takes most of its essence from hand lettering with big brushes.`,
-		category: 'sans-serif',
-
+		category: 'display',
 		license: 'SIL',
 		links: [],
 		font: () => '@fontsource/titan-one/files/titan-one-latin-400-normal.woff2'
@@ -541,8 +510,7 @@ export const fonts = [
 		author: null,
 		href: null,
 		description: `%TITLE% was designed based on the vernacular concrete typography on the North, East and West gates of Saigon's iconic Ben Thanh Market. The typeface carries an elegant condensed form inspired by the Art Deco style of the early 20th century French colonial era.`,
-		category: 'sans-serif',
-
+		category: 'display',
 		license: 'SIL',
 		links: [],
 		font: () => '#fonts/Westgate/font/Westgate-Bold.woff2'
@@ -556,7 +524,6 @@ export const fonts = [
 		href: 'https://www.behance.net/gallery/134723667/Yeast-typeface-ver-03-(free-font)',
 		description: `%TITLE% by %AUTHOR% is a modern font with smooth, flowing lines and rounded forms, creating a typographic experience that feels inviting and joyful.`,
 		category: 'sans-serif',
-
 		license: 'SIL',
 		links: [],
 		font: () => '#fonts/Yeast/Yeast.otf'
@@ -570,7 +537,6 @@ export const fonts = [
 		href: 'https://www.behance.net/gallery/134723667/Yeast-typeface-ver-03-(free-font)',
 		description: `%TITLE% by the %AUTHOR% foundry is a heavy weight old style serif typeface, taking inspiration from Plantin Infant or ITC Italian Old Style.`,
 		category: 'serif',
-
 		license: 'SIL',
 		links: [],
 		font: () => '@fontsource/young-serif/files/young-serif-latin-400-normal.woff2'
@@ -584,7 +550,6 @@ export const fonts = [
 		href: 'https://www.behance.net/gallery/134723667/Yeast-typeface-ver-03-(free-font)',
 		description: `%TITLE% by the %AUTHOR% is a revival of a typeface designed by Belgian painter Georges Lemmen at the beggining of the 20th century. It was specifically designed for the 1908 version of the Friedrich Nietzsche's book Thus Spoke Zarathustra.`,
 		category: 'serif',
-
 		license: 'SIL',
 		links: [],
 		font: () => '#fonts/Zarathustra/zarathustra.otf'
@@ -598,7 +563,6 @@ export const fonts = [
 		href: 'https://ggbot.itch.io/kaph-font',
 		description: `MISSING DESCRIPTION`,
 		category: 'serif',
-
 		license: 'SIL',
 		links: [],
 		font: () => '#fonts/Kaph/Kaph-Regular.woff2'
@@ -611,8 +575,7 @@ export const fonts = [
 		},
 		href: 'https://ggbot.itch.io/gotfridus-font',
 		description: `MISSING DESCRIPTION`,
-		category: 'serif',
-
+		category: 'blackletter',
 		license: 'SIL',
 		links: [],
 		font: () => '#fonts/Gotfridus/Gotfridus.woff2'
@@ -626,7 +589,6 @@ export const fonts = [
 		href: 'https://codeberg.org/m-casanova/Vulnus',
 		description: `MISSING DESCRIPTION`,
 		category: 'serif',
-
 		license: 'SIL',
 		links: [],
 		font: () => '#fonts/Vulnus/Vulnus.woff2'
@@ -640,7 +602,6 @@ export const fonts = [
 		href: 'https://codeberg.org/m-casanova/InDieBusillis',
 		description: `MISSING DESCRIPTION`,
 		category: 'serif',
-
 		license: 'SIL',
 		links: [],
 		font: () => '#fonts/InDieBusillis/InDieBusillis.woff2'
@@ -654,7 +615,6 @@ export const fonts = [
 		href: 'http://iotic.com/averia',
 		description: `MISSING DESCRIPTION`,
 		category: 'serif',
-
 		license: 'SIL',
 		links: [],
 		font: () => '@fontsource/averia-serif-libre/files/averia-serif-libre-latin-400-normal.woff2'
@@ -668,7 +628,6 @@ export const fonts = [
 		href: 'https://github.com/huertatipografica/Alegreya',
 		description: `%TITLE% by %AUTHOR%, originally intended for literature, conveys a dynamic and varied rhythm which facilitates the reading of long texts.`,
 		category: 'serif',
-
 		license: 'SIL',
 		links: [],
 		font: () => '@fontsource/alegreya-sc/files/alegreya-sc-latin-400-normal.woff2'
@@ -682,7 +641,6 @@ export const fonts = [
 		href: 'https://github.com/alphaArgon/Caesium',
 		description: `%TITLE% by %AUTHOR% is a cursive typeface for programming, derived from Cascadia Code. While it inherits some of Cascadia's structure, Caesium takes a more radical approach in design.`,
 		category: 'monospace',
-
 		license: 'SIL',
 		links: [],
 		font: () => '#fonts/Caesium/CaesiumVF-Upright.ttf'
@@ -696,7 +654,6 @@ export const fonts = [
 		href: 'https://github.com/clauseggers/Inknut-Antiqua',
 		description: `%TITLE% by %AUTHOR% is designed to evoke Venetian incunabula and humanist manuscripts, but with the quirks and idiosyncrasies of the kinds of typefaces you find in this artisanal tradition.`,
 		category: 'serif',
-
 		license: 'SIL',
 		links: [],
 		font: () => '@fontsource/inknut-antiqua/files/inknut-antiqua-latin-400-normal.woff2'
@@ -710,7 +667,6 @@ export const fonts = [
 		href: 'https://ctan.org/pkg/aboensis',
 		description: `%TITLE% by %AUTHOR% is a cursive book hand based on Codex Aboensis that it a medieval book of laws written in Sweden during the 1430s.`,
 		category: 'serif',
-
 		license: 'SIL',
 		links: [],
 		font: () => '#fonts/Aboensis/Aboensis.otf'
@@ -724,7 +680,6 @@ export const fonts = [
 		href: 'https://pecita.eu',
 		description: `DESCRIPTION MISSING`,
 		category: 'serif',
-
 		license: 'SIL',
 		links: [],
 		font: () => '#fonts/Pecita/Pecita.otf'
@@ -738,7 +693,6 @@ export const fonts = [
 		href: 'https://www.theleagueofmoveabletype.com/league-gothic',
 		description: `%TITLE% by %AUTHOR% is a revival of Alternate Gothic #1.`,
 		category: 'serif',
-
 		license: 'SIL',
 		links: [],
 		font: () => '@fontsource/league-gothic/files/league-gothic-latin-400-normal.woff2'
@@ -752,7 +706,6 @@ export const fonts = [
 		href: 'https://github.com/googlefonts/dm-fonts',
 		description: `%TITLE% is derived from Source Serif Pro.`,
 		category: 'serif',
-
 		license: 'SIL',
 		links: [],
 		font: () => '@fontsource/dm-serif-text/files/dm-serif-text-latin-400-normal.woff2'
@@ -766,7 +719,6 @@ export const fonts = [
 		href: 'http://www.gust.org.pl/projects/e-foundry/tex-gyre/heros',
 		description: `%TITLE% is derived from Source Serif Pro.`,
 		category: 'sans-serif',
-
 		license: 'GUST Font License',
 		links: [],
 		font: () => '#fonts/TeXGyreHeros/texgyreheros-regular.otf'
@@ -779,8 +731,7 @@ export const fonts = [
 		},
 		href: 'https://ncempire.net/download',
 		description: `MISSING DESCRIPTION`,
-		category: 'sans-serif',
-
+		category: 'display',
 		license: 'SIL',
 		links: [],
 		font: () => '#fonts/hrdtkn_ver1_20/hrdtkn_ver1_20.otf'
@@ -793,8 +744,7 @@ export const fonts = [
 		},
 		href: 'https://ncempire.net/download',
 		description: `MISSING DESCRIPTION`,
-		category: 'sans-serif',
-
+		category: 'display',
 		license: 'SIL',
 		links: [],
 		font: () => '#fonts/Kounstruct/Kounstruct.otf'
@@ -807,8 +757,7 @@ export const fonts = [
 		},
 		href: 'https://github.com/rsperberg/foundation-logo',
 		description: `MISSING DESCRIPTION`,
-		category: 'sans-serif',
-
+		category: 'display',
 		license: 'SIL',
 		links: [],
 		font: () => '#fonts/Foundation/Foundation.ttf',
@@ -823,7 +772,6 @@ export const fonts = [
 		href: 'https://www.behance.net/gallery/216036863/Grith',
 		description: `MISSING DESCRIPTION`,
 		category: 'sans-serif',
-
 		license: 'SIL',
 		links: [],
 		font: () => '#fonts/Grith/Grith.otf'
@@ -837,8 +785,7 @@ export const fonts = [
 		},
 		href: 'https://github.com/jackkershaw/pelicula',
 		description: `MISSING DESCRIPTION`,
-		category: 'sans-serif',
-
+		category: 'script',
 		license: 'SIL',
 		links: [],
 		font: () => '#fonts/Pelicula/Pelicula.otf'
@@ -853,7 +800,6 @@ export const fonts = [
 		href: 'https://www.peter-wiegel.de/CAT_Walthari.html',
 		description: `MISSING DESCRIPTION`,
 		category: 'sans-serif',
-
 		license: 'SIL',
 		links: [],
 		font: () => '#fonts/Walthari/Walthari.ttf'
@@ -868,7 +814,6 @@ export const fonts = [
 		href: 'https://github.com/insert-smiley/Irishfontclub-trathnona',
 		description: `MISSING DESCRIPTION`,
 		category: 'sans-serif',
-
 		license: 'SIL',
 		links: [],
 		font: () => '#fonts/Trathnona/Trathnona.woff2'

@@ -1,9 +1,10 @@
 <script lang="ts">
 	import { app } from '$lib/state.svelte.js';
 	import { onMount } from 'svelte';
-	import { fonts } from '../../fonts.js';
+	import { fonts, type Font } from '../../fonts.js';
 
 	const fontCache: { [key: string]: boolean } = {};
+	let searchFilter = $state('');
 
 	onMount(() => {
 		const fontPromises = [];
@@ -25,8 +26,10 @@
 		});
 	});
 
-	const loadFont = (name: string) => {
+	const loadFont = (font: Font) => {
+		const name = font.name;
 		app.activeFont = name;
+		app.font = font;
 		if (fontCache[name]) return;
 		const fontface = new FontFace(
 			name,
@@ -36,33 +39,79 @@
         url("/generated/fonts/${name}.ttf")`
 		);
 		fontCache[name] = true;
-		fontface.load().then((font) => {
-			document.fonts.add(font);
+		fontface.load().then((f) => {
+			document.fonts.add(f);
 		});
 	};
 
 	app.activeFont = fonts[0].name;
+	app.font = fonts[0];
 </script>
 
+<!-- <div id="sidebar"> -->
+
 <ul>
-	{#each fonts.toSorted((a, b) => a.name.localeCompare(b.name)) as font}
+	<div class="search">
+		<input
+			type="text"
+			name="font-search"
+			id="font-search"
+			placeholder="Search"
+			bind:value={searchFilter}
+		/>
+	</div>
+	{#each fonts
+		.filter((f) => f.name.toLowerCase().includes(searchFilter))
+		.toSorted((a, b) => a.name.localeCompare(b.name)) as font}
 		<li class="font">
 			<div class="preview" style="mask-image: url('/generated/images/{font.name}.png')">
-				<button onclick={() => loadFont(font.name)}>
+				<button onclick={() => loadFont(font)}>
 					<img id={font.name} src="/generated/images/{font.name}.png" alt="" />
 				</button>
 			</div>
 		</li>
+	{:else}
+		<li>Nothing here!</li>
 	{/each}
 </ul>
 
+<!-- </div> -->
+
 <style>
+	/* div {
+		width: max-content;
+		max-width: 30vw;
+		height: auto;
+		max-height: auto;
+		outline: 2px solid red;
+		outline-offset: -2px;
+		overflow-x: hidden;
+	} */
+
+	.search {
+		position: sticky;
+		top: 0;
+		padding: 0.5rem;
+		width: 100%;
+		height: min-content;
+		background-color: red;
+		z-index: 5;
+		font-size: 2rem;
+	}
+
 	ul {
+		position: relative;
 		display: flex;
-		flex-wrap: wrap;
-		width: 30vw;
-		height: 90vh;
-		border: 2px solid red;
+		flex-direction: column;
+		/* flex-wrap: wrap; */
+		width: 33vw;
+		max-width: 33vw;
+		min-height: calc(100vh - 4.5rem);
+		height: auto;
+		align-items: flex-start;
+		gap: 0;
+		justify-content: flex-start;
+		/* min-height: 100%; */
 		overflow-y: scroll;
 		overflow-x: hidden;
 	}

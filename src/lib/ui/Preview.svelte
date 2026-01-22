@@ -17,16 +17,19 @@
 >
 	<ul>
 		<li>
-			{app.activeFont}
+			<label>
+				<input type="radio" name="preview" value={'charset'} bind:group={app.activePreview} />
+				charset
+			</label>
 		</li>
-		<li><button onclick={() => (app.activePreview = 'charset')}>charset</button></li>
-		<li>
-			{#each typedKeys(texts) as key}
-				<button onclick={() => (app.activePreview = key)}>
+		{#each typedKeys(texts) as key}
+			<li>
+				<label>
+					<input type="radio" name="preview" value={key} bind:group={app.activePreview} />
 					{key}
-				</button>
-			{/each}
-		</li>
+				</label>
+			</li>
+		{/each}
 	</ul>
 	{#snippet structuredPreview(selectedText: { text: string; quotes?: boolean })}
 		{@const text = selectedText.text}
@@ -68,6 +71,9 @@
 		display: flex;
 		flex-direction: column;
 		padding-left: 4rem;
+		outline: 2px solid purple;
+		outline-offset: -2px;
+		width: 100%;
 	}
 
 	#preview-text {
