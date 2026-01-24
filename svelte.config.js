@@ -9,7 +9,11 @@ const config = {
 			fallback: undefined,
 			precompress: false,
 			strict: true
-		})
+		}),
+		typescript: (tsConfig) => {
+			tsConfig.include.push('../src/*.js');
+			return tsConfig;
+		}
 	}
 };
 

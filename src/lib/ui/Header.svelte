@@ -11,13 +11,13 @@
 
 <style>
 	#header {
-		outline: 2px solid orange;
-		outline-offset: -2px;
-		height: 4.5rem;
-		padding: 0 1rem;
+		/* outline: 2px solid orange;
+		outline-offset: -2px; */
+		/* height: 4.5rem; */
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr 1fr;
 		grid-template-rows: 1fr;
+		padding: 0 1rem;
 		font-size: 3rem;
 	}
 

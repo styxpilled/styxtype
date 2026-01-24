@@ -1,7 +1,82 @@
 :root {
 	--header-height: 4.5rem;
+	--surface: #ada496;
+	--color-text: #080503;
 }
 
 body {
 	font-family: 'Jost Variable';
+	/* background: ; */
+	background: #282723 url('/images/bg1.jpg');
+	background-blend-mode: multiply;
+	background-repeat: no-repeat;
+	background-size: 100vw 100vh;
+	color: whitesmoke;
+	background-attachment: fixed;
+}
+
+label:has(input[type='checkbox']) {
+	margin-left: 0.25rem;
+	cursor: pointer;
+	user-select: none;
+	position: relative;
+
+	&::before {
+		content: '';
+		display: inline-block;
+		height: 1rem;
+		width: 1rem;
+		border: 2px solid #aba294;
+		border-radius: 0.25rem;
+		margin-bottom: -3px;
+		background-color: transparent;
+		transition: background-color 80ms ease-in-out;
+	}
+
+	&:has(input:checked)::before {
+		background-color: #aba294;
+	}
+
+	&::after {
+		content: '✓';
+		font-weight: 900;
+		position: absolute;
+		left: 2px;
+		color: transparent;
+		/* display: none; */
+		transition: color 150ms ease-in-out;
+	}
+
+	&:has(input:checked)::after {
+		/* display: inline; */
+		color: black;
+	}
+
+	& input[type='checkbox'] {
+		width: 0;
+	}
+}
+
+input[type='radio'] {
+	width: 0;
+}
+
+label:has(input[type='radio']) {
+	display: flex;
+	font-weight: bold;
+	color: var(--surface);
+	border: 2px solid var(--surface);
+	background-color: transparent;
+	transition:
+		background-color 200ms ease-in-out,
+		color 200ms ease-in-out;
+	text-transform: uppercase;
+	padding: 0.25rem 0.5rem;
+	border-radius: 0.375rem;
+	cursor: pointer;
+
+	&:has(input:checked) {
+		background-color: var(--surface);
+		color: var(--color-text);
+	}
 }

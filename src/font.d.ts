@@ -7,7 +7,6 @@ export type Font = {
 	href: string | null;
 	description: string;
 	category: 'sans-serif' | 'serif' | 'monospace' | 'display' | 'script';
-	characters: string;
 	license: string;
 	links: string[];
 	font: () => string;

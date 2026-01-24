@@ -1,5 +1,5 @@
 /**
- * @import { Font } from "./fonts"
+ * @import { Font } from "./font"
  */
 /**
  * @type {Font[]}
