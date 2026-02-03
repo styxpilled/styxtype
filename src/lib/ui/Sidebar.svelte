@@ -3,6 +3,7 @@
 	import { onMount } from 'svelte';
 	import { type Font } from '../../font.js';
 	import { fonts } from '../../fonts.js';
+	import { browser } from '$app/environment';
 
 	const fontCache: { [key: string]: boolean } = {};
 	let searchFilter = $state('');
@@ -46,112 +47,195 @@
 		});
 	};
 
-	loadFont(fonts[0]);
+	app.activeFont = fonts[0].name;
+	app.font = fonts[0];
+	if (browser) loadFont(fonts[0]);
 </script>
 
 <!-- <div id="sidebar"> -->
 
-<ul>
-	<div class="search">
-		<input
-			type="text"
-			name="font-search"
-			id="font-search"
-			placeholder="Search"
-			bind:value={searchFilter}
-		/>
+<div id="sidebar">
+	<div class="search paper">
+		<div id="font-search-container">
+			<input
+				type="text"
+				name="font-search"
+				id="font-search"
+				placeholder="Search"
+				bind:value={searchFilter}
+			/>
+		</div>
 	</div>
-	{#each fonts
-		.filter((f) => f.name.toLowerCase().includes(searchFilter))
-		.toSorted((a, b) => a.name.localeCompare(b.name)) as font, i}
-		{@const rotation = i % 4}
-		{@const rot = font.name.toLocaleLowerCase().charCodeAt(3) % 95}
-		{@const rot2 = -rot + rotation + 10}
-		{@const offset = rot2 > 3 ? 1 : 5}
-		<!-- {angles[(rot + rotation) % angles.length]} -->
-		<li class="font">
-			<div class="preview" style="mask-image: url('/generated/images/{font.name}.png')">
+	<ul>
+		{#each fonts
+			.filter((f) => f.name.toLowerCase().includes(searchFilter))
+			.toSorted((a, b) => a.name.localeCompare(b.name)) as font, i}
+			{@const idx = i % 4}
+			{@const rot = font.name.toLocaleLowerCase().charCodeAt(3) % 95}
+			{@const rot2 = -rot + idx + 10}
+			{@const offset = rot2 > 3 ? 1 : 5}
+			<!-- {angles[(rot + rotation) % angles.length]} -->
+			<li class="font" class:active={font.name === app.activeFont}>
 				<button onclick={() => loadFont(font)}>
-					<img id={font.name} src="/generated/images/{font.name}.png" alt="" />
+					<div class="preview" style="mask-image: url('/generated/images/{font.name}.png')">
+						<img id="{font.name}-image" src="/generated/images/{font.name}.png" alt="" />
+					</div>
 				</button>
-			</div>
-			<div class="info" style:--i={(rot + rotation) % 4}>
-				<span
-					style="--rotate: {angles[
-						(rot + rotation) % angles.length
-					]}; --offset: {offset}; color: #954e79;"
-					class="bg"
-				>
-					{font.category}
-				</span>
-				<span
-					style="color: #6cffb1;"
-					style:--rotate={angles[(rot - rotation) % angles.length]}
-					class="license">{font.license}</span
-				>
-			</div>
-			<!-- <span style="--rotate: {angles[(rot + rotation) % angles.length]}; --offset: {offset}"
-				>{font.category}</span
-			> -->
-		</li>
-	{:else}
-		<li>Nothing here!</li>
-	{/each}
-</ul>
-
-<!-- </div> -->
+				<div class="info" style:--i={(rot + idx) % 4}>
+					<span
+						style="--rotate: {angles[
+							(rot + idx) % angles.length
+						]}; --offset: {offset}; color: #954e79;"
+						class="bg"
+					>
+						{font.category}
+					</span>
+					<span
+						style="color: #6cffb1;"
+						style:--rotate={angles[(rot - idx) % angles.length]}
+						class="license">{font.license}</span
+					>
+				</div>
+			</li>
+		{:else}
+			<li>Nothing here!</li>
+		{/each}
+	</ul>
+</div>
 
 <style>
-	/* div {
-		width: max-content;
-		max-width: 30vw;
-		height: auto;
-		max-height: auto;
-		outline: 2px solid red;
-		outline-offset: -2px;
-		overflow-x: hidden;
-	} */
-
 	.search {
 		position: sticky;
 		top: 0;
 		padding: 0.5rem;
+		padding-left: 1rem;
 		width: 100%;
 		height: min-content;
 		/* background-color: red; */
 		z-index: 5;
 		font-size: 2rem;
+		background: linear-gradient(to bottom, #0e0e0c57, transparent);
 	}
 
 	#font-search {
 		border-radius: 0.5rem;
 		padding: 0 0.5rem;
-		background: radial-gradient(ellipse at 50% 50%, #2d2b28aa 0%, #0e0e0caa 90%);
-		outline: 2px solid #0e0e0c88;
-		outline-offset: 2px;
+		background: radial-gradient(ellipse at 50% 50%, #2d2b28ee 0%, #0e0e0cee 90%);
+		backdrop-filter: blur(2px);
+		margin: 0.5rem;
+	}
+
+	#font-search-container {
+		width: min-content;
+		position: relative;
+
+		&::after {
+			content: '';
+			position: absolute;
+			height: 100%;
+			width: 100%;
+			top: 0;
+			left: 0;
+			border-radius: 0.5rem;
+			border: 4px solid #0e0e0caa;
+			filter: url(#noise-small) blur(0.65px);
+		}
+	}
+
+	div#sidebar {
+		height: calc(100vh - 16rem);
 	}
 
 	ul {
 		position: relative;
 		display: flex;
 		flex-direction: column;
-		/* flex-wrap: wrap; */
 		width: 33vw;
 		max-width: 33vw;
-		min-height: calc(100vh - 4.5rem);
-		height: auto;
+		min-height: calc(100vh - 16rem);
+		height: calc(100vh - 9rem);
 		align-items: flex-start;
-		gap: 0;
 		justify-content: flex-start;
-		/* min-height: 100%; */
+		margin-top: -1rem;
+		padding: 1rem 0;
 		overflow-y: scroll;
 		overflow-x: hidden;
+		background: linear-gradient(to right, #110d09, transparent 50%);
 	}
 
 	.font {
 		/* border: 2px solid red; */
 		width: min-content;
 		position: relative;
+	}
+
+	img {
+		/* background-size: 0% 100%; */
+		transition: background ease-in-out 100ms;
+		/* background-repeat: no-repeat; */
+		background: transparent;
+		mask: none;
+	}
+
+	.font {
+		--op: #2b6746;
+
+		&::before {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-repeat: no-repeat;
+			background-size: calc(max(100%, 300px)) 72px;
+			mix-blend-mode: screen;
+			/* animation-direction: reverse; */
+			color: var(--op);
+			background-blend-mode: multiply;
+			transition: color 200ms ease-in-out;
+		}
+
+		&:hover::before,
+		&:has(button:focus)::before {
+			animation: brush 0.2s forwards;
+		}
+	}
+
+	.active {
+		/* background: url('https://s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=6cffb1'); */
+		/* background: url('/images/reveal-alpha/Layer 2.png'), linear-gradient(currentColor); */
+		/* background-size: 100% 100%; */
+		/* mask: url('https://s2.svgbox.net/pen-brushes.svg?ic=brush-1') no-repeat 0 0; */
+		/* mask-size: 100% 100%; */
+		&::before {
+			animation: brush 0.2s forwards;
+			--op: #6cffb1;
+			color: var(--op);
+		}
+
+		& .preview {
+			background: black;
+		}
+	}
+
+	@keyframes brush {
+		0% {
+			background-image: url('/images/reveal-alpha/Layer 2.png'), linear-gradient(currentColor);
+		}
+		20% {
+			background-image: url('/images/reveal-alpha/Layer 3.png'), linear-gradient(currentColor);
+		}
+		40% {
+			background-image: url('/images/reveal-alpha/Layer 4.png'), linear-gradient(currentColor);
+		}
+		60% {
+			background-image: url('/images/reveal-alpha/Layer 5.png'), linear-gradient(currentColor);
+		}
+		80% {
+			background-image: url('/images/reveal-alpha/Layer 6.png'), linear-gradient(currentColor);
+		}
+		100% {
+			background-image: url('/images/reveal-alpha/Layer 7.png'), linear-gradient(currentColor);
+		}
 	}
 
 	.info {
@@ -163,6 +247,7 @@
 
 	.font span {
 		color: white;
+		color: transparent;
 		font-size: 1.5rem;
 		position: relative;
 		/* bottom: calc(-0.1ch); */
@@ -177,12 +262,13 @@
 		&::before {
 			z-index: -1;
 			content: 't';
-			color: white;
+			filter: url(#noise-small);
 			position: absolute;
 			left: 0;
 			width: 100%;
 			background-color: black;
 			transform: skew(-10deg);
+			/* transform: skew(-10deg, 1deg) perspective(10px); */
 			color: black;
 		}
 	}
@@ -200,8 +286,9 @@
 			rgb(217, 218, 217) 50%,
 			rgb(238, 237, 228) 100%
 		);
-		/* background: black; */
+		mask-repeat: no-repeat;
 		width: max-content;
+		min-width: 300px;
 	}
 	img {
 		visibility: hidden;

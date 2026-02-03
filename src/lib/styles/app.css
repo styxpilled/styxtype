@@ -7,12 +7,23 @@
 body {
 	font-family: 'Jost Variable';
 	/* background: ; */
-	background: #282723 url('/images/bg1.jpg');
+	background:
+		linear-gradient(#282723), url('/images/bg1.jpg'), url('/images/grunge2.jpg'),
+		url('/images/rust.jpg');
 	background-blend-mode: multiply;
 	background-repeat: no-repeat;
 	background-size: 100vw 100vh;
 	color: whitesmoke;
 	background-attachment: fixed;
+}
+
+/* #content {
+	backdrop-filter: blur(1px);
+} */
+
+* {
+	scrollbar-color: var(--surface) transparent;
+	scrollbar-width: thin;
 }
 
 label:has(input[type='checkbox']) {
@@ -57,6 +68,10 @@ label:has(input[type='checkbox']) {
 	}
 }
 
+input::placeholder {
+	font-style: italic;
+}
+
 input[type='radio'] {
 	width: 0;
 }
@@ -78,5 +93,30 @@ label:has(input[type='radio']) {
 	&:has(input:checked) {
 		background-color: var(--surface);
 		color: var(--color-text);
+	}
+}
+
+.paper {
+	position: relative;
+	height: min-content;
+	color: black;
+	font-weight: 600;
+
+	&::after {
+		filter: url(#noise) blur(0.9px);
+		content: '';
+		position: absolute;
+		height: 100%;
+		width: 100%;
+		/* background: #66645a url('/images/bg1.jpg'); */
+		background:
+			linear-gradient(var(--surface)), url('/images/grunge2.jpg'), url('/images/rust.jpg');
+		background-blend-mode: multiply;
+		background-blend-mode: multiply;
+		background-attachment: fixed;
+		background-size: 100vw 100vh;
+		top: 0;
+		left: 0;
+		z-index: -1;
 	}
 }

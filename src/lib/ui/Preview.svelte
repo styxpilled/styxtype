@@ -71,13 +71,17 @@
 		<div
 			id="preview-text"
 			class="preview"
-			class:quotes={selectedText.quotes}
+			class:quotes={text.charAt(0) == '“'}
 			style="font-feature-settings: {fontFeatureSettings};
         font-variation-settings: {fontVariationSettings};
         "
 		>
 			<p class="dropcap">
-				{text.slice(0, text.indexOf(' '))}
+				{#if text.charAt(0) == '“'}
+					<span>“</span>{text.slice(1, text.indexOf(' '))}
+				{:else}
+					{text.slice(0, text.indexOf(' '))}
+				{/if}
 			</p>
 			<p>{text.slice(text.indexOf(' ') + 1)}</p>
 		</div>
@@ -88,17 +92,15 @@
 		<div
 			id="preview-charset"
 			class="preview"
-			style="font-feature-settings: {fontFeatureSettings};
-        font-variation-settings: {fontVariationSettings};
-        "
+			style:font-feature-settings={fontFeatureSettings}
+			style:font-variation-settings={fontVariationSettings}
 		>
 			{#if extMeta && extMeta?.[app.activeFont]?.characterSet}
 				{#each String.fromCodePoint(...extMeta[app.activeFont].characterSet) as char}
 					<span>{char}</span>
 				{/each}
-				<!-- <p>{String.fromCodePoint(...extMeta[app.activeFont].characterSet)}</p> -->
 			{:else}
-				ERR
+				Can't load character set, defaulting to standard...
 				{#each charset.split('') as char}
 					{char}
 				{/each}
@@ -108,10 +110,13 @@
 		{@render structuredPreview(texts[app.activePreview])}
 	{/if}
 </div>
-<div id="preview-settings">
-	<ul id="feature-settings">
-		{#if meta}
-			{@const faces = meta[app.activeFont]}
+{#if meta}
+	{@const faces = meta[app.activeFont]}
+	<div id="preview-settings">
+		<div id="description" class="paper">
+			{app.font?.description}
+		</div>
+		<ul id="feature-settings" class="paper">
 			{#each Object.keys(faces) as faceName}
 				{@const face = faces[faceName]}
 				{#each face.availableFeatures as feature}
@@ -149,9 +154,9 @@
 					</form>
 				{/each}
 			{/each}
-		{/if}
-	</ul>
-</div>
+		</ul>
+	</div>
+{/if}
 
 <style>
 	ul {
@@ -188,13 +193,12 @@
 		display: grid;
 		grid-template-columns: repeat(9, 1fr);
 		max-width: 50rem;
-		font-size: 1.5rem;
+		font-size: 4rem;
 		font-family: var(--preview-font), var(--preview-font-subset), 'AdobeBlank';
+		overflow-y: scroll;
 
 		& span {
 			display: block;
-			height: 2rem;
-			width: 2rem;
 		}
 	}
 
@@ -208,21 +212,26 @@
 		line-height: 0.75;
 		margin-top: 0.4rem;
 		padding-right: 0.1ch;
+		position: relative;
 	}
 
-	#preview-text.quotes > .dropcap {
-		margin-left: -0.75ch;
+	#preview-text > .dropcap > span {
+		position: absolute;
+		right: 100%;
 	}
 
 	#preview-settings {
-		height: min-content;
-		padding: 1rem;
+		display: flex;
+		flex-direction: column;
+		gap: 2rem;
 		margin-right: 1rem;
-		background: url('/images/bg1.jpg');
-		background: #66645a url('/images/bg1.jpg');
-		background-blend-mode: multiply;
-		background-attachment: fixed;
-		background-size: 100vw 100vh;
-		background-blend-mode: multiply;
+
+		& > * {
+			padding: 1rem;
+		}
+	}
+
+	#description {
+		width: 20rem;
 	}
 </style>
