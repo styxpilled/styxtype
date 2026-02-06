@@ -3,7 +3,7 @@ import type { Font } from '../fonts';
 
 export const app = $state<{
 	activeFont: string;
-	activePreview: keyof typeof texts | 'charset';
+	activePreview: keyof typeof texts | 'charset' | 'typetest';
 	font?: Font;
 }>({
 	activeFont: '',

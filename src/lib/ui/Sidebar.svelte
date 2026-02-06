@@ -4,6 +4,7 @@
 	import { type Font } from '../../font.js';
 	import { fonts } from '../../fonts.js';
 	import { browser } from '$app/environment';
+	import { focus } from '$lib/helpers.js';
 
 	const fontCache: { [key: string]: boolean } = {};
 	let searchFilter = $state('');
@@ -52,8 +53,6 @@
 	if (browser) loadFont(fonts[0]);
 </script>
 
-<!-- <div id="sidebar"> -->
-
 <div id="sidebar">
 	<div class="search paper">
 		<div id="font-search-container">
@@ -75,8 +74,25 @@
 			{@const rot2 = -rot + idx + 10}
 			{@const offset = rot2 > 3 ? 1 : 5}
 			<!-- {angles[(rot + rotation) % angles.length]} -->
-			<li class="font" class:active={font.name === app.activeFont}>
-				<button onclick={() => loadFont(font)}>
+			<li
+				class="font"
+				class:active={font.name === app.activeFont}
+				onmouseenter={(e) => {
+					e.currentTarget.classList.add('hover');
+				}}
+				onmouseleave={(e) => focus(e.target as typeof e.currentTarget)}
+			>
+				<button
+					onclick={() => loadFont(font)}
+					onfocus={(e) => {
+						e.currentTarget?.parentElement?.classList.add('hover');
+					}}
+					onblur={(e) => {
+						console.log(e);
+
+						focus((e.target as typeof e.currentTarget)?.parentElement as typeof e.currentTarget);
+					}}
+				>
 					<div class="preview" style="mask-image: url('/generated/images/{font.name}.png')">
 						<img id="{font.name}-image" src="/generated/images/{font.name}.png" alt="" />
 					</div>
@@ -115,6 +131,7 @@
 		z-index: 5;
 		font-size: 2rem;
 		background: linear-gradient(to bottom, #0e0e0c57, transparent);
+		color: whitesmoke;
 	}
 
 	#font-search {
@@ -139,6 +156,7 @@
 			border-radius: 0.5rem;
 			border: 4px solid #0e0e0caa;
 			filter: url(#noise-small) blur(0.65px);
+			pointer-events: none;
 		}
 	}
 
@@ -179,62 +197,46 @@
 
 	.font {
 		--op: #2b6746;
+		--frames: 6;
 
 		&::before {
 			content: '';
 			position: absolute;
 			width: 100%;
-			height: 100%;
+			/* height: 100%; */
+			height: 72px;
+			left: 0.5rem;
 			background-repeat: no-repeat;
-			background-size: calc(max(100%, 300px)) 72px;
+			background-image: url('/images/reveal-alpha/out.png'), linear-gradient(currentColor);
+			background-size: 100% calc(72px * var(--frames));
 			mix-blend-mode: screen;
-			/* animation-direction: reverse; */
+			background-position: 0 72px;
 			color: var(--op);
 			background-blend-mode: multiply;
 			transition: color 200ms ease-in-out;
 		}
 
-		&:hover::before,
+		:global(&.hover::before),
 		&:has(button:focus)::before {
-			animation: brush 0.2s forwards;
+			animation: brush 0.2s steps(calc(var(--frames))) forwards;
 		}
 	}
 
 	.active {
-		/* background: url('https://s2.svgbox.net/pen-brushes.svg?ic=brush-1&color=6cffb1'); */
-		/* background: url('/images/reveal-alpha/Layer 2.png'), linear-gradient(currentColor); */
-		/* background-size: 100% 100%; */
-		/* mask: url('https://s2.svgbox.net/pen-brushes.svg?ic=brush-1') no-repeat 0 0; */
-		/* mask-size: 100% 100%; */
 		&::before {
-			animation: brush 0.2s forwards;
+			animation: brush 0.2s steps(calc(var(--frames))) forwards;
 			--op: #6cffb1;
 			color: var(--op);
 		}
 
 		& .preview {
-			background: black;
+			background: #1d1515;
 		}
 	}
 
 	@keyframes brush {
-		0% {
-			background-image: url('/images/reveal-alpha/Layer 2.png'), linear-gradient(currentColor);
-		}
-		20% {
-			background-image: url('/images/reveal-alpha/Layer 3.png'), linear-gradient(currentColor);
-		}
-		40% {
-			background-image: url('/images/reveal-alpha/Layer 4.png'), linear-gradient(currentColor);
-		}
-		60% {
-			background-image: url('/images/reveal-alpha/Layer 5.png'), linear-gradient(currentColor);
-		}
-		80% {
-			background-image: url('/images/reveal-alpha/Layer 6.png'), linear-gradient(currentColor);
-		}
-		100% {
-			background-image: url('/images/reveal-alpha/Layer 7.png'), linear-gradient(currentColor);
+		to {
+			background-position: 0 -360px;
 		}
 	}
 

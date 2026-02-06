@@ -19,6 +19,7 @@
 		grid-template-rows: 1fr;
 		padding: 0 1rem;
 		font-size: 3rem;
+		white-space: pre;
 	}
 
 	.logo {

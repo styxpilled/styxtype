@@ -4,6 +4,7 @@
 	import { typedKeys } from '$lib/helpers';
 	import { app } from '$lib/state.svelte';
 	import { fonts } from '../../fonts';
+	import Meta from './Preview/Meta.svelte';
 
 	// let app.activePreview = $state<keyof typeof texts | 'charset'>(typedKeys(texts)[0]);
 	const charset = `!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_\`abcdefghijklmnopqrstuvwxyz{|}~`;
@@ -16,7 +17,25 @@
 		extMeta = ext.default;
 	});
 
-	let settings = $state<{
+	let settings = $state({
+		size: {
+			value: 3,
+			min: 1,
+			max: 8
+		},
+		lineHeight: {
+			value: 1,
+			min: 0.25,
+			max: 3,
+			step: 0.25
+		},
+		letterSpacing: {
+			value: 0,
+			min: -20,
+			max: 20
+		}
+	});
+	let featureSettings = $state<{
 		[key: string]: {
 			features: string[];
 			axes: {
@@ -31,37 +50,54 @@
 	);
 
 	let fontFeatureSettings = $derived(
-		settings[app.activeFont].features.map((v) => `"${v}"`).join(', ')
+		featureSettings[app.activeFont].features.map((v) => `"${v}"`).join(', ')
 	);
 
 	let fontVariationSettings = $derived.by(() => {
 		let acc = '';
-		const axes = settings[app.activeFont].axes;
+		const axes = featureSettings[app.activeFont].axes;
 		const axesNames = Object.keys(axes);
 		for (const axis of axesNames) {
 			if (acc !== '') acc += ', ';
-			if (axis !== null) acc += `"${axis}" ${settings[app.activeFont].axes[axis]}`;
+			if (axis !== null) acc += `"${axis}" ${featureSettings[app.activeFont].axes[axis]}`;
 		}
 		return acc;
 	});
 </script>
+
+{#snippet previewToggle(value: typeof app.activePreview)}
+	<li>
+		<label>
+			<input
+				type="radio"
+				name="preview"
+				{value}
+				checked={app.activePreview === value}
+				oninput={() => (app.activePreview = value)}
+			/>
+			<span>{value}</span>
+		</label>
+	</li>
+{/snippet}
 
 <div
 	id="preview"
 	style="--preview-font: {app.activeFont}; --preview-font-subset: {app.activeFont} Subset;"
 >
 	<ul id="preview-toggles">
-		<li>
-			<label>
-				<input type="radio" name="preview" value={'charset'} bind:group={app.activePreview} />
-				<span>charset</span>
-			</label>
-		</li>
-		{#each typedKeys(texts) as key}
+		<!-- {@render previewToggle('charset')} -->
+		<!-- {@render previewToggle('typetest')} -->
+		{#each ['charset', 'typetest'].concat(typedKeys(texts)) as (typeof app.activePreview)[] as value}
 			<li>
 				<label>
-					<input type="radio" name="preview" value={key} bind:group={app.activePreview} />
-					<span>{key}</span>
+					<input
+						type="radio"
+						name="preview"
+						{value}
+						checked={app.activePreview === value}
+						oninput={() => (app.activePreview = value)}
+					/>
+					<span>{value}</span>
 				</label>
 			</li>
 		{/each}
@@ -72,9 +108,8 @@
 			id="preview-text"
 			class="preview"
 			class:quotes={text.charAt(0) == '“'}
-			style="font-feature-settings: {fontFeatureSettings};
-        font-variation-settings: {fontVariationSettings};
-        "
+			style:font-feature-settings={fontFeatureSettings}
+			style:font-variation-settings={fontVariationSettings}
 		>
 			<p class="dropcap">
 				{#if text.charAt(0) == '“'}
@@ -106,56 +141,27 @@
 				{/each}
 			{/if}
 		</div>
+	{:else if app.activePreview === 'typetest'}
+		<div
+			id="preview-text"
+			class="preview"
+			style:font-feature-settings={fontFeatureSettings}
+			style:font-variation-settings={fontVariationSettings}
+			style:font-size="{settings.size.value}rem"
+			style:line-height="{settings.lineHeight.value}em"
+			style:letter-spacing="{settings.letterSpacing.value}px"
+			contenteditable="true"
+			spellcheck="false"
+		>
+			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora error voluptates molestiae
+		</div>
 	{:else}
 		{@render structuredPreview(texts[app.activePreview])}
 	{/if}
 </div>
 {#if meta}
 	{@const faces = meta[app.activeFont]}
-	<div id="preview-settings">
-		<div id="description" class="paper">
-			{app.font?.description}
-		</div>
-		<ul id="feature-settings" class="paper">
-			{#each Object.keys(faces) as faceName}
-				{@const face = faces[faceName]}
-				{#each face.availableFeatures as feature}
-					<label>
-						<input
-							type="checkbox"
-							name="{app.activeFont}-features"
-							value={feature}
-							bind:group={settings[app.activeFont].features}
-						/>
-						{feature}
-					</label>
-				{/each}
-				{#each Object.keys(face.variationAxes) as axisName}
-					{@const axis = face.variationAxes[axisName]}
-					<form>
-						<label
-							>{axisName}
-							<input
-								type="range"
-								name="{app.activeFont}-axis"
-								min={axis.min}
-								max={axis.max}
-								oninput={(e) => {
-									settings[app.activeFont].axes[axisName] = e.target.value;
-								}}
-							/>
-						</label>
-						<button
-							type="reset"
-							onclick={() => {
-								settings[app.activeFont].axes[axisName] = 'null';
-							}}>Reset</button
-						>
-					</form>
-				{/each}
-			{/each}
-		</ul>
-	</div>
+	<Meta {faces} bind:featureSettings bind:settings />
 {/if}
 
 <style>
@@ -166,10 +172,6 @@
 	#preview-toggles {
 		gap: 1rem;
 		margin-bottom: 1rem;
-	}
-
-	#feature-settings {
-		flex-direction: column;
 	}
 
 	#preview {
@@ -218,20 +220,5 @@
 	#preview-text > .dropcap > span {
 		position: absolute;
 		right: 100%;
-	}
-
-	#preview-settings {
-		display: flex;
-		flex-direction: column;
-		gap: 2rem;
-		margin-right: 1rem;
-
-		& > * {
-			padding: 1rem;
-		}
-	}
-
-	#description {
-		width: 20rem;
 	}
 </style>
