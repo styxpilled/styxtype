@@ -451,7 +451,7 @@ export const fonts = [
 		},
 		href: 'https://www.collletttivo.it/typefaces/sinistre',
 		description: `%TITLE% by %AUTHOR% combines the Uncial minuscule, Roman proportions and subtle hints of Fraktur into soft letterforms and sharp terminations.`,
-		category: 'sans-serif',
+		category: 'serif',
 		license: 'SIL',
 		links: [],
 		font: () => '#fonts/Sinistre/SinistreVF.woff2'
@@ -764,20 +764,6 @@ export const fonts = [
 		style: 'letter-spacing: -9px;'
 	},
 	{
-		name: 'Grith',
-		author: {
-			href: 'https://www.behance.net/yosinasution',
-			name: 'Yosi Nasution'
-		},
-		href: 'https://www.behance.net/gallery/216036863/Grith',
-		description: `MISSING DESCRIPTION`,
-		category: 'sans-serif',
-		license: 'SIL',
-		links: [],
-		font: () => '#fonts/Grith/Grith.otf'
-		// style: 'letter-spacing: 2px;'
-	},
-	{
 		name: 'Pelicula',
 		author: {
 			href: 'https://github.com/jackkershaw',
@@ -789,7 +775,6 @@ export const fonts = [
 		license: 'SIL',
 		links: [],
 		font: () => '#fonts/Pelicula/Pelicula.otf'
-		// style: 'letter-spacing: 2px;'
 	},
 	{
 		name: 'Walthari',
@@ -803,7 +788,6 @@ export const fonts = [
 		license: 'SIL',
 		links: [],
 		font: () => '#fonts/Walthari/Walthari.ttf'
-		// style: 'letter-spacing: 2px;'
 	},
 	{
 		name: 'Trathnona',
@@ -817,6 +801,125 @@ export const fonts = [
 		license: 'SIL',
 		links: [],
 		font: () => '#fonts/Trathnona/Trathnona.woff2'
-		// style: 'letter-spacing: 2px;'
+	},
+	{
+		name: 'Righteous',
+		author: {
+			href: null,
+			name: 'Brian J. Bonislawsky'
+		},
+		href: 'https://github.com/librefonts/righteous',
+		description: `MISSING DESCRIPTION`,
+		category: 'sans-serif',
+		license: 'SIL',
+		links: [],
+		font: () => '@fontsource/righteous/files/righteous-latin-400-normal.woff2',
+		style: 'text-transform: uppercase;'
+	},
+	{
+		name: 'Rock Salt',
+		author: {
+			href: null,
+			name: 'Sideshow'
+		},
+		href: 'https://fonts.google.com/specimen/Rock+Salt',
+		description: `MISSING DESCRIPTION`,
+		category: 'script',
+		license: 'SIL',
+		links: [],
+		font: () => '@fontsource/rock-salt/files/rock-salt-latin-400-normal.woff2'
+	},
+	{
+		name: 'Maratype',
+		author: {
+			href: 'https://www.behance.net/iamimago',
+			name: 'Artyom Galinov'
+		},
+		href: 'https://www.behance.net/gallery/227048755/MARATYPE-custom-display-font',
+		description: `MISSING DESCRIPTION`,
+		category: 'display',
+		license: 'FREE',
+		links: [],
+		font: () => '#fonts/Maratype/Maratype.otf'
+	},
+	{
+		name: 'Very very punk font',
+		author: {
+			href: 'https://wanders.work',
+			name: 'Tup Wanders'
+		},
+		href: 'https://wanders.work/fonts',
+		description: `MISSING DESCRIPTION`,
+		category: 'display',
+		license: 'SIL',
+		links: [],
+		font: () => '#fonts/VeryVeryPunkFont/VeryVeryPunkFont.ttf'
+	},
+	{
+		name: 'TJF Anomaly',
+		author: {
+			href: 'https://jigsawfoundry.gumroad.com/',
+			name: 'The Jigsaw Foundry'
+		},
+		href: 'https://www.fontspace.com/the-jigsaw-foundry',
+		description: `MISSING DESCRIPTION`,
+		category: 'display',
+		license: 'CC BY 4.0',
+		links: [],
+		font: () => '#fonts/TJFAnomaly/TJFAnomaly.ttf',
+		style: 'text-transform: uppercase;'
+	},
+	{
+		name: 'Sandana',
+		author: {
+			href: 'https://jigsawfoundry.gumroad.com/',
+			name: 'The Jigsaw Foundry'
+		},
+		href: 'https://www.fontspace.com/the-jigsaw-foundry',
+		description: `MISSING DESCRIPTION`,
+		category: 'display',
+		license: 'CC BY 4.0',
+		links: [],
+		font: () => '#fonts/TJFSandana/Sandana.ttf',
+		style: 'text-transform: uppercase; font-feature-settings: "aalt";'
+	},
+	{
+		name: 'Evil Empire',
+		author: {
+			href: 'https://wanders.work',
+			name: 'Tup Wanders'
+		},
+		href: 'https://wanders.work/fonts',
+		description: `MISSING DESCRIPTION`,
+		category: 'display',
+		license: 'SIL',
+		links: [],
+		font: () => '#fonts/EvilEmpire/EvilEmpire.ttf'
+	},
+	{
+		name: 'Committee',
+		author: {
+			href: null,
+			name: 'Alec Dunn'
+		},
+		href: 'https://justseeds.org/graphic/justseeds-font-pack-4',
+		description: `MISSING DESCRIPTION`,
+		category: 'sans-serif',
+		license: 'CC BY-SA',
+		links: [],
+		font: () => '#fonts/Committee/Committee-Bold.otf'
+	},
+	{
+		name: 'Umbral',
+		author: {
+			href: null,
+			name: 'Alec Dunn'
+		},
+		href: 'https://justseeds.org/graphic/justseeds-font-pack-18',
+		description: `MISSING DESCRIPTION`,
+		category: 'sans-serif',
+		license: 'CC BY-SA',
+		links: [],
+		font: () => '#fonts/Umbral/Umbral.otf'
 	}
 ];

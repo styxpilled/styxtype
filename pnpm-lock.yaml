@@ -83,6 +83,12 @@ importers:
       '@fontsource/quando':
         specifier: ^5.1.0
         version: 5.2.8
+      '@fontsource/righteous':
+        specifier: ^5.2.7
+        version: 5.2.7
+      '@fontsource/rock-salt':
+        specifier: ^5.2.8
+        version: 5.2.8
       '@fontsource/staatliches':
         specifier: ^5.2.8
         version: 5.2.8
@@ -450,6 +456,12 @@ packages:
 
   '@fontsource/quando@5.2.8':
     resolution: {integrity: sha512-JKhZP41/I67PI03DCadIc0egaGrquzvSv2uBcf/QhQx2eYsmVsQOcrIom51rsLI+eBiQx8cewWADmzpjN1y2WQ==}
+
+  '@fontsource/righteous@5.2.7':
+    resolution: {integrity: sha512-u50Zr6cPEmbf5DUsw/NW5kQGgKB45mnFc+N12rFsoDm7pywUaEQmrVcYKPv2+4yo6f+mIDUXb4olZruknMU3QA==}
+
+  '@fontsource/rock-salt@5.2.8':
+    resolution: {integrity: sha512-nXHZcVqUSRMJt79K5WezYXnZ6PhQHuuF6g4Swc92qcIge1SSkW/3qA3HGXoG+nj9HdD+kxlqi3VSSj6soL0QVA==}
 
   '@fontsource/staatliches@5.2.8':
     resolution: {integrity: sha512-z52At6eCXmoQZKGSECzd6FqQSEmvWE5okTajgTaogjS2KP0fhgWCgd8KZzUQYi/phGE65u0M28AjhNdy1xbnbw==}
@@ -2058,6 +2070,10 @@ snapshots:
   '@fontsource/merriweather@5.2.11': {}
 
   '@fontsource/quando@5.2.8': {}
+
+  '@fontsource/righteous@5.2.7': {}
+
+  '@fontsource/rock-salt@5.2.8': {}
 
   '@fontsource/staatliches@5.2.8': {}
 

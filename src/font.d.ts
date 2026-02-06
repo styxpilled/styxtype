@@ -6,9 +6,9 @@ export type Font = {
 	} | null;
 	href: string | null;
 	description: string;
-	category: 'sans-serif' | 'serif' | 'monospace' | 'display' | 'script';
+	category: 'sans-serif' | 'serif' | 'monospace' | 'display' | 'script' | 'blackletter';
 	license: string;
-	links: string[];
+	links: { href: string; label: string }[] | string[];
 	font: () => string;
 	style?: string;
 };

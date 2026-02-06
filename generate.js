@@ -9,7 +9,7 @@ const config = {
 	single: null
 	// single: 'hrdtkn_ver1_20'
 };
-const subsetCharset = `!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_\`abcdefghijklmnopqrstuvwxyz{|}~`;
+const subsetCharset = `!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_\`abcdefghijklmnopqrstuvwxyz{|}~“”`;
 
 import nodeHtmlToImage from 'node-html-to-image';
 import font2base64 from 'node-font2base64';
@@ -37,6 +37,19 @@ fonts.map((f) => {
 	// copyFileSync(p, `${tmpFontsDir}/${f.name}${path.extname(p)}`);
 });
 
+// * COPY FONTS
+try {
+	fs.mkdirSync('./static/generated/fonts');
+} catch (error) {}
+for (const f of fonts) {
+	const ext = path.extname(f.absolutePath);
+	try {
+		fs.copyFileSync(f.absolutePath, `./static/generated/fonts/${f.name}${ext}`);
+	} catch (error) {
+		console.log(error);
+	}
+}
+
 // * GENERATE METADATA
 import { open } from 'fontkit';
 const promises = [];
@@ -44,7 +57,7 @@ const metadata = {};
 const extendedMetadata = {};
 for (const f of fonts) {
 	promises.push(
-		open(`./static/generated/fonts/${f.name}.woff2`).then((font) => {
+		open(`./static/generated/fonts/${f.name}${path.extname(f.absolutePath)}`).then((font) => {
 			// console.log(font.availableFeatures);
 			// console.log(font.familyName);
 			// console.log(font.fullName);
@@ -106,19 +119,6 @@ fs.writeFile('./src/lib/assets/extended-metadata.json', extendedMetadataJSON, 'u
 		console.error('Error writing to file', err);
 	}
 });
-
-// * COPY FONTS
-try {
-	fs.mkdirSync('./static/generated/fonts');
-} catch (error) {}
-for (const f of fonts) {
-	const ext = path.extname(f.absolutePath);
-	try {
-		fs.copyFileSync(f.absolutePath, `./static/generated/fonts/${f.name}${ext}`);
-	} catch (error) {
-		console.log(error);
-	}
-}
 
 // * SUBSET FONTS
 import subsetFont from 'subset-font';
