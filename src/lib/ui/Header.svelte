@@ -11,9 +11,6 @@
 
 <style>
 	#header {
-		/* outline: 2px solid orange;
-		outline-offset: -2px; */
-		/* height: 4.5rem; */
 		display: grid;
 		grid-template-columns: 1fr 1fr 1fr 1fr;
 		grid-template-rows: 1fr;
@@ -23,10 +20,21 @@
 	}
 
 	.logo {
-		/* line-height: 3rem; */
-		font-size: 3rem;
 		font-weight: bold;
 		text-align: end;
+	}
+
+	@media (max-width: 800px) {
+		#header {
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: 1fr 1fr;
+			font-size: 2rem;
+		}
+
+		.logo {
+			grid-row: 1;
+			grid-column: 2;
+		}
 	}
 
 	h1 {

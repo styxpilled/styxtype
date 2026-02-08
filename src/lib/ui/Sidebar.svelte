@@ -5,6 +5,7 @@
 	import { fonts } from '../../fonts.js';
 	import { browser } from '$app/environment';
 	import { focus } from '$lib/helpers.js';
+	import Search from './Sidebar/Search.svelte';
 
 	const fontCache: { [key: string]: boolean } = {};
 	let searchFilter = $state('');
@@ -54,18 +55,8 @@
 </script>
 
 <div id="sidebar">
-	<div class="search paper">
-		<div id="font-search-container">
-			<input
-				type="text"
-				name="font-search"
-				id="font-search"
-				placeholder="Search"
-				bind:value={searchFilter}
-			/>
-		</div>
-	</div>
-	<ul>
+	<Search />
+	<ul id="fontlist">
 		{#each fonts
 			.filter((f) => f.name.toLowerCase().includes(searchFilter))
 			.toSorted((a, b) => a.name.localeCompare(b.name)) as font, i}
@@ -120,58 +111,21 @@
 </div>
 
 <style>
-	.search {
-		position: sticky;
-		top: 0;
-		padding: 0.5rem;
-		padding-left: 1rem;
-		width: 100%;
-		height: min-content;
-		/* background-color: red; */
-		z-index: 5;
-		font-size: 2rem;
-		background: linear-gradient(to bottom, #0e0e0c57, transparent);
-		color: whitesmoke;
+	#sidebar {
+		/* height: calc(100vh - 16rem); */
+		display: flex;
+		flex-direction: column;
 	}
 
-	#font-search {
-		border-radius: 0.5rem;
-		padding: 0 0.5rem;
-		background: radial-gradient(ellipse at 50% 50%, #2d2b28ee 0%, #0e0e0cee 90%);
-		backdrop-filter: blur(2px);
-		margin: 0.5rem;
-	}
-
-	#font-search-container {
-		width: min-content;
-		position: relative;
-
-		&::after {
-			content: '';
-			position: absolute;
-			height: 100%;
-			width: 100%;
-			top: 0;
-			left: 0;
-			border-radius: 0.5rem;
-			border: 4px solid #0e0e0caa;
-			filter: url(#noise-small) blur(0.65px);
-			pointer-events: none;
-		}
-	}
-
-	div#sidebar {
-		height: calc(100vh - 16rem);
-	}
-
-	ul {
+	#fontlist {
 		position: relative;
 		display: flex;
 		flex-direction: column;
 		width: 33vw;
 		max-width: 33vw;
-		min-height: calc(100vh - 16rem);
-		height: calc(100vh - 9rem);
+		/* min-height: calc(100vh - 16rem); */
+		/* height: calc(100vh - 3rem); */
+		/* height: 100%; */
 		align-items: flex-start;
 		justify-content: flex-start;
 		margin-top: -1rem;
@@ -179,6 +133,19 @@
 		overflow-y: scroll;
 		overflow-x: hidden;
 		background: linear-gradient(to right, #110d09, transparent 50%);
+	}
+
+	@media (max-width: 800px) {
+		#fontlist {
+			width: 100vw;
+			max-width: 100vw;
+			height: calc(50vh - 9rem);
+			transition: height 300ms ease-in-out;
+		}
+
+		#sidebar:has(:global(#eye > input:checked)) > #fontlist {
+			height: 0px;
+		}
 	}
 
 	.font {

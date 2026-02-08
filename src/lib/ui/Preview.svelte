@@ -3,12 +3,13 @@
 	import texts from '$lib/assets/texts.json';
 	import { typedKeys } from '$lib/helpers';
 	import { app } from '$lib/state.svelte';
+	import { UnicodeRange } from '@japont/unicode-range';
 	import { fonts } from '../../fonts';
 	import Meta from './Preview/Meta.svelte';
 
 	// let app.activePreview = $state<keyof typeof texts | 'charset'>(typedKeys(texts)[0]);
 	const charset = `!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_\`abcdefghijklmnopqrstuvwxyz{|}~`;
-	let extMeta = $state<{ [key: string]: { characterSet: number[] } } | null>(null);
+	let extMeta = $state<{ [key: string]: { characterSet: string[] } } | null>(null);
 	let meta = $state<Metadata>();
 	import('$lib/assets/metadata.json').then((m) => {
 		meta = m.default;
@@ -131,7 +132,7 @@
 			style:font-variation-settings={fontVariationSettings}
 		>
 			{#if extMeta && extMeta?.[app.activeFont]?.characterSet}
-				{#each String.fromCodePoint(...extMeta[app.activeFont].characterSet) as char}
+				{#each String.fromCodePoint(...UnicodeRange.parse(extMeta[app.activeFont].characterSet)) as char}
 					<span>{char}</span>
 				{/each}
 			{:else}
@@ -165,22 +166,26 @@
 {/if}
 
 <style>
-	ul {
+	#preview-toggles {
 		display: flex;
+		gap: 0.25rem 1rem;
+		margin-bottom: 1rem;
 	}
 
-	#preview-toggles {
-		gap: 1rem;
-		margin-bottom: 1rem;
+	@media (max-width: 800px) {
+		#preview-toggles {
+			flex-wrap: wrap;
+			/* flex-direction: column; */
+		}
 	}
 
 	#preview {
 		display: flex;
 		flex-direction: column;
-		padding-left: 4rem;
-		/* outline: 2px solid purple; */
-		/* outline-offset: -2px; */
-		/* width: 100%; */
+		align-items: center;
+		padding: 1rem;
+		margin: 2rem;
+		margin-top: 0;
 		flex: 1;
 	}
 

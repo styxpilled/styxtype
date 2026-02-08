@@ -7,7 +7,7 @@
 
 <div id="preview-settings">
 	<div id="description" class="paper">
-		{app.font?.description}
+		<p>{app.font?.description}</p>
 	</div>
 	<ul id="feature-settings" class="paper">
 		{#each Object.keys(faces) as faceName}
@@ -25,7 +25,6 @@
 					/>
 				</label>
 			{/each}
-
 			{#each face.availableFeatures as feature}
 				<label>
 					<input

@@ -87,9 +87,12 @@ for (const f of fonts) {
 			// console.log(charSet.length);
 
 			charSet.pop();
+			const strCharSet = UnicodeRange.stringify(charSet);
+			// console.log(JSON.stringify(strCharSet).length, JSON.stringify(charSet).length);
+
 			// console.log(String.fromCodePoint(...charSet));
 			extendedMetadata[f.name] = {
-				characterSet: charSet
+				characterSet: strCharSet
 			};
 			// console.log(extendedMetadata[f.name].characterSet.length);
 
@@ -122,6 +125,7 @@ fs.writeFile('./src/lib/assets/extended-metadata.json', extendedMetadataJSON, 'u
 
 // * SUBSET FONTS
 import subsetFont from 'subset-font';
+import { UnicodeRange } from '@japont/unicode-range';
 try {
 	fs.rmdirSync('./static/generated/optimized', {
 		recursive: true,
