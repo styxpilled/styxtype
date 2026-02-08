@@ -1,10 +1,11 @@
 <script lang="ts">
+	import { app } from '$lib/state.svelte';
 	import Header from '$lib/ui/Header.svelte';
 	import Preview from '$lib/ui/Preview.svelte';
 	import Sidebar from '$lib/ui/Sidebar.svelte';
 </script>
 
-<div id="content">
+<div id="content" data-theme={app.activeTheme}>
 	<Header />
 	<div id="main">
 		<Sidebar />
@@ -48,7 +49,13 @@
 	#main {
 		display: flex;
 		flex-direction: row;
-		/* min-height: 100vh; */
+		min-height: calc(100vh - var(--header-height));
 		max-height: calc(100vh - var(--header-height));
+	}
+
+	@media (max-width: 800px) {
+		#main {
+			flex-direction: column;
+		}
 	}
 </style>
