@@ -6,6 +6,7 @@
 	import { browser } from '$app/environment';
 	import { focus } from '$lib/helpers.js';
 	import Search from './Sidebar/Search.svelte';
+	import sizes from '../assets/sizes.json';
 
 	const fontCache: { [key: string]: boolean } = {};
 	let searchFilter = $state('');
@@ -54,8 +55,14 @@
 	if (browser) loadFont(fonts[0]);
 </script>
 
+<svelte:head>
+	{#each fonts.filter((f) => f.name.toLowerCase().includes(searchFilter)).slice(0, 8) as font}
+		<link rel="prefetch" href="/generated/images/{font.name}.png" />
+	{/each}
+</svelte:head>
+
 <div id="sidebar">
-	<Search />
+	<Search bind:searchFilter />
 	<ul id="fontlist">
 		{#each fonts
 			.filter((f) => f.name.toLowerCase().includes(searchFilter))
@@ -79,28 +86,25 @@
 						e.currentTarget?.parentElement?.classList.add('hover');
 					}}
 					onblur={(e) => {
-						console.log(e);
-
 						focus((e.target as typeof e.currentTarget)?.parentElement as typeof e.currentTarget);
 					}}
 				>
-					<div class="preview" style="mask-image: url('/generated/images/{font.name}.png')">
-						<img id="{font.name}-image" src="/generated/images/{font.name}.png" alt="" />
+					<div class="font-img" style="mask-image: url('/generated/avif/{font.name}.avif')">
+						<img
+							id="{font.name}-image"
+							src="/generated/avif/{font.name}.avif"
+							alt=""
+							width={sizes[font.name].w}
+							height={sizes[font.name].h}
+						/>
 					</div>
 				</button>
 				<div class="info" style:--i={(rot + idx) % 4}>
-					<span
-						style="--rotate: {angles[
-							(rot + idx) % angles.length
-						]}; --offset: {offset}; color: #954e79;"
-						class="bg"
-					>
+					<span style:--rotate={angles[(rot + idx) % angles.length]} class="bg category">
 						{font.category}
 					</span>
-					<span
-						style="color: #6cffb1;"
-						style:--rotate={angles[(rot - idx) % angles.length]}
-						class="license">{font.license}</span
+					<span style:--rotate={angles[((rot - idx) % angles.length) - 1]} class="license"
+						>{font.license}</span
 					>
 				</div>
 			</li>
@@ -124,7 +128,7 @@
 		width: 33vw;
 		max-width: 33vw;
 		/* min-height: calc(100vh - 16rem); */
-		/* height: calc(100vh - 3rem); */
+		height: calc(100vh - 9rem);
 		/* height: 100%; */
 		align-items: flex-start;
 		justify-content: flex-start;
@@ -196,7 +200,7 @@
 			color: var(--op);
 		}
 
-		& .preview {
+		& .font-img {
 			background: #1d1515;
 		}
 	}
@@ -227,6 +231,15 @@
 		rotate: calc(1.5deg * var(--rotate));
 		display: inline-block;
 		transform-origin: top;
+		--rotate: 3;
+
+		&.category {
+			color: #954e79;
+		}
+
+		&.license {
+			color: #6cffb1;
+		}
 
 		&::before {
 			z-index: -1;
@@ -242,7 +255,7 @@
 		}
 	}
 
-	.preview {
+	.font-img {
 		/* background: linear-gradient(
 			90deg,
 			rgba(42, 123, 155, 1) 0%,

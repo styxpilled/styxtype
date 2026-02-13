@@ -10,17 +10,17 @@ export const app = $state<{
 	activeFont: '',
 	activePreview: 'Prachett',
 	font: undefined,
-	activeTheme: 'deadlock'
+	activeTheme: 'marathon'
 });
 
-type ThemeKey = 'deadlock' | 'marathon';
+type ThemeKey = 'arcana' | 'marathon';
 
-export const skinData: {
-	deadlock: null;
+export const themeData: {
+	arcana: null;
 	marathon: {
 		frames: string[];
 	} | null;
 } = $state({
-	deadlock: null,
+	arcana: null,
 	marathon: null
 });

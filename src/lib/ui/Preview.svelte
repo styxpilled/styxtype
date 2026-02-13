@@ -60,7 +60,7 @@
 		const axesNames = Object.keys(axes);
 		for (const axis of axesNames) {
 			if (acc !== '') acc += ', ';
-			if (axis !== null) acc += `"${axis}" ${featureSettings[app.activeFont].axes[axis]}`;
+			if (axes[axis] !== null) acc += `"${axis}" ${axes[axis]}`;
 		}
 		return acc;
 	});
@@ -143,6 +143,7 @@
 			{/if}
 		</div>
 	{:else if app.activePreview === 'typetest'}
+		v var {fontVariationSettings}
 		<div
 			id="preview-text"
 			class="preview"
@@ -163,6 +164,8 @@
 {#if meta}
 	{@const faces = meta[app.activeFont]}
 	<Meta {faces} bind:featureSettings bind:settings />
+{:else}
+	<Meta faces={{}} />
 {/if}
 
 <style>
@@ -187,6 +190,8 @@
 		margin: 2rem;
 		margin-top: 0;
 		flex: 1;
+		max-height: 85vh;
+		overflow: scroll;
 	}
 
 	#preview-text {

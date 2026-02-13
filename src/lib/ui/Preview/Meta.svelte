@@ -15,7 +15,7 @@
 			{#each typedKeys(settings) as settingName}
 				{@const setting = settings[settingName]}
 				<label>
-					{settingName}
+					<span>{settingName}</span>
 					<input
 						type="range"
 						min={setting.min}
@@ -25,22 +25,24 @@
 					/>
 				</label>
 			{/each}
-			{#each face.availableFeatures as feature}
-				<label>
-					<input
-						type="checkbox"
-						name="{app.activeFont}-features"
-						value={feature}
-						bind:group={featureSettings[app.activeFont].features}
-					/>
-					{feature}
-				</label>
-			{/each}
+			<div class="grid-col">
+				{#each face.availableFeatures as feature}
+					<label>
+						<input
+							type="checkbox"
+							name="{app.activeFont}-features"
+							value={feature}
+							bind:group={featureSettings[app.activeFont].features}
+						/>
+						<span>{feature}</span>
+					</label>
+				{/each}
+			</div>
 			{#each Object.keys(face.variationAxes) as axisName}
 				{@const axis = face.variationAxes[axisName]}
 				<form>
 					<label>
-						{axisName}
+						<span>{axisName}</span>
 						<input
 							type="range"
 							name="{app.activeFont}-axis"
@@ -56,7 +58,7 @@
 					<button
 						type="reset"
 						onclick={() => {
-							featureSettings[app.activeFont].axes[axisName] = 'null';
+							featureSettings[app.activeFont].axes[axisName] = null;
 						}}
 					>
 						Reset
@@ -86,5 +88,11 @@
 
 	#description {
 		width: 20rem;
+		display: flex;
+	}
+
+	.grid-col > label {
+		display: block;
+		width: max-content;
 	}
 </style>

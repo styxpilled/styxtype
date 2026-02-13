@@ -3,6 +3,7 @@
 	import Header from '$lib/ui/Header.svelte';
 	import Preview from '$lib/ui/Preview.svelte';
 	import Sidebar from '$lib/ui/Sidebar.svelte';
+	import ThemeManager from '$lib/ui/ThemeManager.svelte';
 </script>
 
 <div id="content" data-theme={app.activeTheme}>
@@ -37,20 +38,28 @@
 			</filter>
 		</defs>
 	</svg>
+	<ThemeManager />
 </div>
 
 <style>
 	#content {
 		min-height: 100vh;
-		max-height: 100vh;
+		height: max-content;
+		/* max-height: 100vh; */
 		/* overflow: hidden; */
+		position: relative;
 	}
 
 	#main {
 		display: flex;
 		flex-direction: row;
-		min-height: calc(100vh - var(--header-height));
-		max-height: calc(100vh - var(--header-height));
+		height: max-content;
+		/* height: 100%; */
+		/* height: 200vh; */
+		/* background-color: rgba(255, 166, 0, 0.184); */
+		overflow: auto;
+		/* min-height: calc(100vh - var(--header-height));
+		max-height: calc(100vh - var(--header-height)); */
 	}
 
 	@media (max-width: 800px) {

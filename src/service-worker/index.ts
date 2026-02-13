@@ -19,7 +19,6 @@ const ASSETS = [
 	...build, // the app itself
 	...files // everything in `static`
 ];
-console.log('test');
 
 self.addEventListener('install', (event) => {
 	// Create a new cache and add all files to it

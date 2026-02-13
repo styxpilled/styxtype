@@ -1,0 +1,234 @@
+@font-face {
+	font-family: 'Code Race';
+	src: url('/STYXCodeRace.woff2');
+}
+
+#content[data-theme='marathon'] {
+	--c1: #c0fe04;
+	--surface: var(--c1);
+	--c2: black;
+	/* --c1: #d9d9d9; */
+	--c1: #d9d9d9;
+	/* background: var(--c1); */
+	color: var(--c2);
+
+	--dot-bg: var(--c1);
+	--dot-color: var(--c2);
+	--dot-size: 1px;
+	--dot-space: 22px;
+	background-size: 16px 16px;
+	background-position: 12px 12px;
+
+	label:has(input[type='checkbox']) {
+		&::before {
+			border-radius: 0;
+		}
+	}
+
+	* {
+		scrollbar-color: black transparent;
+		scrollbar-width: thin;
+	}
+
+	.paper {
+		color: white;
+		--c1: #c0fe04;
+		&::after {
+			background: var(--c2);
+			background: repeating-linear-gradient(
+				45deg,
+				var(--c2),
+				var(--c2) 10px,
+				var(--c1) 10px,
+				var(--c1) 20px
+			);
+			filter: none;
+			outline: 1px solid var(--c2);
+			outline-offset: 2px;
+			z-index: 1;
+		}
+
+		* {
+			z-index: 3;
+		}
+
+		&::before {
+			background-color: var(--c2);
+			content: 'daeeabebddeaddeecccbeeeedddccddeecdecaebbbcbbebadcbdbdaaebbbebcbbeecddcdadbdadeecebccecbbeadeebcacdddedaededabdabaaccdddcbacddbabaceaedacedaeccdceaeeccceabbaebbcbbeedbeaaadcceeadbceeeaabacceaeedeceaddcaeccbacedededabbedeeddbcedcbeeccaccbcbcbdeadbabeacbbcbeabbdcccbeabbaebbbdbbcababbbaacbaaeabaedbbcdaeecebccecbbeadeebcacdddedaededabdabaaccdddcbacddbabaceaedacedaeccdceaeeccceabbaeb';
+			position: absolute;
+			font-family: 'Code Race';
+			word-break: break-all;
+			font-size: 2rem;
+			left: 0;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			margin: 1rem;
+			/* width: calc(100% - 2rem); */
+			line-height: 0.5;
+			letter-spacing: -2px;
+			color: rgb(from var(--c1) r g b / 0.4);
+			z-index: 2;
+			overflow: hidden;
+		}
+	}
+
+	div#search::after,
+	#search > #font-search-container::after {
+		background: none;
+		outline: none;
+		filter: none;
+	}
+
+	#mypopover {
+		--c1: #c0fe04;
+		--c2: black;
+	}
+
+	label:has(input[type='radio']) {
+		border-radius: 0;
+		border-color: var(--c2);
+		color: var(--c2);
+		background: var(--c1);
+
+		&:has(input:checked) {
+			background-color: var(--c2);
+			color: hsl(from var(--c2) h s calc(100 - l));
+		}
+	}
+
+	#sidebar {
+		#search {
+			background: none;
+		}
+	}
+
+	ul#fontlist {
+		background: none !important;
+
+		& .font-img {
+			background: var(--c2);
+		}
+
+		& .font {
+			--op: white;
+			--size: 1px;
+
+			&::before {
+				color: black;
+				background: repeating-linear-gradient(
+					45deg,
+					#ee1a62,
+					#ee1a62 10px,
+					transparent 10px,
+					transparent 20px
+				);
+				width: 0%;
+				mix-blend-mode: normal;
+				transition: width 200ms ease-in-out;
+				overflow: hidden;
+			}
+
+			&.active::before,
+			&.hover::before,
+			&:has(button:focus)::before {
+				width: 100%;
+				animation: dots-slide 0.2s forwards;
+				content: '   +         +         +         +         +         +';
+				white-space: pre;
+			}
+
+			&.active::before {
+				--op: white;
+				--size: 2px;
+			}
+
+			span {
+				rotate: none;
+				background-color: black;
+
+				&.category {
+					color: #f8ed34;
+				}
+
+				&.license {
+					color: #0bf587;
+				}
+
+				&::before {
+					filter: none;
+				}
+			}
+		}
+	}
+
+	@keyframes dots-slide {
+		to {
+			width: 100%;
+		}
+	}
+
+	#header,
+	.preview {
+		--c1: #c0fe04;
+		/* color: var(--c2) !important; */
+		color: black !important;
+		/* background: #d9d9d9; */
+		--c2: #628102;
+
+		--dots:
+			radial-gradient(circle at 1px 1px, var(--c2) 1px, transparent 0),
+			linear-gradient(to left, transparent, transparent 18px, var(--c1) 18px, var(--c1)),
+			linear-gradient(to bottom, transparent, transparent 18px, var(--c1) 18px, var(--c1)),
+			var(--c2);
+
+		background: var(--dots);
+		background-size:
+			16px 16px,
+			128px 128px,
+			128px 128px;
+		background-position:
+			18px 2px,
+			20px;
+	}
+
+	#header {
+		/* outline: 1px solid var(--c2); */
+		outline: 1px solid var(--c2);
+		--c2: rgb(236, 240, 248);
+		--c1: #0339fb;
+		color: var(--c2) !important;
+	}
+
+	#preview {
+		background-position:
+			-8px 22px,
+			-6px 20px;
+		border-top: none;
+
+		div {
+			color: white;
+		}
+
+		.dropcap span {
+			--dots:
+				radial-gradient(circle at 1px 1px, var(--c2) 1px, transparent 0),
+				linear-gradient(to left, transparent, transparent 18px, var(--c1) 18px, var(--c1)),
+				linear-gradient(to bottom, transparent, transparent 18px, var(--c1) 18px, var(--c1)),
+				var(--c2);
+
+			background: var(--dots);
+			background-size:
+				16px 16px,
+				128px 128px,
+				128px 128px;
+			background-position:
+				-4px -4px,
+				0px;
+		}
+	}
+
+	#preview-settings span {
+		text-shadow: 1px 1px 2px black;
+	}
+}

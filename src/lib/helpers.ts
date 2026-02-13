@@ -11,10 +11,14 @@ export const focus = (t: HTMLElement) => {
 		return;
 	}
 	const anims = t.getAnimations({ subtree: true });
-	for (const anim of anims) {
-		anim.reverse();
-		anim.addEventListener('finish', () => {
-			t.classList.remove('hover');
-		});
+	if (anims.length === 0) {
+		t.classList.remove('hover');
+	} else {
+		for (const anim of anims) {
+			anim.reverse();
+			anim.addEventListener('finish', () => {
+				t.classList.remove('hover');
+			});
+		}
 	}
 };

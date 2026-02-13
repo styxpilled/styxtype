@@ -8,7 +8,7 @@
 	<span>{app.font?.license}</span>
 	<div class="dropdown-content paper" id="mypopover" popover>
 		<span>Switch theme:</span>
-		{#each ['deadlock', 'marathon'] as theme}
+		{#each ['arcana', 'marathon'] as theme}
 			<label class="filled">
 				<span>{theme}</span>
 				<input type="radio" name="theme" value={theme} bind:group={app.activeTheme} />
@@ -41,19 +41,6 @@
 		}
 	}
 
-	@media (max-width: 800px) {
-		#header {
-			grid-template-columns: 1fr 1fr;
-			grid-template-rows: 1fr 1fr;
-			font-size: 2rem;
-		}
-
-		.logo {
-			grid-row: 1;
-			grid-column: 2;
-		}
-	}
-
 	h1 {
 		font-family: var(--preview-font-subset);
 	}
@@ -79,6 +66,10 @@
 		border: 1px solid black;
 		z-index: 20;
 		font-size: 2rem;
+		display: none;
+		flex-direction: column;
+		overflow: hidden;
+		/* margin: 0; */
 
 		& label {
 			display: flex;
@@ -96,14 +87,32 @@
 		opacity: 0;
 		transition:
 			opacity 0.3s,
-			display 0.3s allow-discrete;
-		display: block;
+			display 0.3s step-end allow-discrete;
+		display: none;
 
 		&:popover-open {
 			opacity: 1;
+			display: flex;
 			@starting-style {
 				opacity: 0;
 			}
+		}
+	}
+
+	@media (max-width: 800px) {
+		#header {
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: 1fr 1fr;
+			font-size: 2rem;
+		}
+
+		.logo {
+			grid-row: 1;
+			grid-column: 2;
+		}
+
+		.dropdown-content {
+			font-size: 1.4rem;
 		}
 	}
 </style>
