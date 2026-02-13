@@ -14,13 +14,14 @@ const subsetCharset = `!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXY
 import nodeHtmlToImage from 'node-html-to-image';
 import font2base64 from 'node-font2base64';
 import { fonts as _fonts } from './src/fonts.js';
-import fs from 'node:fs';
+import fs, { constants } from 'node:fs';
 import path from 'node:path';
 /**
  * @type import('./src/fonts.js').Font[]
  */
 let fonts = config.single ? _fonts.filter((f) => f.name === config.single) : _fonts;
 const tmpImageDir = './static/generated/images';
+const processedImageDir = './static/generated/avif';
 
 try {
 	fs.mkdirSync(tmpImageDir);
@@ -153,21 +154,22 @@ for (const f of fonts) {
 }
 
 // * GENERATE IMAGES
+let generateFonts = fonts;
 if (config.useExisting) {
-	fonts = fonts.filter((f) => !fs.existsSync(`${tmpImageDir}/${f.name}.${config.format}`));
+	generateFonts = fonts.filter((f) => !fs.existsSync(`${tmpImageDir}/${f.name}.${config.format}`));
 } else {
 	fs.rmSync(tmpImageDir, { recursive: true, force: true });
 	try {
 		fs.mkdirSync(tmpImageDir);
 	} catch (error) {}
 }
-const fontsData$ = fonts.map((f) => font2base64.encodeToDataUrl(f.filePath));
+const fontsData$ = generateFonts.map((f) => font2base64.encodeToDataUrl(f.filePath));
 const fontsData = await Promise.all(fontsData$);
 
 await nodeHtmlToImage({
 	type: config.format,
 	transparent: config.transparent,
-	content: fonts.flatMap((font, idx) => [
+	content: generateFonts.flatMap((font, idx) => [
 		{
 			fontId: font.name,
 			fontData: fontsData[idx],
@@ -214,4 +216,59 @@ await nodeHtmlToImage({
      </body>
    </html>
   `
+});
+
+import sharp from 'sharp';
+
+const previewPromises = [];
+// fs.rmSync(processedImageDir, { recursive: true, force: true });
+// try {
+// 	fs.mkdirSync(processedImageDir);
+// } catch (error) {}
+for (const f of fonts) {
+	fs.stat(`${processedImageDir}/${f.name}.avif`, (err) => {
+		if (err) {
+			console.log();
+
+			previewPromises.push(
+				sharp(`${tmpImageDir}/${f.name}.${config.format}`)
+					.avif({
+						quality: 30
+					})
+					.toColorspace('grayscale')
+					.toFile(`${processedImageDir}/${f.name}.avif`)
+					.catch((err) => console.log(err))
+			);
+		}
+	});
+}
+await Promise.allSettled(previewPromises);
+// sharp()
+
+import { imageSizeFromFile } from 'image-size/fromFile';
+
+const sizePromises = [];
+const sizes = {};
+for (const f of fonts) {
+	sizePromises.push(
+		imageSizeFromFile(`${tmpImageDir}/${f.name}.${config.format}`).then((dimensions) => {
+			// console.log(f.name, dimensions.width, dimensions.height);
+			sizes[f.name] = {
+				w: dimensions.width,
+				h: dimensions.height
+			};
+			// console.log(sizes);
+		})
+	);
+}
+await Promise.all(sizePromises);
+const sizesJSON = JSON.stringify(sizes);
+
+try {
+	fs.rmSync('./src/lib/assets/sizes.json');
+} catch (error) {}
+fs.writeFile('./src/lib/assets/sizes.json', sizesJSON, 'utf8', (err) => {
+	if (err) {
+		console.error('Error writing to file', err);
+	}
 });
