@@ -11,6 +11,7 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
+	<link rel="preload" href="/AdobeBlank.otf.woff" as="font" type="font/woff2" />
 </svelte:head>
 
 {@render children()}

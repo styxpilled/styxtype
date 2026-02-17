@@ -6,6 +6,10 @@
 	import ThemeManager from '$lib/ui/ThemeManager.svelte';
 </script>
 
+<svelte:head>
+	<title>styxtype - {app.activeFont}</title>
+</svelte:head>
+
 <div id="content" data-theme={app.activeTheme}>
 	<Header />
 	<div id="main">
@@ -39,6 +43,7 @@
 		</defs>
 	</svg>
 	<ThemeManager />
+	<footer><span>a <a href="https://styx.gay">@styx</a> endeavour</span></footer>
 </div>
 
 <style>
@@ -66,5 +71,15 @@
 		#main {
 			flex-direction: column;
 		}
+	}
+
+	footer {
+		position: fixed;
+		bottom: 0;
+		right: 0;
+		z-index: 100;
+		background-color: black;
+		color: #f24723;
+		padding: 0 0.5rem;
 	}
 </style>

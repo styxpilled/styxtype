@@ -6,12 +6,25 @@
 	--c2: var(--color-text);
 }
 
+@font-face {
+	font-family: 'AdobeBlank';
+	src: url('/AdobeBlank2.ttf.woff');
+}
+
+@font-face {
+	font-family: 'Afacad Flux Subset';
+	src: url('/generated/optimized/Afacad Flux.woff2');
+}
+
+@font-face {
+	font-family: 'Afacad Flux';
+	src: url('/generated/fonts/Afacad Flux.woff2');
+}
+
 body {
-	font-family: 'Jost Variable';
-	/* background: ; */
-	background:
-		linear-gradient(#282723), url('/images/bg1.jpg'), url('/images/grunge2.jpg'),
-		url('/images/rust.jpg');
+	font-family: 'Jost Variable', 'AdobeBlank', 'AdobeBlank Subset';
+	background: #282723;
+	background: linear-gradient(#282723), url('/images/bg_ps_test.avif');
 	background-blend-mode: multiply;
 	background-repeat: no-repeat;
 	background-size: 100vw 100vh;
@@ -115,9 +128,7 @@ label:has(input[type='radio']) {
 		position: absolute;
 		height: 100%;
 		width: 100%;
-		/* background: #66645a url('/images/bg1.jpg'); */
-		background:
-			linear-gradient(var(--surface)), url('/images/grunge2.jpg'), url('/images/rust.jpg');
+		background: linear-gradient(var(--surface)), url('/images/bg_ps_test.avif');
 		background-blend-mode: multiply;
 		background-attachment: fixed;
 		background-size: 100vw 100vh;

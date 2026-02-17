@@ -7,13 +7,16 @@ const config = {
 			pages: 'build',
 			assets: 'build',
 			fallback: undefined,
-			precompress: false,
+			precompress: true,
 			strict: true
 		}),
-		typescript: (tsConfig) => {
-			tsConfig.include.push('../src/*.js');
-			return tsConfig;
+		alias: {
+			$static: 'src/static'
 		}
+		// typescript: (tsConfig) => {
+		// 	tsConfig.include.push('../src/*.js');
+		// 	return tsConfig;
+		// }
 	}
 };
 

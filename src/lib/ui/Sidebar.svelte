@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { app } from '$lib/state.svelte.js';
-	import { onMount } from 'svelte';
 	import { type Font } from '../../font.js';
 	import { fonts } from '../../fonts.js';
 	import { browser } from '$app/environment';
@@ -11,11 +10,15 @@
 	const fontCache: { [key: string]: boolean } = {};
 	let searchFilter = $state('');
 	const angles = [3, 5, -4, 5, 6, 7, -5, -4, 3, -5];
+	let _fonts = $state(fonts.toSorted((a, b) => a.name.localeCompare(b.name)).slice(0, 10));
+	let _hideLength = $state(true);
 
-	onMount(() => {
-		const fontPromises = [];
+	const init = () => {
+		_fonts = fonts;
+		_hideLength = false;
 		for (const font of fonts) {
 			const name = font.name;
+			if (name === 'Afacad Flux') continue;
 			const fontPromise = new FontFace(
 				`${name} Subset`,
 				`url("/generated/optimized/${name}.woff2"),
@@ -23,14 +26,11 @@
         url("/generated/optimized/${name}.otf"),
         url("/generated/optimized/${name}.ttf")`
 			);
-			fontPromises.push(fontPromise.load());
-		}
-		Promise.all(fontPromises).then((loadedFonts) => {
-			loadedFonts.forEach(function (font) {
-				document.fonts.add(font);
+			fontPromise.load().then((f) => {
+				document.fonts.add(f);
 			});
-		});
-	});
+		}
+	};
 
 	const loadFont = (font: Font) => {
 		const name = font.name;
@@ -52,10 +52,19 @@
 
 	app.activeFont = fonts[0].name;
 	app.font = fonts[0];
-	if (browser) loadFont(fonts[0]);
+	if (browser) {
+		init();
+		// loadFont(fonts[0]);
+	}
 </script>
 
 <svelte:head>
+	<link
+		rel="preload"
+		href="/generated/optimized/{fonts[0].name}.woff2"
+		as="font"
+		type="font/woff2"
+	/>
 	{#each fonts.filter((f) => f.name.toLowerCase().includes(searchFilter)).slice(0, 8) as font}
 		<link rel="prefetch" href="/generated/images/{font.name}.png" />
 	{/each}
@@ -63,15 +72,12 @@
 
 <div id="sidebar">
 	<Search bind:searchFilter />
-	<ul id="fontlist">
-		{#each fonts
+	<ul id="fontlist" class:hide-overflow={_hideLength}>
+		{#each _fonts
 			.filter((f) => f.name.toLowerCase().includes(searchFilter))
 			.toSorted((a, b) => a.name.localeCompare(b.name)) as font, i}
 			{@const idx = i % 4}
 			{@const rot = font.name.toLocaleLowerCase().charCodeAt(3) % 95}
-			{@const rot2 = -rot + idx + 10}
-			{@const offset = rot2 > 3 ? 1 : 5}
-			<!-- {angles[(rot + rotation) % angles.length]} -->
 			<li
 				class="font"
 				class:active={font.name === app.activeFont}
@@ -103,9 +109,9 @@
 					<span style:--rotate={angles[(rot + idx) % angles.length]} class="bg category">
 						{font.category}
 					</span>
-					<span style:--rotate={angles[((rot - idx) % angles.length) - 1]} class="license"
-						>{font.license}</span
-					>
+					<span style:--rotate={angles[((rot - idx) % angles.length) - 1]} class="license">
+						{font.license}
+					</span>
 				</div>
 			</li>
 		{:else}
@@ -137,6 +143,10 @@
 		overflow-y: scroll;
 		overflow-x: hidden;
 		background: linear-gradient(to right, #110d09, transparent 50%);
+
+		&.hide-overflow {
+			overflow-y: hidden;
+		}
 	}
 
 	@media (max-width: 800px) {
@@ -178,7 +188,7 @@
 			height: 72px;
 			left: 0.5rem;
 			background-repeat: no-repeat;
-			background-image: url('/images/reveal-alpha/out.png'), linear-gradient(currentColor);
+			background-image: url('/images/sidebar.png'), linear-gradient(currentColor);
 			background-size: 100% calc(72px * var(--frames));
 			mix-blend-mode: screen;
 			background-position: 0 72px;
@@ -250,7 +260,6 @@
 			width: 100%;
 			background-color: black;
 			transform: skew(-10deg);
-			/* transform: skew(-10deg, 1deg) perspective(10px); */
 			color: black;
 		}
 	}

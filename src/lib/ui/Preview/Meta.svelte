@@ -73,13 +73,16 @@
 	#feature-settings {
 		display: flex;
 		flex-direction: column;
+		min-height: 344px;
+		min-width: 320px;
 	}
 
 	#preview-settings {
 		display: flex;
 		flex-direction: column;
 		gap: 2rem;
-		margin-right: 1rem;
+		margin: 1rem;
+		align-items: center;
 
 		& > * {
 			padding: 1rem;

@@ -1,31 +1,15 @@
 <script lang="ts">
-	import { app, themeData } from '$lib/state.svelte';
-	import { onMount } from 'svelte';
+	import { app } from '$lib/state.svelte';
 	import marathon from '$lib/assets/skins/marathon.json';
-	// onMount(() => {
-	// if (themeData.marathon === null) import('$lib/assets/skins/marathon.json').then((v) => {
-	// 	themeData.marathon = v.default;
-	// });
-	// });
-
-	let currFrame = $state(0);
 </script>
 
 <div id="theme-bg">
 	{#if app.activeTheme === 'marathon' && marathon}
-		{@const frames = marathon.frames}
 		<div class="left">
-			{#each frames[currFrame].split('\n') as line}
-				<span>{line}</span>
-			{/each}
+			{marathon.frames[0]}
 		</div>
 		<div class="center">
-			{#each marathon.frames2[0].split('n') as line, i}
-				<span>{line}</span>
-				<!-- <span>0123401234</span>
-				<span>{i.toString().repeat(10)}</span>
-				<span>{i.toString().repeat(10)}</span> -->
-			{/each}
+			{marathon.frames2[0]}
 		</div>
 	{/if}
 </div>
@@ -36,49 +20,36 @@
 		pointer-events: none;
 		display: flex;
 		top: 0%;
-		/* min-width: 100vw;
-		min-height: 100vh; */
-		/* width: auto; */
-		/* height: auto; */
-		/* max-height: 100%;
-		max-width: 100%; */
 		min-height: 100vh;
 		min-width: 100vw;
 		height: 100%;
 		width: 100%;
 		flex: 1;
-		/* filter: blur(1px); */
-		color: rgba(1, 1, 1, 0.496);
-		/* transform: translateY(-50%); */
+		color: rgba(1, 1, 1, 0.4);
 		left: 0;
 		z-index: -1;
 		font-size: 1.4rem;
 		background: var(--c1);
-
-		div {
-			overflow: hidden;
-		}
+		overflow: hidden;
 	}
 
 	@media (max-width: 800px) {
 		#theme-bg {
 			flex-direction: column;
 		}
+
+		.center {
+			align-self: flex-end;
+		}
 	}
 
-	span {
-		background: var(--c1);
+	div {
 		display: block;
-		font-family: monospace;
 		font-family: 'Code Race';
 		white-space: pre;
-		/* font-size: 5rem; */
 		margin: 0;
 		padding: 0;
-		/* color: black; */
-		/* line-height: 0.575; */
 		text-rendering: optimizeSpeed;
-		/* height: 2.25rem; */
 	}
 
 	.left {
@@ -86,16 +57,10 @@
 		line-height: 1;
 	}
 
-	.center span {
-		background: var(--c1);
-		display: block;
-		font-family: monospace;
-		font-family: 'Code Race';
-		white-space: pre;
+	.center {
 		font-size: 5rem;
 		color: black;
 		line-height: 0.575;
-		text-rendering: optimizeSpeed;
-		/* height: 2.25rem; */
+		margin-left: -2ch;
 	}
 </style>
