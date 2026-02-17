@@ -38,7 +38,8 @@
 		"svelte-check": "^4.3.4",
 		"typescript": "^5.9.3",
 		"typescript-eslint": "^8.48.1",
-		"vite": "^7.2.6"
+		"vite": "^7.2.6",
+		"wrangler": "^4.65.0"
 	},
 	"dependencies": {
 		"@fontsource-variable/afacad-flux": "^5.0.1",
@@ -47,6 +48,7 @@
 		"@fontsource-variable/gluten": "^5.1.0",
 		"@fontsource-variable/josefin-sans": "^5.1.0",
 		"@fontsource-variable/jost": "^5.1.0",
+		"@fontsource-variable/montserrat": "^5.2.8",
 		"@fontsource-variable/ojuju": "^5.1.0",
 		"@fontsource-variable/outfit": "^5.1.0",
 		"@fontsource-variable/public-sans": "^5.1.0",
@@ -64,10 +66,12 @@
 		"@fontsource/federo": "^5.1.0",
 		"@fontsource/inknut-antiqua": "^5.2.8",
 		"@fontsource/league-gothic": "^5.2.8",
+		"@fontsource/linden-hill": "^5.2.8",
 		"@fontsource/merriweather": "^5.1.0",
 		"@fontsource/quando": "^5.1.0",
 		"@fontsource/righteous": "^5.2.7",
 		"@fontsource/rock-salt": "^5.2.8",
+		"@fontsource/sorts-mill-goudy": "^5.2.8",
 		"@fontsource/staatliches": "^5.2.8",
 		"@fontsource/titan-one": "^5.1.0",
 		"@fontsource/young-serif": "^5.1.0",
