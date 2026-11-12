@@ -7,7 +7,18 @@
 
 <div id="preview-settings">
 	<div id="description" class="paper">
-		<p>{app.font?.description}</p>
+		{#if app.font?.description}
+			{@const author = app.font.author?.href
+				? `<a href="${app.font.author.href}">${app.font.author.name}</a>`
+				: `${app.font.author?.name}`}
+			{@const name = app.font.href
+				? `<a href="${app.font.href}">${app.font.name}</a>`
+				: app.font.name}
+			<p>
+				<!-- {app.font?.description} -->
+				{@html app.font?.description.replaceAll('%TITLE%', name).replaceAll('%AUTHOR%', author)}
+			</p>
+		{/if}
 	</div>
 	<ul id="feature-settings" class="paper">
 		{#each Object.keys(faces) as faceName}
@@ -92,6 +103,13 @@
 	#description {
 		width: 20rem;
 		display: flex;
+
+		:global(a) {
+			color: var(--mida);
+			&:hover {
+				text-decoration: underline;
+			}
+		}
 	}
 
 	.grid-col > label {

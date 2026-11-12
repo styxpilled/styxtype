@@ -20,9 +20,9 @@
 
 	let settings = $state({
 		size: {
-			value: 3,
-			min: 1,
-			max: 8
+			value: 48,
+			min: 12,
+			max: 150
 		},
 		lineHeight: {
 			value: 1,
@@ -51,7 +51,7 @@
 	);
 
 	let fontFeatureSettings = $derived(
-		featureSettings[app.activeFont].features.map((v) => `"${v}"`).join(', ')
+		featureSettings[app.activeFont].features.map((v) => `"${v}" 1`).join(', ')
 	);
 
 	let fontVariationSettings = $derived.by(() => {
@@ -138,13 +138,13 @@
 				class="preview"
 				style:font-feature-settings={fontFeatureSettings}
 				style:font-variation-settings={fontVariationSettings}
-				style:font-size="{settings.size.value}rem"
+				style:font-size="{settings.size.value}pt"
 				style:line-height="{settings.lineHeight.value}em"
 				style:letter-spacing="{settings.letterSpacing.value}px"
 				contenteditable="true"
 				spellcheck="false"
 			>
-				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Tempora error voluptates molestiae
+				Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus, alias.
 			</div>
 		{:else}
 			{@render structuredPreview(texts[app.activePreview])}
@@ -177,6 +177,10 @@
 	#preview-container {
 		padding: 0 3rem;
 		overflow: scroll;
+
+		.charset-info {
+			font-family: 'Jost Variable';
+		}
 	}
 
 	#preview {

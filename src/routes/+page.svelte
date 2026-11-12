@@ -10,7 +10,11 @@
 	<title>styxtype - {app.activeFont}</title>
 </svelte:head>
 
-<div id="content" data-theme={app.activeTheme}>
+<div
+	id="content"
+	data-theme={app.activeTheme}
+	style="--preview-font-text: '*{app.activeFont}/{app.font?.category}/{app.font?.license}*';"
+>
 	<Header />
 	<div id="main">
 		<Sidebar />
@@ -43,7 +47,12 @@
 		</defs>
 	</svg>
 	<ThemeManager />
-	<footer><span>a <a href="https://styx.gay">@styx</a> endeavour</span></footer>
+	<footer>
+		<span
+			>a <a href="https://styx.gay">@styx</a> endeavour | design inspired by
+			<a href="https://antireal.info/">antireal</a></span
+		>
+	</footer>
 </div>
 
 <style>
@@ -79,7 +88,14 @@
 		right: 0;
 		z-index: 100;
 		background-color: black;
-		color: #f24723;
+		color: var(--c0);
 		padding: 0 0.5rem;
+
+		a {
+			color: var(--mida);
+			&:hover {
+				text-decoration: underline;
+			}
+		}
 	}
 </style>

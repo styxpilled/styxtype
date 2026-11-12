@@ -12,7 +12,7 @@ export const fonts = [
 			name: 'Kristian Möller'
 		},
 		href: 'https://github.com/Dicotype/Afacad',
-		description: `The letters and numerals of {{name}} by {{author}} were meticulously crafted to harmonise with	the architectural proportions and materials employed by Architect Sture Elmén during the 1940s.`,
+		description: `The letters and numerals of %TITLE% by %AUTHOR% were meticulously crafted to harmonise with	the architectural proportions and materials employed by Architect Sture Elmén during the 1940s.`,
 		category: 'sans-serif',
 		license: 'SIL',
 		font: () => '@fontsource-variable/afacad-flux/files/afacad-flux-latin-standard-normal.woff2'
@@ -631,7 +631,8 @@ export const fonts = [
 		description: `MISSING DESCRIPTION`,
 		category: 'display',
 		license: 'SIL',
-		font: () => '#fonts/hrdtkn_ver1_20/hrdtkn_ver1_20.otf'
+		font: () => '#fonts/hrdtkn_ver1_20/hrdtkn_ver1_20.otf',
+		style: 'letter-spacing: 0.02em;'
 	},
 	{
 		name: 'Kounstruct',
@@ -876,5 +877,18 @@ export const fonts = [
 		category: 'serif',
 		license: 'FFL',
 		font: () => '#fonts/Tanker/Tanker.woff2'
+	},
+	{
+		name: 'STYX Control',
+		author: {
+			href: 'https://styxtype.styx.gay/',
+			name: 'Styx'
+		},
+		href: null,
+		description: `MISSING DESCRIPTION`,
+		category: 'display',
+		license: 'CY BY 4.0',
+		font: () => '#fonts/STYXControl/STYXControl-Black.woff2',
+		style: 'text-transform: uppercase;'
 	}
 ];

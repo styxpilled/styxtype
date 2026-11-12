@@ -1,5 +1,5 @@
 import type texts from '$lib/assets/texts.json';
-import type { Font } from '../fonts';
+import type { Font } from '../font';
 
 export const app = $state<{
 	activeFont: string;

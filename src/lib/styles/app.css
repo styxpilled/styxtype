@@ -2,7 +2,7 @@
 	--header-height: 4.5rem;
 	--surface: #ada496;
 	--color-text: #080503;
-
+	--cache: block;
 	--c2: var(--color-text);
 }
 
@@ -143,6 +143,11 @@ label:has(input[type='radio']) {
 	grid-template-columns: repeat(2, auto);
 	grid-template-rows: repeat(6, auto);
 	grid-auto-flow: column;
+}
+
+input[type='text']:focus,
+div[contenteditable]:focus {
+	outline: none;
 }
 
 label:has(input[type='range']) {

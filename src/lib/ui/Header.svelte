@@ -28,6 +28,24 @@
 		padding: 0 1rem;
 		font-size: 3rem;
 		white-space: pre;
+		overflow: hidden;
+		> * {
+			z-index: 5;
+		}
+	}
+
+	:global(#content[data-theme='marathon']) #header::before {
+		font-size: 2.675rem;
+		z-index: 1;
+		content: '0123456789\00000A2059037491\00000A6547259010';
+		position: absolute;
+		top: 0;
+		left: 0;
+		font-family: 'Code Race';
+		line-height: 0.56;
+		letter-spacing: -0.3px;
+		background: var(--c1);
+		color: oklch(from var(--c1) calc(l * 1.5) calc(c * 0.5) h);
 	}
 
 	.logo {
@@ -43,6 +61,7 @@
 
 	h1 {
 		font-family: var(--preview-font-subset);
+		text-shadow: 1px 1px 3px #0004;
 	}
 
 	span {
