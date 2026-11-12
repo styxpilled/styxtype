@@ -1,3 +1,4 @@
+import logging
 import shutil
 from pathlib import Path
 
@@ -8,6 +9,9 @@ from pipeline.fonts import Font
 
 SUBSET_TEXT = "".join(chr(c) for c in range(0x20, 0x7F)) + "“”"
 SUBSET_FILE = "subset.woff2"
+
+# Warns about tables it drops (FFTM, meta), which the web does not need.
+logging.getLogger("fontTools.subset").setLevel(logging.ERROR)
 
 
 def woff2_name(source_file: str) -> str:
@@ -42,7 +46,7 @@ def write_webfonts(font: Font, source_dir: Path, output_dir: Path) -> int:
     """Returns the number of files written."""
     output_dir.mkdir(parents=True, exist_ok=True)
     written = 0
-    keep = {SUBSET_FILE, "meta.json"}
+    keep = {SUBSET_FILE, "meta.json", "glyphs.json"}
     for face in font.faces:
         source = source_dir / face.file
         output = output_dir / woff2_name(face.file)

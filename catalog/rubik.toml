@@ -1,0 +1,11 @@
+name = "Rubik"
+category = "sans"
+tags = ["rounded"]
+source = "https://github.com/googlefonts/rubik"
+description = "A sans with slightly rounded corners. Soft, friendly and practical."
+
+[[designers]]
+name = "Philipp Hubert"
+
+[[designers]]
+name = "Sebastian Fischer"

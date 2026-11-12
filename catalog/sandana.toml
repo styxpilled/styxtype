@@ -1,0 +1,9 @@
+name = "Sandana"
+category = "display"
+source = "https://www.fontspace.com/the-jigsaw-foundry"
+license = { id = "CC-BY-4.0", url = "https://creativecommons.org/licenses/by/4.0/" }
+description = "Very Herbertarian."
+
+[[designers]]
+name = "The Jigsaw Foundry"
+url = "https://jigsawfoundry.gumroad.com/"

@@ -1,0 +1,8 @@
+name = "Walthari"
+category = "blackletter"
+source = "https://www.peter-wiegel.de/CAT_Walthari.html"
+description = "A dark, broad-nibbed gothic face with a raw, medieval feel. Fit for sagas and legends."
+
+[[designers]]
+name = "Peter Wiegel"
+url = "https://www.peter-wiegel.de/"

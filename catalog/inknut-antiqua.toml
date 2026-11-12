@@ -1,0 +1,9 @@
+name = "Inknut Antiqua"
+category = "serif"
+tags = ["old-style"]
+source = "https://github.com/clauseggers/Inknut-Antiqua"
+description = "Evokes Venetian incunabula and humanist manuscripts, quirks included."
+
+[[designers]]
+name = "Claus Eggers Sørensen"
+url = "https://www.forthehearts.net"

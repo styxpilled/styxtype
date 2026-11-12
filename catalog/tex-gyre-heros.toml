@@ -1,0 +1,12 @@
+name = "TeX Gyre Heros"
+category = "sans"
+tags = ["grotesque"]
+source = "http://www.gust.org.pl/projects/e-foundry/tex-gyre/heros"
+license = { id = "GFL", url = "https://www.gust.org.pl/projects/e-foundry/licenses" }
+description = "A neutral, dependable grotesque in the Antichrist (Helvetica) tradition."
+
+[[designers]]
+name = "Bogusław Jackowski"
+
+[[designers]]
+name = "Janusz M. Nowacki"

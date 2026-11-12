@@ -29,21 +29,27 @@
 	});
 
 	let scale = $derived(size / metrics.units_per_em);
+	// Pairs that can meet (cap height and x-height, baseline and descender) label opposite sides.
 	let lines = $derived(
 		[
-			{ name: 'Cap height', value: metrics.cap_height },
-			{ name: 'x-height', value: metrics.x_height },
-			{ name: 'Baseline', value: 0 },
-			{ name: 'Descender', value: metrics.descender }
+			{ name: 'Cap height', value: metrics.cap_height, below: false },
+			{ name: 'x-height', value: metrics.x_height, below: true },
+			{ name: 'Baseline', value: 0, below: false },
+			{ name: 'Descender', value: metrics.descender, below: true }
 		]
-			.filter((l): l is { name: string; value: number } => l.value !== null)
+			.filter((l): l is { name: string; value: number; below: boolean } => l.value !== null)
 			.map((l) => ({ ...l, y: baseline - l.value * scale }))
 	);
 </script>
 
 <div class="specimen" style:font-family={family} style:font-size="{size}px">
 	{#each lines as line (line.name)}
-		<div class="guide" class:baseline={line.value === 0} style:top="{line.y}px">
+		<div
+			class="guide"
+			class:baseline={line.value === 0}
+			class:below={line.below}
+			style:top="{line.y}px"
+		>
 			<span class="num">{line.name} {line.value}</span>
 		</div>
 	{/each}
@@ -69,13 +75,12 @@
 		line-height: 1.6;
 	}
 
-	/* Text stops before the label gutter and fades out when it is too long. */
+	/* Text starts after the label gutter and clips when it is too long. */
 	p {
 		position: relative;
-		margin-right: var(--gutter);
+		margin-left: var(--gutter);
 		overflow: hidden;
 		white-space: nowrap;
-		mask-image: linear-gradient(to left, transparent, #000 1.5rem);
 	}
 
 	.edit {
@@ -100,13 +105,18 @@
 
 		span {
 			position: absolute;
-			right: 0;
+			left: 0;
 			bottom: 2px;
 			font-family: var(--font-ui);
 			font-size: var(--text-xs);
 			line-height: 1;
 			white-space: nowrap;
 			color: var(--text-muted);
+		}
+
+		&.below span {
+			top: 2px;
+			bottom: auto;
 		}
 	}
 </style>

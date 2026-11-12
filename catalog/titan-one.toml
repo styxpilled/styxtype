@@ -1,0 +1,9 @@
+name = "Titan One"
+category = "display"
+tags = ["heavy"]
+source = "https://fonts.google.com/specimen/Titan+One"
+description = "Cheerful and loud, drawn with big brushes in mind."
+
+[[designers]]
+name = "Rodrigo Fuenzalida"
+url = "https://www.behance.net/erreefe"

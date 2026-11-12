@@ -1,0 +1,8 @@
+name = "Josefin Sans"
+category = "sans"
+tags = ["geometric"]
+source = "https://fonts.google.com/specimen/Josefin+Sans"
+description = "Elegant geometric sans in the spirit of the 1920s. Must-know for geometric lovers."
+
+[[designers]]
+name = "Santiago Orozco"

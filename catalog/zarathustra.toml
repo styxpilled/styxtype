@@ -1,0 +1,8 @@
+name = "Zarathustra"
+category = "serif"
+tags = ["art-nouveau", "revival"]
+description = "A revival of Georges Lemmen's lettering for the 1908 edition of Thus Spoke Zarathustra."
+
+[[designers]]
+name = "Lorène Picard"
+url = "http://lorene-picard.com/"

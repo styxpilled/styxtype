@@ -1,0 +1,9 @@
+name = "Picaflor"
+category = "display"
+tags = ["didone"]
+source = "https://www.tunera.xyz/fonts/picaflor/"
+description = "French didone meets Spanish vernacular exuberance."
+
+[[designers]]
+name = "Ariel Martín Pérez"
+url = "https://arielmartinperez.com"

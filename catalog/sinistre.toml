@@ -1,0 +1,8 @@
+name = "Sinistre"
+category = "display"
+tags = ["uncial"]
+source = "https://www.collletttivo.it/typefaces/sinistre"
+description = "Uncial minuscules, Roman proportions and a hint of Fraktur; it lives up to the name."
+
+[[designers]]
+name = "Jules Durand"

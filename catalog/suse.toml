@@ -1,0 +1,9 @@
+name = "SUSE"
+category = "sans"
+tags = ["geometric"]
+source = "https://fonts.google.com/specimen/SUSE"
+description = "A hybrid of geometric and monospaced shapes."
+
+[[designers]]
+name = "René Bieder"
+url = "https://www.renebieder.com"

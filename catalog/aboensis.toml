@@ -1,0 +1,7 @@
+name = "Aboensis"
+category = "blackletter"
+source = "https://ctan.org/pkg/aboensis"
+description = "A cursive book hand from a 15th-century Swedish book of laws. Quick, inky and medieval, like a scribe working against the clock."
+
+[[designers]]
+name = "Tommi Syrjänen"

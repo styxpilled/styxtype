@@ -1,0 +1,9 @@
+name = "Sorts Mill Goudy"
+category = "serif"
+tags = ["old-style", "revival"]
+source = "https://www.theleagueofmoveabletype.com/sorts-mill-goudy"
+description = "A revival of Goudy Oldstyle."
+
+[[designers]]
+name = "The League of Moveable Type"
+url = "https://www.theleagueofmoveabletype.com"

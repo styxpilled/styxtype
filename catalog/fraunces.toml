@@ -2,7 +2,7 @@ name = "Fraunces"
 category = "serif"
 tags = ["soft", "old-style"]
 source = "https://fraunces.undercase.xyz"
-description = "Fraunces is a display, \"Old Style\" soft-serif typeface inspired by the mannerisms of early 20th century typefaces such as Windsor, Souvenir, and the Cooper Series."
+description = "A soft, wonky old-style serif in the spirit of Windsor, Souvenir and Cooper."
 
 [[designers]]
 name = "Undercase Type"

@@ -1,0 +1,9 @@
+name = "Jost"
+category = "sans"
+tags = ["geometric"]
+source = "https://indestructibletype.com/Jost.html"
+description = "A spiritual successor to Futura. You know it. You love it."
+
+[[designers]]
+name = "Owen Earl"
+url = "https://indestructibletype.com/Home.html"

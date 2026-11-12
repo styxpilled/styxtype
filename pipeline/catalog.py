@@ -38,6 +38,7 @@ class Entry:
     license: License | None = None
     copyright: str | None = None
     description: str | None = None
+    specimen: str | None = None
     files: dict[str, FileOverride] = field(default_factory=dict)
 
 
@@ -113,7 +114,7 @@ def parse_entry(file: Path) -> Entry:
     except tomllib.TOMLDecodeError as e:
         raise CatalogError([f"{file.name}: {e}"]) from e
 
-    c.keys("root", data, {"name", "category", "tags", "source", "designers", "license", "copyright", "description", "files"})
+    c.keys("root", data, {"name", "category", "tags", "source", "designers", "license", "copyright", "description", "specimen", "files"})
 
     name = c.string("name", data.get("name"))
     if name is None and "name" not in data:
@@ -163,6 +164,7 @@ def parse_entry(file: Path) -> Entry:
     source = c.string("source", data.get("source"), URL)
     copyright_ = c.string("copyright", data.get("copyright"))
     description = c.string("description", data.get("description"))
+    specimen = c.string("specimen", data.get("specimen"))
 
     if c.errors:
         raise CatalogError(c.errors)
@@ -177,6 +179,7 @@ def parse_entry(file: Path) -> Entry:
         license=license_,
         copyright=copyright_,
         description=description,
+        specimen=specimen,
         files=files,
     )
 

@@ -1,0 +1,9 @@
+name = "Evil Empire"
+category = "display"
+tags = ["condensed"]
+source = "https://wanders.work/fonts"
+description = "Narrow, menacing capitals for villains, heavy metal and mask-off Social Democrats."
+
+[[designers]]
+name = "Tup Wanders"
+url = "https://wanders.work"

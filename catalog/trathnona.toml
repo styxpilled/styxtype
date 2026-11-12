@@ -1,0 +1,9 @@
+name = "Tráthnóna"
+category = "display"
+tags = ["uncial"]
+source = "https://github.com/insert-smiley/Irishfontclub-trathnona"
+description = "Unique Gaelic letterforms from the hand of an 18th-century Irish scribe."
+
+[[designers]]
+name = "Dominic Stanley"
+url = "https://www.stanleyfonts.com"

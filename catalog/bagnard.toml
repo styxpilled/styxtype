@@ -1,0 +1,7 @@
+name = "Bagnard"
+category = "serif"
+source = "https://github.com/sebsan/Bagnard"
+description = "Inspired by the graffiti of a prisoner of the Napoleonic wars. Sharp serifs perfect for a wizard in need."
+
+[[designers]]
+name = "Sebastien Sanfilippo"

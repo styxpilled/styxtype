@@ -1,0 +1,8 @@
+name = "Cooper"
+category = "serif"
+tags = ["soft", "revival"]
+description = "A revival of the Cooper family from 1922, beyond its famous Black."
+
+[[designers]]
+name = "Owen Earl"
+url = "https://indestructibletype.com/Home.html"

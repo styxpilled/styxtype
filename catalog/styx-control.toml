@@ -1,0 +1,8 @@
+name = "STYX Control"
+category = "display"
+license = { id = "CC-BY-4.0", url = "https://creativecommons.org/licenses/by/4.0/" }
+description = "Built on TJF Anomaly, by yours truly. I'll show you 'Avant Garde'."
+
+[[designers]]
+name = "styxtype"
+url = "https://styxtype.styx.gay"

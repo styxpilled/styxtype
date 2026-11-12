@@ -1,0 +1,8 @@
+name = "Patriot"
+category = "sans"
+tags = ["art-deco"]
+description = "Hồ Chí Minh speaks to you through this industrial display sans with irregular crossbars and abrupt diagonals. Traces of Art Deco, Bauhaus and Constructivism."
+
+# Normal sits between Light (300) and Regular (400), both files say 400.
+[files."Patriot-Normal.woff2"]
+weight = 350

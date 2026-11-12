@@ -1,0 +1,8 @@
+name = "Rock Salt"
+category = "script"
+tags = ["handwritten"]
+source = "https://fonts.google.com/specimen/Rock+Salt"
+description = "I'm leaving myself a quick note to add a description here. It's not in Rock Salt, so it doesn't feel as believable."
+
+[[designers]]
+name = "Sideshow"

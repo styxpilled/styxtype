@@ -2,7 +2,8 @@
 
 One TOML file per font: `<slug>.toml`. Font files go in `fonts/<slug>/` (not in git).
 
-The pipeline reads designer, license, copyright, description and file styles from the font files. Fields here override those values. Only `name` and `category` are required.
+The pipeline reads designer, license, copyright, description and file styles from the font files.
+Fields here override those values. Only `name` and `category` are required.
 
 ```toml
 name = "Fraunces"
@@ -12,6 +13,7 @@ source = "https://github.com/undercasetype/Fraunces"
 license = { id = "OFL-1.1", url = "https://openfontlicense.org" }
 copyright = "..."
 description = "..."
+specimen = "WHIRLING-IN-RAGS" # Hero text in the specimen view, instead of Hamburgefonstiv
 
 [[designers]]
 name = "Undercase Type"

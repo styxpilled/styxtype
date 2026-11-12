@@ -28,6 +28,8 @@ export type IndexEntry = {
 	name: string;
 	category: Category;
 	tags: string[];
+	/** Width of the name preview in static/fonts/names.svg, in em. */
+	name_width: number;
 };
 
 /** static/fonts/filters.json, keyed by slug, loaded after start. */
@@ -93,12 +95,14 @@ export type Analysis = {
 };
 
 /** static/fonts/<slug>/meta.json, loaded on select. */
-export type FontMeta = IndexEntry & {
+export type FontMeta = Omit<IndexEntry, 'name_width'> & {
 	source: string | null;
 	designers: Designer[];
 	license: License;
 	copyright: string | null;
 	description: string | null;
+	/** Hero text for the specimen view. */
+	specimen: string | null;
 	version: string | null;
 	metrics: Metrics;
 	/** woff2 file of the face closest to upright 400. */
@@ -110,4 +114,18 @@ export type FontMeta = IndexEntry & {
 	feature_names: Record<string, string>;
 	/** Inclusive code point ranges. */
 	charset: [number, number][];
+};
+
+/** static/fonts/<slug>/glyphs.json, loaded when the glyph view opens. */
+export type GlyphData = {
+	/**
+	 * Per face, in `FontMeta.faces` order: flat [advance, lsb, rsb, ...] in font units.
+	 * Glyph i is code point i of the expanded charset. Unencoded alternates follow.
+	 * Null where the face has no such glyph or the glyph has no outline.
+	 */
+	faces: (number | null)[][];
+	/** Per face: axis values of the instance the metrics are for. Null for static faces. */
+	locations: (Record<string, number> | null)[];
+	/** Code point to {feature tag: glyph indexes}. The nth index is feature value n + 1. */
+	alternates: Record<string, Record<string, number[]>>;
 };

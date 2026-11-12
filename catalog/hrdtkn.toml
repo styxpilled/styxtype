@@ -1,0 +1,8 @@
+name = "hrdtkn"
+category = "display"
+source = "https://ncempire.net/download"
+description = "Hard, angular and futuristic, like the lettering on a machine from the near future."
+
+[[designers]]
+name = "NC Empire"
+url = "https://ncempire.net"

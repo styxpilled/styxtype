@@ -1,0 +1,9 @@
+name = "DT Nouveau"
+category = "display"
+tags = ["art-nouveau", "revival"]
+source = "https://deathoftypography.com/nouveau"
+description = "An Art Nouveau revival from the pages of a 1900s colonial-era annual."
+
+[[designers]]
+name = "Death of Typography"
+url = "https://deathoftypography.com/"

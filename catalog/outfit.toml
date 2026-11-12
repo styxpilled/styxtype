@@ -1,0 +1,9 @@
+name = "Outfit"
+category = "sans"
+tags = ["geometric"]
+source = "https://github.com/Outfitio/Outfit-Fonts"
+description = "A clean geometric sans. Mayhaps the most geometric. Just look at it. So geometric."
+
+[[designers]]
+name = "Rodrigo Fuenzalida"
+url = "https://www.behance.net/erreefe"

@@ -1,0 +1,10 @@
+name = "NuCore"
+category = "display"
+tags = ["geometric"]
+source = "https://www.behance.net/gallery/227465581/NuCore-Display-Font"
+license = { id = "Freeware", url = "https://www.behance.net/gallery/227465581/NuCore-Display-Font" }
+description = "Modular, angular capitals inspired by the game Marathon. Please drink verification NuCaloric can."
+
+[[designers]]
+name = "Artyom Galinov"
+url = "https://www.behance.net/iamimago"

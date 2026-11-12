@@ -1,0 +1,8 @@
+name = "Committee"
+category = "display"
+source = "https://justseeds.org/graphic/justseeds-font-pack-4"
+license = { id = "CC-BY-NC-SA-3.0", url = "https://creativecommons.org/licenses/by-nc-sa/3.0/" }
+description = "Rough, heavy capitals with the energy of hand-cut protest lettering - a great choice for a socialist banner."
+
+[[designers]]
+name = "Alec Dunn"

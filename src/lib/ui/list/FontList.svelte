@@ -1,11 +1,21 @@
 <script lang="ts">
 	import { browse, fonts, type Sort } from '#lib/browse.svelte.ts';
-	import { categories, categoryLabels, type Category, type IndexEntry } from '#lib/catalog.ts';
-	import { preview, subsetFamily, subsetsSettled } from '#lib/fonts.svelte.ts';
+	import { categories, categoryLabels, type IndexEntry } from '#lib/catalog.ts';
 	import Search from '#lib/ui/controls/Search.svelte';
 	import Segmented from '#lib/ui/controls/Segmented.svelte';
+	import Menu from '#lib/ui/menu/Menu.svelte';
+	import { menuTrigger } from '#lib/ui/menu/trigger.ts';
 	import { onMount } from 'svelte';
 	import Chip from './Chip.svelte';
+
+	let menu = $state<ReturnType<typeof Menu>>();
+
+	function openMenu(f: IndexEntry, x: number, y: number) {
+		const pinned = browse.pinned.includes(f.slug);
+		menu?.open(x, y, [
+			{ label: pinned ? 'Unpin' : 'Pin to top', onselect: () => browse.togglePin(f.slug) }
+		]);
+	}
 
 	let search = $state<HTMLInputElement>();
 	let items = $state<Record<string, HTMLElement>>({});
@@ -27,20 +37,15 @@
 		browse.tags.length + browse.scripts.length + browse.properties.length + browse.licenses.length
 	);
 
-	let groups = $derived.by(() => {
-		if (browse.sort === 'name') return [{ label: null, fonts: browse.visible }];
-		// visible is already sorted by category, so key order matches.
-		const byCategory = Object.groupBy(browse.visible, (f) => f.category);
-		return Object.entries(byCategory).map(([c, list]) => ({
-			label: categoryLabels[c as Category],
-			fonts: list as IndexEntry[]
-		}));
-	});
-
 	const toggle = <T,>(list: T[], value: T) =>
 		list.includes(value) ? list.filter((v) => v !== value) : [...list, value];
 
 	function onkeydown(e: KeyboardEvent) {
+		if ((e.ctrlKey || e.metaKey) && !e.altKey && e.key.toLowerCase() === 'k') {
+			e.preventDefault();
+			search?.select();
+			return;
+		}
 		if (e.ctrlKey || e.metaKey || e.altKey) return;
 		const target = e.target;
 		if (target instanceof Element && target.closest('input, textarea, select, [contenteditable]')) {
@@ -63,6 +68,7 @@
 	});
 
 	onMount(() => {
+		browse.loadPins();
 		fetch('/fonts/filters.json')
 			.then((r) => r.json())
 			.then((data) => {
@@ -130,28 +136,40 @@
 	</div>
 {/if}
 
-{#each groups as group (group.label)}
+{#each browse.groups as group (group.id)}
+	{@const open = !browse.collapsed.includes(group.id)}
 	{#if group.label}
-		<h2 class="label group">{group.label}</h2>
+		<h2 class="group">
+			<button class="label" aria-expanded={open} onclick={() => browse.toggleCollapsed(group.id)}>
+				<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 4l4 4-4 4" /></svg>
+				{group.label}
+				<span class="num count">{group.fonts.length}</span>
+			</button>
+		</h2>
 	{/if}
-	<ul>
-		{#each group.fonts as f (f.slug)}
-			<li bind:this={items[f.slug]}>
-				<button
-					class="entry"
-					aria-current={f.slug === browse.selected}
-					class:pending={!subsetsSettled.has(f.slug)}
-					style:font-family="'{subsetFamily(f.slug)}', var(--font-ui)"
-					title={f.name}
-					{@attach preview(f.slug)}
-					onclick={() => (browse.selected = f.slug)}
-				>
-					{f.name}
-				</button>
-			</li>
-		{/each}
-	</ul>
+	{#if open}
+		<ul class:rest={group.id === 'all' && browse.groups.length > 1}>
+			{#each group.fonts as f (f.slug)}
+				<li bind:this={items[f.slug]}>
+					<button
+						class="entry"
+						aria-current={f.slug === browse.selected}
+						aria-label={f.name}
+						title={f.name}
+						onclick={() => (browse.selected = f.slug)}
+						{@attach menuTrigger((x, y) => openMenu(f, x, y))}
+					>
+						<svg aria-hidden="true" style:width="{f.name_width}em">
+							<use href="/fonts/names.svg#{f.slug}" />
+						</svg>
+					</button>
+				</li>
+			{/each}
+		</ul>
+	{/if}
 {/each}
+
+<Menu bind:this={menu} label="Font actions" />
 
 <style>
 	.controls {
@@ -216,7 +234,48 @@
 	}
 
 	.group {
-		margin: var(--space-4) 0 var(--space-1);
+		margin: var(--space-3) 0 var(--space-1);
+
+		button {
+			display: flex;
+			align-items: center;
+			gap: var(--space-1);
+			width: 100%;
+			padding: var(--space-1) 0;
+			border: 0;
+			background: none;
+			cursor: pointer;
+
+			&:hover {
+				color: var(--text);
+			}
+		}
+
+		svg {
+			width: 0.75rem;
+			height: 0.75rem;
+			fill: none;
+			stroke: currentColor;
+			stroke-width: 1.5;
+			stroke-linecap: round;
+			stroke-linejoin: round;
+			transition: rotate var(--duration);
+		}
+
+		[aria-expanded='true'] svg {
+			rotate: 90deg;
+		}
+	}
+
+	.count {
+		margin-left: auto;
+		color: var(--text-faint);
+	}
+
+	.rest {
+		margin-top: var(--space-2);
+		padding-top: var(--space-2);
+		border-top: 1px solid var(--border);
 	}
 
 	.entry {
@@ -228,20 +287,20 @@
 		border: 0;
 		border-radius: var(--radius-control);
 		background: none;
+		/* Preview size. The sprite box is 1.25em high, baseline at 0.95em. */
 		font-size: 1.375rem;
-		line-height: 1.25;
 		color: var(--ink);
-		text-align: left;
-		text-overflow: ellipsis;
-		white-space: nowrap;
 		cursor: pointer;
-		transition: color 120ms;
 
-		/* Fixed line-height and nowrap keep the entry height, so only the text is hidden. */
-		&.pending {
-			color: transparent;
-			transition: none;
+		svg {
+			display: block;
+			height: 1.25em;
+			fill: currentColor;
 		}
+
+		/* Long press opens the pin menu, not the iOS callout. */
+		-webkit-touch-callout: none;
+		user-select: none;
 
 		&:hover {
 			background: var(--surface-2);

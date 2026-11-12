@@ -1,0 +1,7 @@
+name = "Averia Serif Libre"
+category = "serif"
+source = "http://iotic.com/averia"
+description = "The average of 725 fonts blended into one. The result is a soft, slightly blurred serif that feels familiar but belongs to no one."
+
+[[designers]]
+name = "Dan Sayers"

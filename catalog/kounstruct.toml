@@ -1,0 +1,8 @@
+name = "Kounstruct"
+category = "display"
+source = "https://ncempire.net/download"
+description = "Wide, futuristic, geometric capitals built like scaffolding."
+
+[[designers]]
+name = "NC Empire"
+url = "https://ncempire.net"

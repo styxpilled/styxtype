@@ -1,0 +1,9 @@
+name = "League Gothic"
+category = "sans"
+tags = ["condensed", "revival"]
+source = "https://www.theleagueofmoveabletype.com/league-gothic"
+description = "A revival of Alternate Gothic. Tall, narrow and classic, the voice of old newspaper headlines."
+
+[[designers]]
+name = "The League of Moveable Type"
+url = "https://www.theleagueofmoveabletype.com"

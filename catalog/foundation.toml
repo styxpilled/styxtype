@@ -1,0 +1,9 @@
+name = "Foundation"
+category = "display"
+tags = ["wide"]
+source = "https://github.com/rsperberg/foundation-logo"
+description = "The wide, airy logo lettering of the Foundation TV series, grown into a full alphabet."
+
+[[designers]]
+name = "Roger Sperberg"
+url = "https://github.com/rsperberg"

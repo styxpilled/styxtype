@@ -5,8 +5,12 @@ from dataclasses import asdict
 from pathlib import Path
 from typing import Any
 
+from fontTools.ttLib import TTFont
+
 from pipeline.catalog import CatalogError, load_catalog
 from pipeline.fonts import Font, FontError, gaps, read_font
+from pipeline.glyphs import glyph_data
+from pipeline.previews import name_path, sprite
 from pipeline.webfonts import woff2_name, write_webfonts
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -54,6 +58,7 @@ def _meta(font: Font) -> dict[str, Any]:
         "license": asdict(font.license),
         "copyright": font.copyright,
         "description": font.description,
+        "specimen": e.specimen,
         "version": font.version,
         "metrics": asdict(font.metrics),
         "primary": woff2_name(font.primary_file),
@@ -97,11 +102,17 @@ def main() -> int:
             if directory.is_dir() and directory.name not in slugs:
                 print(f"warning: fonts/{directory.name} has no catalog file")
 
-    _write(INDEX, [_index(f) for f in fonts])
+    primaries = {f.entry.slug: TTFont(FONTS / f.entry.slug / f.primary_file) for f in fonts}
+    paths = {f.entry.slug: name_path(primaries[f.entry.slug], f.entry.name) for f in fonts}
+    _write(INDEX, [{**_index(f), "name_width": paths[f.entry.slug][1]} for f in fonts])
+    (STATIC / "names.svg").write_text(sprite(paths), encoding="utf-8")
     _write(STATIC / "filters.json", {f.entry.slug: _filters(f) for f in fonts})
     written = 0
     for font in fonts:
         _write(STATIC / font.entry.slug / "meta.json", _meta(font))
+        code_points = [cp for a, b in font.charset for cp in range(a, b + 1)]
+        faces = [TTFont(FONTS / font.entry.slug / f.file) for f in font.faces]
+        _write(STATIC / font.entry.slug / "glyphs.json", glyph_data(faces, primaries[font.entry.slug], code_points))
         written += write_webfonts(font, FONTS / font.entry.slug, STATIC / font.entry.slug)
     for directory in STATIC.iterdir():
         if directory.is_dir() and directory.name not in slugs:

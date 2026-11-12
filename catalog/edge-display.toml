@@ -1,0 +1,8 @@
+name = "Edge Display"
+category = "sans"
+source = "https://grzegorzsamson.pl/project/edge-display"
+description = "A sharp sans inspired by music posters, band logos and concert art, which can still work at medium sizes."
+
+[[designers]]
+name = "Grzegorz Samson"
+url = "https://grzegorzsamson.pl"

@@ -1,0 +1,9 @@
+name = "Besley"
+category = "slab"
+tags = ["clarendon"]
+source = "https://indestructibletype.com/Besley.html"
+description = "An antique slab serif with big, sturdy serifs. Solid, trustworthy and timeless."
+
+[[designers]]
+name = "Owen Earl"
+url = "https://indestructibletype.com/Home.html"

@@ -1,0 +1,8 @@
+name = "Shantell Sans"
+category = "sans"
+tags = ["handwritten"]
+source = "https://fonts.google.com/specimen/Shantell+Sans"
+description = "Marker-style handwriting with a ton of axes."
+
+[[designers]]
+name = "Shantell Martin"

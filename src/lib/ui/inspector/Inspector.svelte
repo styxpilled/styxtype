@@ -1,15 +1,16 @@
 <script lang="ts">
 	import type { Axis, FontMeta, IndexEntry } from '#lib/catalog.ts';
-	import { groupFeatures } from '#lib/features.ts';
 	import { fontStack } from '#lib/fonts.svelte.ts';
 	import { settings, textDefaults } from '#lib/settings.svelte.ts';
 	import Select from '#lib/ui/controls/Select.svelte';
 	import Slider from '#lib/ui/controls/Slider.svelte';
 	import Switch from '#lib/ui/controls/Switch.svelte';
 	import Section from './Section.svelte';
+	import Tuning from './Tuning.svelte';
 
-	type Props = { font: IndexEntry; meta: FontMeta | undefined };
-	let { font, meta }: Props = $props();
+	/** `text`: show the Text section, for views that use it. */
+	type Props = { font: IndexEntry; meta: FontMeta | undefined; text: boolean };
+	let { font, meta, text }: Props = $props();
 
 	let own = $derived(settings.font);
 	let faces = $derived(meta?.faces ?? []);
@@ -47,7 +48,6 @@
 		});
 	}
 
-	let groups = $derived(meta ? groupFeatures(meta.features, meta.feature_names) : []);
 	let version = $derived(meta?.version?.match(/\d+(\.\d+)+/)?.[0] ?? meta?.version);
 	let sourceHost = $derived(meta?.source ? new URL(meta.source).host.replace(/^www\./, '') : null);
 </script>
@@ -91,39 +91,41 @@
 		{/if}
 	</section>
 
-	<Section title="Text">
-		<Slider
-			label="Size"
-			bind:value={settings.size}
-			min={8}
-			max={160}
-			unit=" px"
-			onreset={settings.size !== textDefaults.size
-				? () => (settings.size = textDefaults.size)
-				: undefined}
-		/>
-		<Slider
-			label="Line height"
-			bind:value={settings.lineHeight}
-			min={0.8}
-			max={2.5}
-			step={0.05}
-			onreset={settings.lineHeight !== textDefaults.lineHeight
-				? () => (settings.lineHeight = textDefaults.lineHeight)
-				: undefined}
-		/>
-		<Slider
-			label="Letter spacing"
-			bind:value={settings.tracking}
-			min={-0.1}
-			max={0.3}
-			step={0.005}
-			unit=" em"
-			onreset={settings.tracking !== textDefaults.tracking
-				? () => (settings.tracking = textDefaults.tracking)
-				: undefined}
-		/>
-	</Section>
+	{#if text}
+		<Section title="Text">
+			<Slider
+				label="Size"
+				bind:value={settings.size}
+				min={8}
+				max={160}
+				unit=" px"
+				onreset={settings.size !== textDefaults.size
+					? () => (settings.size = textDefaults.size)
+					: undefined}
+			/>
+			<Slider
+				label="Line height"
+				bind:value={settings.lineHeight}
+				min={0.8}
+				max={2.5}
+				step={0.05}
+				onreset={settings.lineHeight !== textDefaults.lineHeight
+					? () => (settings.lineHeight = textDefaults.lineHeight)
+					: undefined}
+			/>
+			<Slider
+				label="Letter spacing"
+				bind:value={settings.tracking}
+				min={-0.1}
+				max={0.3}
+				step={0.005}
+				unit=" em"
+				onreset={settings.tracking !== textDefaults.tracking
+					? () => (settings.tracking = textDefaults.tracking)
+					: undefined}
+			/>
+		</Section>
+	{/if}
 
 	{#if hasItalic || staticWeights.length > 1 || face?.instances.length}
 		<Section title="Style">
@@ -156,47 +158,13 @@
 		</Section>
 	{/if}
 
-	{#if face?.axes.length}
-		<Section title="Axes">
-			{#snippet action()}
-				{#if Object.keys(own.axes).length}
-					<button class="reset" onclick={() => settings.edit((f) => (f.axes = {}))}>
-						Reset all
-					</button>
-				{/if}
-			{/snippet}
-			{#each face.axes as axis (axis.tag)}
-				<Slider
-					label={axis.name}
-					min={axis.min}
-					max={axis.max}
-					step={axis.max - axis.min > 10 ? 1 : 0.01}
-					text={axis.tag === 'opsz' && !(axis.tag in own.axes) ? 'auto' : undefined}
-					onreset={axis.tag in own.axes
-						? () => settings.edit((f) => delete f.axes[axis.tag])
-						: undefined}
-					bind:value={() => axisValue(axis), (v) => settings.edit((f) => (f.axes[axis.tag] = v))}
-				/>
-			{/each}
-		</Section>
-	{/if}
-
-	{#each groups as { group, features } (group)}
-		<Section title={group}>
-			{#each features as feature (feature.tag)}
-				<Switch
-					label={feature.name}
-					tag={feature.tag}
-					checked={own.features[feature.tag] ?? feature.defaultOn}
-					onchange={(on) =>
-						settings.edit((f) => {
-							if (on === feature.defaultOn) delete f.features[feature.tag];
-							else f.features[feature.tag] = on;
-						})}
-				/>
-			{/each}
-		</Section>
-	{/each}
+	<Tuning
+		{meta}
+		axes={face?.axes ?? []}
+		{own}
+		edit={(change) => settings.edit(change)}
+		{axisValue}
+	/>
 </div>
 
 <style>
@@ -248,14 +216,5 @@
 	dd {
 		margin: 0;
 		overflow-wrap: anywhere;
-	}
-
-	.reset {
-		padding: 0;
-		border: 0;
-		background: none;
-		font-size: var(--text-xs);
-		color: var(--accent);
-		cursor: pointer;
 	}
 </style>

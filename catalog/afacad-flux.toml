@@ -1,0 +1,9 @@
+name = "Afacad Flux"
+category = "sans"
+tags = ["variable"]
+source = "https://github.com/Dicotype/Afacad"
+description = "A calm, architectural sans that follows the proportions of 1940s Swedish buildings."
+
+[[designers]]
+name = "Kristian Möller"
+url = "https://github.com/ktkm"

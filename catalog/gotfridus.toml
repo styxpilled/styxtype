@@ -1,0 +1,8 @@
+name = "Gotfridus"
+category = "blackletter"
+source = "https://ggbot.itch.io/gotfridus-font"
+description = "Dark, dense gothic letters with a which combine a medieval feel with the future and possibly vampires."
+
+[[designers]]
+name = "GGBotNet"
+url = "https://ggbot.net"

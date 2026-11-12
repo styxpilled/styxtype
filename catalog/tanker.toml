@@ -1,0 +1,10 @@
+name = "Tanker"
+category = "display"
+tags = ["heavy"]
+source = "https://www.fontshare.com/fonts/tanker"
+license = { id = "ITF-FFL", url = "https://fontshare.com/terms" }
+description = "Heavy, compressed capitals. I DEMAND TO BE HEARD!"
+
+[[designers]]
+name = "Ruosi Huang"
+url = "https://www.indiantypefoundry.com/"

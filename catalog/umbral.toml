@@ -1,0 +1,8 @@
+name = "Umbral"
+category = "display"
+source = "https://justseeds.org/graphic/justseeds-font-pack-18"
+license = { id = "CC-BY-SA-4.0", url = "https://creativecommons.org/licenses/by-sa/4.0/" }
+description = "Bold, plain capitals with a printed, poster-ready feel."
+
+[[designers]]
+name = "Alec Dunn"

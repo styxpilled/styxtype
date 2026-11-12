@@ -1,0 +1,9 @@
+name = "Linden Hill"
+category = "serif"
+tags = ["old-style", "revival"]
+source = "https://www.theleagueofmoveabletype.com/linden-hill"
+description = "A digital version of Goudy's Deepdene. Graceful and literary, with a gentle old-world feel."
+
+[[designers]]
+name = "The League of Moveable Type"
+url = "https://www.theleagueofmoveabletype.com"

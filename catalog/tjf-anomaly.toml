@@ -1,0 +1,9 @@
+name = "TJF Anomaly"
+category = "display"
+source = "https://www.fontspace.com/the-jigsaw-foundry"
+license = { id = "CC-BY-4.0", url = "https://creativecommons.org/licenses/by/4.0/" }
+description = "A tribute to Herb Lubalin. Some people may have opinions about some creative choices. Some people may have made some tweaks because the lowercase doesn't look that good."
+
+[[designers]]
+name = "The Jigsaw Foundry"
+url = "https://jigsawfoundry.gumroad.com/"

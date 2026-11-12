@@ -1,0 +1,10 @@
+name = "Maratype"
+category = "display"
+tags = ["condensed"]
+source = "https://www.behance.net/gallery/227048755/MARATYPE-custom-display-font"
+license = { id = "Freeware", url = "https://www.behance.net/gallery/227048755/MARATYPE-custom-display-font" }
+description = "Narrow, technical capitals made by a fan of Bungie's games."
+
+[[designers]]
+name = "Artyom Galinov"
+url = "https://www.behance.net/iamimago"

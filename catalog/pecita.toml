@@ -1,0 +1,8 @@
+name = "Pecita"
+category = "script"
+tags = ["handwritten"]
+source = "https://pecita.eu"
+description = "Neat, connected handwriting, as if written with a fine pen. One of the best handwriting fonts available."
+
+[[designers]]
+name = "Philippe Cochy"

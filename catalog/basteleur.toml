@@ -1,0 +1,9 @@
+name = "Basteleur"
+category = "display"
+tags = ["medieval"]
+source = "https://velvetyne.fr/fonts/basteleur"
+description = "Made with the Tarot de Marseille in mind. Half medieval, half Cooper Black."
+
+[[designers]]
+name = "Keussel"
+url = "https://keussel.studio"

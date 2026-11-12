@@ -1,0 +1,9 @@
+name = "Righteous"
+category = "display"
+specimen = "WHIRLING-IN-RAGS"
+tags = ["art-deco"]
+source = "https://github.com/librefonts/righteous"
+description = "Smooth, geometric letters with the feel of an Art Deco poster. Kinda looks like that one place in Revachol."
+
+[[designers]]
+name = "Brian J. Bonislawsky"

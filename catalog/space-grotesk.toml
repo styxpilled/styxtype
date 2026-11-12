@@ -1,0 +1,9 @@
+name = "Space Grotesk"
+category = "sans"
+tags = ["grotesque"]
+source = "https://floriankarsten.github.io/space-grotesk"
+description = "A proportional take on Space Mono."
+
+[[designers]]
+name = "Florian Karsten"
+url = "https://floriankarsten.com"

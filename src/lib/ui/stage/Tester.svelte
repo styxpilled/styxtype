@@ -1,5 +1,8 @@
 <script lang="ts" module>
+	import texts from '#lib/texts.json';
+
 	// Module state, so the text stays when the view or font changes.
+	let excerpt = $state(texts.excerpts[0].id);
 	let line = $state('Handgloves & Quixotic 1234');
 	let paragraph = $state(
 		'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.'
@@ -8,8 +11,11 @@
 
 <script lang="ts">
 	import { settings } from '#lib/settings.svelte.ts';
+	import Segmented from '#lib/ui/controls/Segmented.svelte';
 
 	const sizes = [96, 64, 40, 28, 20, 14];
+
+	let current = $derived(texts.excerpts.find((e) => e.id === excerpt) ?? texts.excerpts[0]);
 </script>
 
 <div class="tester">
@@ -37,6 +43,21 @@
 			style:font-size="{settings.size}px"
 			style:line-height={settings.lineHeight}
 			style:letter-spacing="{settings.tracking}em"></textarea>
+	</section>
+
+	<section class="excerpt">
+		<Segmented
+			label="Excerpt"
+			bind:value={excerpt}
+			options={texts.excerpts.map((e) => ({ value: e.id, label: e.label }))}
+		/>
+		<p
+			style:font-size="{settings.size}px"
+			style:line-height={settings.lineHeight}
+			style:letter-spacing="{settings.tracking}em"
+		>
+			{current.text}
+		</p>
 	</section>
 </div>
 
@@ -85,6 +106,20 @@
 
 		&:focus-visible {
 			border-bottom-color: var(--accent);
+		}
+	}
+
+	.excerpt {
+		display: grid;
+		justify-items: start;
+		gap: var(--space-5);
+		color: var(--ink);
+
+		p {
+			max-width: 36em;
+			white-space: pre-line;
+			white-space: pre-wrap;
+			hanging-punctuation: first;
 		}
 	}
 

@@ -45,6 +45,8 @@
 		else if (listOpen) listOpen = false;
 	}
 
+	let toolbarHeight = $state(0);
+
 	let inspectorHidden = $derived(!desktop.current && !inspectorOpen);
 </script>
 
@@ -83,10 +85,11 @@
 		</div>
 	</aside>
 
-	<main class="panel stage">
-		<div class="toolbar">
+	<main class="panel stage" style:--toolbar-height={toolbarHeight ? `${toolbarHeight}px` : null}>
+		<div class="toolbar" bind:offsetHeight={toolbarHeight}>
 			{@render toolbar()}
-			<span class="spacer"></span>
+		</div>
+		<div class="stage-actions">
 			{@render inspectorButton()}
 		</div>
 		<div class="stage-body">
@@ -162,6 +165,7 @@
 	.stage-body,
 	.inspector-body {
 		overflow-y: auto;
+		scrollbar-gutter: stable;
 		overscroll-behavior: contain;
 	}
 
@@ -170,9 +174,18 @@
 		padding: 0 var(--space-4) var(--space-4);
 	}
 
+	.stage {
+		position: relative;
+		--stage-pad: var(--space-3);
+		/* Keeps scrolled content off the panel's top edge. */
+		--stage-margin: var(--space-3);
+	}
+
 	.stage-body {
 		flex: 1;
-		padding: var(--space-5);
+		/* The toolbar floats over the top, so content scrolls up beside it. */
+		margin-top: var(--stage-margin);
+		padding: var(--toolbar-height, 3.5rem) var(--stage-pad) var(--stage-pad);
 	}
 
 	.inspector-body {
@@ -217,19 +230,33 @@
 		}
 	}
 
+	.toolbar,
+	.stage-actions {
+		position: absolute;
+		top: 0;
+		z-index: 2;
+		padding: var(--space-3);
+		background: var(--surface);
+	}
+
 	.toolbar {
+		left: 0;
+		max-width: 100%;
+		border-bottom-right-radius: var(--radius-panel);
 		display: flex;
 		align-items: center;
 		gap: var(--space-2);
-		padding: var(--space-3) var(--space-3) 0;
-	}
+		overflow-x: auto;
+		scrollbar-width: none;
 
-	.spacer {
-		flex: 1;
+		> :global(*) {
+			flex-shrink: 0;
+		}
 	}
 
 	.topbar,
 	.sheet-head,
+	.stage-actions,
 	.backdrop,
 	.inspector-toggle {
 		display: none;
@@ -266,6 +293,12 @@
 	@media (max-width: 74.99rem) {
 		.shell {
 			grid-template-columns: var(--list-width) minmax(0, 1fr);
+		}
+
+		.stage-actions {
+			display: block;
+			right: 0;
+			border-bottom-left-radius: var(--radius-panel);
 		}
 
 		.stage .inspector-toggle {
@@ -326,17 +359,13 @@
 			}
 		}
 
-		.stage .inspector-toggle,
+		.stage-actions,
 		.list-head {
 			display: none;
 		}
 
-		.stage-body {
-			padding: var(--space-4);
-		}
-
-		.toolbar {
-			padding: var(--space-3) var(--space-3) 0;
+		.stage {
+			--stage-pad: var(--space-1);
 		}
 
 		.list,

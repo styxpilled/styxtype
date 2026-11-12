@@ -1,0 +1,9 @@
+name = "Gluten"
+category = "display"
+tags = ["rounded"]
+source = "https://etceteratype.co/gluten"
+description = "Loud, round and bouncy, like letters squeezed from a piping bag."
+
+[[designers]]
+name = "Ty Finck"
+url = "https://tyfromtheinternet.com"

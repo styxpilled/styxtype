@@ -1,0 +1,9 @@
+name = "Caesium"
+category = "mono"
+tags = ["coding"]
+source = "https://github.com/alphaArgon/Caesium"
+description = "A cursive coding face, loose and flowing where most monospace fonts are rigid."
+
+[[designers]]
+name = "Alpha Argon"
+url = "https://argon.red"

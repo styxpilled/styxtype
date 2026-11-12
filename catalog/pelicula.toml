@@ -1,0 +1,8 @@
+name = "Pelicula"
+category = "display"
+source = "https://github.com/jackkershaw/pelicula"
+description = "Loose, hand-drawn capitals taken from the posters of a radical film collective. Guaranteed to boost unionization efforts."
+
+[[designers]]
+name = "Jack Kershaw"
+url = "https://github.com/jackkershaw"

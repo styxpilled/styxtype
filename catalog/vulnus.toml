@@ -1,0 +1,8 @@
+name = "Vulnus"
+category = "blackletter"
+source = "https://codeberg.org/m-casanova/Vulnus"
+description = "Revived from a 1911 Antiqua, with gently flared strokes and swashes. Old-fashioned and literary, with a touch of Art Nouveau."
+
+[[designers]]
+name = "Michele Casanova"
+url = "https://codeberg.org/m-casanova"

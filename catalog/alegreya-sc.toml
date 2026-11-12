@@ -1,0 +1,8 @@
+name = "Alegreya SC"
+category = "serif"
+tags = ["small-caps"]
+source = "https://github.com/huertatipografica/Alegreya"
+description = "Lively small capitals with a calligraphic rhythm. Bookish and elegant, made for literature."
+
+[[designers]]
+name = "Juan Pablo del Peral"

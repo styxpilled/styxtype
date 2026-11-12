@@ -1,0 +1,10 @@
+name = "UESC"
+category = "display"
+tags = ["wide"]
+source = "https://www.behance.net/gallery/229633373/UESC-Display-Font#"
+license = { id = "Freeware", url = "https://www.behance.net/gallery/229633373/UESC-Display-Font#" }
+description = "Wide, technical capitals named after a faction in Bungie's Marathon. We're coming for you, Runner."
+
+[[designers]]
+name = "Artyom Galinov"
+url = "https://www.behance.net/iamimago"

@@ -1,0 +1,8 @@
+name = "Kaph"
+category = "display"
+source = "https://ggbot.itch.io/kaph-font"
+description = "Chunky, blocky letters with a playful feel."
+
+[[designers]]
+name = "GGBotNet"
+url = "https://ggbot.net"

@@ -1,0 +1,8 @@
+name = "Montserrat"
+category = "sans"
+tags = ["geometric"]
+source = "https://github.com/JulietaUla/Montserrat"
+description = "Open and geometric. Very cool. Popular for a reason."
+
+[[designers]]
+name = "Julieta Ulanovsky"

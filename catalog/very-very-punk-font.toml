@@ -1,0 +1,9 @@
+name = "Very Very Punk Font"
+category = "display"
+tags = ["collage"]
+source = "https://wanders.work/fonts"
+description = "Every letter is a collage of cut-out scraps. Chaotic, absurdly large and very, very punk."
+
+[[designers]]
+name = "Tup Wanders"
+url = "https://wanders.work"

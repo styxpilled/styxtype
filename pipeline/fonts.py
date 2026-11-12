@@ -107,7 +107,9 @@ def _feature_names(font: TTFont) -> dict[str, str]:
     for record in font["GSUB"].table.FeatureList.FeatureRecord:
         params = record.Feature.FeatureParams
         name_id = getattr(params, "UINameID", None) or getattr(params, "FeatUILabelNameID", None)
-        if name_id and (name := _name(font, name_id)):
+        # Sinistre: "name : Celtic". Outfit: ss01 named "ss01".
+        name = re.sub(r"^name\s*:\s*", "", _name(font, name_id) or "", flags=re.I) if name_id else ""
+        if name and name != record.FeatureTag:
             names.setdefault(record.FeatureTag, name)
     return names
 
@@ -256,6 +258,9 @@ def read_font(entry: Entry, directory: Path) -> Font:
     for _, f in loaded:
         for tag, name in _feature_names(f).items():
             feature_names.setdefault(tag, name)
+    # A name used for several features is a placeholder (Aboensis: "Name:").
+    repeated = {n for n in feature_names.values() if list(feature_names.values()).count(n) > 1}
+    feature_names = {t: n for t, n in feature_names.items() if n not in repeated}
 
     sorted_faces = tuple(sorted(faces, key=lambda f: (f.italic, f.weight if isinstance(f.weight, int) else f.weight[0])))
     return Font(

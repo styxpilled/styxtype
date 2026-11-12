@@ -1,0 +1,8 @@
+name = "In die busillis"
+category = "blackletter"
+source = "https://codeberg.org/m-casanova/InDieBusillis"
+description = "Based on Tudor Black from 1878, with 19th-century initials, straight from the manuscript."
+
+[[designers]]
+name = "Michele Casanova"
+url = "https://codeberg.org/m-casanova"

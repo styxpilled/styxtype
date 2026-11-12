@@ -9,10 +9,27 @@
 	let { label, options, value = $bindable(), onchange }: Props = $props();
 
 	const name = $props.id();
+
+	let group: HTMLDivElement;
+
+	// Show the neighbor in the direction of travel, so hidden options are discoverable.
+	function reveal(index: number) {
+		const from = options.findIndex((o) => o.value === value);
+		const items = group.children;
+		const target = items[index + (index > from ? 1 : -1)];
+		if (!target) {
+			group.scrollLeft = index === 0 ? 0 : group.scrollWidth;
+			return;
+		}
+		const g = group.getBoundingClientRect();
+		const t = target.getBoundingClientRect();
+		if (t.left < g.left) group.scrollLeft += t.left - g.left;
+		else if (t.right > g.right) group.scrollLeft += t.right - g.right;
+	}
 </script>
 
-<div class="segmented" role="radiogroup" aria-label={label}>
-	{#each options as option (option.value)}
+<div class="segmented" role="radiogroup" aria-label={label} bind:this={group}>
+	{#each options as option, i (option.value)}
 		<label>
 			<input
 				type="radio"
@@ -20,6 +37,7 @@
 				value={option.value}
 				checked={value === option.value}
 				onchange={() => {
+					reveal(i);
 					value = option.value;
 					onchange?.(option.value);
 				}}
@@ -34,6 +52,10 @@
 	.segmented {
 		font-family: var(--font-ui);
 		display: inline-flex;
+		max-width: 100%;
+		overflow-x: auto;
+		scrollbar-width: none;
+		scroll-behavior: smooth;
 		padding: 2px;
 		border-radius: var(--radius-control);
 		background: var(--surface-2);
@@ -41,6 +63,7 @@
 	}
 
 	label {
+		flex-shrink: 0;
 		position: relative;
 		cursor: pointer;
 	}

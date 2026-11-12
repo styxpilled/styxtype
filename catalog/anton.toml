@@ -2,6 +2,7 @@ name = "Anton"
 category = "display"
 tags = ["condensed"]
 source = "https://github.com/googlefonts/AntonFont"
+description = "A tall, tightly condensed advertising sans. Looks best in uppercase."
 
 [[designers]]
 name = "Vernon Adams"

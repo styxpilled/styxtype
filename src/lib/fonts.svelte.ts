@@ -1,13 +1,10 @@
 /* eslint-disable svelte/prefer-svelte-reactivity -- Caches, not UI state. */
-import type { Face, FontMeta } from '#lib/catalog.ts';
-import { SvelteSet } from 'svelte/reactivity';
+import type { Face, FontMeta, GlyphData } from '#lib/catalog.ts';
 
 const subsets = new Map<string, Promise<void>>();
 const fulls = new Map<string, Promise<void>>();
 const metas = new Map<string, Promise<FontMeta>>();
-
-/** Slugs whose subset finished loading, with or without success. */
-export const subsetsSettled = new SvelteSet<string>();
+const glyphs = new Map<string, Promise<GlyphData>>();
 
 export const subsetFamily = (slug: string) => `${slug} subset`;
 
@@ -20,25 +17,27 @@ export function loadSubset(slug: string): Promise<void> {
 		promise = new FontFace(subsetFamily(slug), `url(/fonts/${slug}/subset.woff2)`)
 			.load()
 			.then((face) => void document.fonts.add(face))
-			.catch(() => {})
-			.finally(() => subsetsSettled.add(slug));
+			.catch(() => {});
 		subsets.set(slug, promise);
 	}
 	return promise;
 }
 
-export function loadMeta(slug: string): Promise<FontMeta> {
-	let promise = metas.get(slug);
+function loadJson<T>(cache: Map<string, Promise<T>>, slug: string, file: string): Promise<T> {
+	let promise = cache.get(slug);
 	if (!promise) {
-		promise = fetch(`/fonts/${slug}/meta.json`).then((r) => {
-			if (!r.ok) throw new Error(`meta.json for ${slug}: ${r.status}`);
+		promise = fetch(`/fonts/${slug}/${file}`).then((r) => {
+			if (!r.ok) throw new Error(`${file} for ${slug}: ${r.status}`);
 			return r.json();
 		});
-		promise.catch(() => metas.delete(slug));
-		metas.set(slug, promise);
+		promise.catch(() => cache.delete(slug));
+		cache.set(slug, promise);
 	}
 	return promise;
 }
+
+export const loadMeta = (slug: string) => loadJson(metas, slug, 'meta.json');
+export const loadGlyphs = (slug: string) => loadJson(glyphs, slug, 'glyphs.json');
 
 // OS/2 usWidthClass to font-stretch.
 const stretchByClass = [50, 62.5, 75, 87.5, 100, 112.5, 125, 150, 200];
@@ -46,7 +45,7 @@ const stretchByClass = [50, 62.5, 75, 87.5, 100, 112.5, 125, 150, 200];
 const range = (value: number | [number, number]) =>
 	Array.isArray(value) ? `${value[0]} ${value[1]}` : `${value}`;
 
-function descriptors(face: Face): FontFaceDescriptors {
+export function descriptors(face: Face): FontFaceDescriptors {
 	const wdth = face.axes.find((a) => a.tag === 'wdth');
 	return {
 		weight: range(face.weight),
@@ -82,25 +81,3 @@ export function loadFull(slug: string): Promise<void> {
 	}
 	return promise;
 }
-
-const observed = new WeakMap<Element, string>();
-let io: IntersectionObserver | undefined;
-
-// No margin: rootMargin and scrollMargin also count entries in a collapsed sheet below the screen.
-const observer = () =>
-	(io ??= new IntersectionObserver((entries) => {
-		for (const entry of entries) {
-			if (!entry.isIntersecting) continue;
-			const slug = observed.get(entry.target);
-			if (slug) loadSubset(slug);
-			io!.unobserve(entry.target);
-		}
-	}));
-
-/** Attachment: loads the subset of `slug` when the element comes near the visible area. */
-export const preview = (slug: string) => (el: Element) => {
-	if (subsets.has(slug)) return;
-	observed.set(el, slug);
-	observer().observe(el);
-	return () => observer().unobserve(el);
-};

@@ -1,0 +1,9 @@
+name = "Young Serif"
+category = "serif"
+tags = ["old-style"]
+source = "https://fonts.google.com/specimen/Young+Serif"
+description = "A heavy old-style serif after Plantin Infant and Italian Old Style. Fit for a wide variety of uses."
+
+[[designers]]
+name = "NoirBlancRouge"
+url = "https://noirblancrouge.com"

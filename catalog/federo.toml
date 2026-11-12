@@ -1,0 +1,8 @@
+name = "Federo"
+category = "sans"
+tags = ["art-deco", "revival"]
+source = "https://github.com/cyrealtype/Federo"
+description = "A faithful take on Feder Grotesk from 1909 with a crisp, early-modern feel."
+
+[[designers]]
+name = "Olexa Volochay"
