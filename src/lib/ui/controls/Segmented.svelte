@@ -30,7 +30,9 @@
 </div>
 
 <style>
+	/* Also inside specimen text, which sets its own font. */
 	.segmented {
+		font-family: var(--font-ui);
 		display: inline-flex;
 		padding: 2px;
 		border-radius: var(--radius-control);

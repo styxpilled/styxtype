@@ -5,6 +5,7 @@ from pathlib import Path
 from fontTools.pens.boundsPen import BoundsPen
 from fontTools.ttLib import TTFont
 
+from pipeline.analysis import Analysis, analyze
 from pipeline.catalog import Designer, Entry, FileOverride, License
 
 FONT_EXTENSIONS = {".ttf", ".otf", ".woff", ".woff2"}
@@ -71,6 +72,9 @@ class Font:
     metrics: Metrics
     charset: tuple[tuple[int, int], ...]
     features: tuple[str, ...]
+    # Names from the font for stylistic sets (ssXX) and character variants (cvXX).
+    feature_names: dict[str, str]
+    analysis: Analysis
 
 
 class FontError(Exception):
@@ -94,6 +98,18 @@ def _features(font: TTFont) -> set[str]:
         if table in font and font[table].table.FeatureList:
             tags.update(r.FeatureTag for r in font[table].table.FeatureList.FeatureRecord)
     return tags
+
+
+def _feature_names(font: TTFont) -> dict[str, str]:
+    names: dict[str, str] = {}
+    if "GSUB" not in font or not font["GSUB"].table.FeatureList:
+        return names
+    for record in font["GSUB"].table.FeatureList.FeatureRecord:
+        params = record.Feature.FeatureParams
+        name_id = getattr(params, "UINameID", None) or getattr(params, "FeatUILabelNameID", None)
+        if name_id and (name := _name(font, name_id)):
+            names.setdefault(record.FeatureTag, name)
+    return names
 
 
 def _read_face(path: Path, font: TTFont, override: FileOverride | None) -> Face:
@@ -234,13 +250,18 @@ def read_font(entry: Entry, directory: Path) -> Font:
     features: set[str] = set()
     for _, f in loaded:
         charset |= _charset(f)
+    feature_names: dict[str, str] = {}
     for face in faces:
         features.update(face.features)
+    for _, f in loaded:
+        for tag, name in _feature_names(f).items():
+            feature_names.setdefault(tag, name)
 
+    sorted_faces = tuple(sorted(faces, key=lambda f: (f.italic, f.weight if isinstance(f.weight, int) else f.weight[0])))
     return Font(
         entry=entry,
         primary_file=faces[primary_index].file,
-        faces=tuple(sorted(faces, key=lambda f: (f.italic, f.weight if isinstance(f.weight, int) else f.weight[0]))),
+        faces=sorted_faces,
         designers=designers,
         license=License(license_id, license_url),
         copyright=entry.copyright or _name(primary, NAME_COPYRIGHT),
@@ -249,6 +270,8 @@ def read_font(entry: Entry, directory: Path) -> Font:
         metrics=_metrics(primary),
         charset=_ranges(charset),
         features=tuple(sorted(features)),
+        feature_names=dict(sorted(feature_names.items())),
+        analysis=analyze(sorted_faces, primary, charset),
     )
 
 

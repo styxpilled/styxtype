@@ -39,6 +39,9 @@ export type FilterData = {
 	variable: boolean;
 	axes: string[];
 	features: string[];
+	/** Auto-tags from the pipeline analysis. */
+	scripts: string[];
+	properties: string[];
 };
 
 export type Designer = {
@@ -78,6 +81,17 @@ export type Metrics = {
 	cap_height: number | null;
 };
 
+export type Analysis = {
+	weight_class: number;
+	width_class: number;
+	panose: number[];
+	monospace: boolean;
+	/** ISO 15924 code to number of characters. */
+	script_chars: Record<string, number>;
+	scripts: string[];
+	properties: string[];
+};
+
 /** static/fonts/<slug>/meta.json, loaded on select. */
 export type FontMeta = IndexEntry & {
 	source: string | null;
@@ -87,8 +101,13 @@ export type FontMeta = IndexEntry & {
 	description: string | null;
 	version: string | null;
 	metrics: Metrics;
+	/** woff2 file of the face closest to upright 400. */
+	primary: string;
 	faces: Face[];
 	features: string[];
+	analysis: Analysis;
+	/** Font-provided names of ssXX and cvXX features. */
+	feature_names: Record<string, string>;
 	/** Inclusive code point ranges. */
 	charset: [number, number][];
 };

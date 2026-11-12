@@ -1,3 +1,10 @@
+/* Hides glyphs that a specimen font does not have. Covers all of Unicode. */
+@font-face {
+	font-family: 'Adobe Blank';
+	src: url('../assets/adobe-blank-2.woff2') format('woff2');
+	font-display: block;
+}
+
 *,
 *::before,
 *::after {

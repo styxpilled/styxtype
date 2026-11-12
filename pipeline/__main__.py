@@ -40,6 +40,8 @@ def _filters(font: Font) -> dict[str, Any]:
         "variable": any(f.axes for f in font.faces),
         "axes": sorted({a.tag for f in font.faces for a in f.axes}),
         "features": list(font.features),
+        "scripts": list(font.analysis.scripts),
+        "properties": list(font.analysis.properties),
     }
 
 
@@ -57,6 +59,8 @@ def _meta(font: Font) -> dict[str, Any]:
         "primary": woff2_name(font.primary_file),
         "faces": [{**asdict(f), "file": woff2_name(f.file)} for f in font.faces],
         "features": list(font.features),
+        "feature_names": font.feature_names,
+        "analysis": asdict(font.analysis),
         "charset": font.charset,
     }
 

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { browse, fonts, type Sort } from '#lib/browse.svelte.ts';
 	import { categories, categoryLabels, type Category, type IndexEntry } from '#lib/catalog.ts';
+	import { preview, subsetFamily, subsetsSettled } from '#lib/fonts.svelte.ts';
 	import Search from '#lib/ui/controls/Search.svelte';
 	import Segmented from '#lib/ui/controls/Segmented.svelte';
 	import { onMount } from 'svelte';
@@ -10,13 +11,21 @@
 	let items = $state<Record<string, HTMLElement>>({});
 
 	const present = categories.filter((c) => fonts.some((f) => f.category === c));
-	const tags = [...new Set(fonts.flatMap((f) => f.tags))].sort();
-	let licenses = $derived(
-		[...new Set(Object.values(browse.filterData ?? {}).map((d) => d.license ?? ''))]
-			.filter(Boolean)
-			.sort()
+	const unique = (values: (string | null)[]) =>
+		[...new Set(values)].filter((v): v is string => Boolean(v)).sort();
+
+	let filterGroups = $derived.by(() => {
+		const data = Object.values(browse.filterData ?? {});
+		return [
+			{ key: 'tags', label: 'Tags', values: unique(fonts.flatMap((f) => f.tags)) },
+			{ key: 'scripts', label: 'Scripts', values: unique(data.flatMap((d) => d.scripts)) },
+			{ key: 'properties', label: 'Properties', values: unique(data.flatMap((d) => d.properties)) },
+			{ key: 'licenses', label: 'License', values: unique(data.map((d) => d.license)) }
+		] as const;
+	});
+	let extraCount = $derived(
+		browse.tags.length + browse.scripts.length + browse.properties.length + browse.licenses.length
 	);
-	let extraCount = $derived(browse.tags.length + browse.licenses.length);
 
 	let groups = $derived.by(() => {
 		if (browse.sort === 'name') return [{ label: null, fonts: browse.visible }];
@@ -54,16 +63,11 @@
 	});
 
 	onMount(() => {
-		// Temporary: 010 loads previews lazily.
-		for (const f of fonts) {
-			new FontFace(`${f.slug} subset`, `url(/fonts/${f.slug}/subset.woff2)`)
-				.load()
-				.then((face) => document.fonts.add(face))
-				.catch(() => {});
-		}
 		fetch('/fonts/filters.json')
 			.then((r) => r.json())
-			.then((data) => (browse.filterData = data))
+			.then((data) => {
+				browse.filterData = data;
+			})
 			.catch(() => {});
 	});
 </script>
@@ -99,33 +103,23 @@
 </div>
 
 <div id="more-filters" class="panel popover" popover>
-	{#if tags.length}
-		<h3 class="label">Tags</h3>
-		<div class="chips">
-			{#each tags as t (t)}
-				<Chip
-					pressed={browse.tags.includes(t)}
-					onclick={() => (browse.tags = toggle(browse.tags, t))}
-				>
-					{t}
-				</Chip>
-			{/each}
-		</div>
-	{/if}
-	<h3 class="label">License</h3>
-	{#if licenses.length}
-		<div class="chips">
-			{#each licenses as l (l)}
-				<Chip
-					pressed={browse.licenses.includes(l)}
-					onclick={() => (browse.licenses = toggle(browse.licenses, l))}
-				>
-					{l}
-				</Chip>
-			{/each}
-		</div>
-	{:else}
-		<p class="label">Loading licenses</p>
+	{#each filterGroups as group (group.key)}
+		{#if group.values.length}
+			<h3 class="label">{group.label}</h3>
+			<div class="chips">
+				{#each group.values as value (value)}
+					<Chip
+						pressed={browse[group.key].includes(value)}
+						onclick={() => (browse[group.key] = toggle(browse[group.key], value))}
+					>
+						{value}
+					</Chip>
+				{/each}
+			</div>
+		{/if}
+	{/each}
+	{#if !browse.filterData}
+		<p class="label">Loading more filters</p>
 	{/if}
 </div>
 
@@ -146,8 +140,10 @@
 				<button
 					class="entry"
 					aria-current={f.slug === browse.selected}
-					style:font-family="'{f.slug} subset', var(--font-ui)"
+					class:pending={!subsetsSettled.has(f.slug)}
+					style:font-family="'{subsetFamily(f.slug)}', var(--font-ui)"
 					title={f.name}
+					{@attach preview(f.slug)}
 					onclick={() => (browse.selected = f.slug)}
 				>
 					{f.name}
@@ -239,6 +235,13 @@
 		text-overflow: ellipsis;
 		white-space: nowrap;
 		cursor: pointer;
+		transition: color 120ms;
+
+		/* Fixed line-height and nowrap keep the entry height, so only the text is hidden. */
+		&.pending {
+			color: transparent;
+			transition: none;
+		}
 
 		&:hover {
 			background: var(--surface-2);

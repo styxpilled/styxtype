@@ -6,9 +6,15 @@
 		metrics: Metrics;
 		text: string;
 		size: number;
+		editable?: boolean;
 	};
 
-	let { family, metrics, text, size }: Props = $props();
+	let { family, metrics, text = $bindable(), size, editable = false }: Props = $props();
+
+	// One line only: the guides are drawn for one baseline.
+	function onkeydown(e: KeyboardEvent) {
+		if (e.key === 'Enter') e.preventDefault();
+	}
 
 	let marker = $state<HTMLElement>();
 	let baseline = $state(0);
@@ -41,7 +47,18 @@
 			<span class="num">{line.name} {line.value}</span>
 		</div>
 	{/each}
-	<p>{text}<span class="marker" bind:this={marker}></span></p>
+	<p>
+		{#if editable}<span
+				class="edit"
+				role="textbox"
+				tabindex="0"
+				aria-label="Specimen text"
+				contenteditable="plaintext-only"
+				spellcheck="false"
+				bind:textContent={text}
+				{onkeydown}
+			></span>{:else}{text}{/if}<span class="marker" bind:this={marker}></span>
+	</p>
 </div>
 
 <style>
@@ -59,6 +76,10 @@
 		overflow: hidden;
 		white-space: nowrap;
 		mask-image: linear-gradient(to left, transparent, #000 1.5rem);
+	}
+
+	.edit {
+		outline: none;
 	}
 
 	.marker {

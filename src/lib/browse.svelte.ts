@@ -10,6 +10,8 @@ class Browse {
 	query = $state('');
 	categories = $state<Category[]>([]);
 	tags = $state<string[]>([]);
+	scripts = $state<string[]>([]);
+	properties = $state<string[]>([]);
 	licenses = $state<string[]>([]);
 	sort = $state<Sort>('name');
 	/** Loaded after start from static/fonts/filters.json. */
@@ -23,6 +25,8 @@ class Browse {
 				f.name.toLowerCase().includes(query) &&
 				(this.categories.length === 0 || this.categories.includes(f.category)) &&
 				this.tags.every((t) => f.tags.includes(t)) &&
+				this.scripts.every((t) => this.filterData?.[f.slug]?.scripts.includes(t)) &&
+				this.properties.every((t) => this.filterData?.[f.slug]?.properties.includes(t)) &&
 				(this.licenses.length === 0 ||
 					this.licenses.includes(this.filterData?.[f.slug]?.license ?? ''))
 		);
@@ -38,6 +42,8 @@ class Browse {
 		this.query.trim() !== '' ||
 			this.categories.length > 0 ||
 			this.tags.length > 0 ||
+			this.scripts.length > 0 ||
+			this.properties.length > 0 ||
 			this.licenses.length > 0
 	);
 
@@ -53,6 +59,8 @@ class Browse {
 		this.query = '';
 		this.categories = [];
 		this.tags = [];
+		this.scripts = [];
+		this.properties = [];
 		this.licenses = [];
 	}
 }

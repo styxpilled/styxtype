@@ -2,24 +2,34 @@
 	type Props = {
 		label: string;
 		checked: boolean;
+		/** Small code after the label, for example an OpenType tag. */
+		tag?: string;
+		onchange?: (checked: boolean) => void;
 	};
 
-	let { label, checked = $bindable() }: Props = $props();
+	let { label, checked = $bindable(), tag, onchange }: Props = $props();
 </script>
 
 <label>
-	<span>{label}</span>
-	<input type="checkbox" role="switch" bind:checked />
+	<input type="checkbox" role="switch" bind:checked onchange={() => onchange?.(checked)} />
+	<span
+		>{label}{#if tag}<span class="tag">{tag}</span>{/if}</span
+	>
 </label>
 
 <style>
 	label {
 		display: flex;
 		align-items: center;
-		justify-content: space-between;
-		gap: var(--space-3);
+		gap: var(--space-2);
 		font-size: var(--text-sm);
 		cursor: pointer;
+	}
+
+	.tag {
+		margin-left: var(--space-2);
+		font-size: var(--text-xs);
+		color: var(--text-faint);
 	}
 
 	input {

@@ -6,9 +6,22 @@
 		max: number;
 		step?: number;
 		unit?: string;
+		/** Replaces the shown value, for example 'auto'. */
+		text?: string;
+		/** Shows a reset button. */
+		onreset?: () => void;
 	};
 
-	let { label, value = $bindable(), min, max, step = 1, unit = '' }: Props = $props();
+	let {
+		label,
+		value = $bindable(),
+		min,
+		max,
+		step = 1,
+		unit = '',
+		text,
+		onreset
+	}: Props = $props();
 
 	const id = $props.id();
 	let fill = $derived(((value - min) / (max - min)) * 100);
@@ -16,7 +29,12 @@
 
 <div class="slider">
 	<label for={id}>{label}</label>
-	<output for={id} class="num">{value}{unit}</output>
+	<span class="value">
+		{#if onreset}
+			<button class="reset" onclick={onreset} aria-label="Reset {label}">Reset</button>
+		{/if}
+		<output for={id} class="num">{text ?? `${value}${unit}`}</output>
+	</span>
 	<input {id} type="range" {min} {max} {step} bind:value style:--fill="{fill}%" />
 </div>
 
@@ -32,9 +50,24 @@
 		font-size: var(--text-sm);
 	}
 
+	.value {
+		display: flex;
+		align-items: baseline;
+		gap: var(--space-2);
+	}
+
 	output {
 		font-size: var(--text-sm);
 		color: var(--text-muted);
+	}
+
+	.reset {
+		padding: 0;
+		border: 0;
+		background: none;
+		font-size: var(--text-xs);
+		color: var(--accent);
+		cursor: pointer;
 	}
 
 	input {

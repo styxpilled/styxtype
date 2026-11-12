@@ -1,13 +1,40 @@
 <script lang="ts">
 	import { browse } from '#lib/browse.svelte.ts';
+	import type { FontMeta } from '#lib/catalog.ts';
+	import { fontStack, loadFull, loadMeta, loadSubset } from '#lib/fonts.svelte.ts';
+	import { settings } from '#lib/settings.svelte.ts';
 	import Segmented from '#lib/ui/controls/Segmented.svelte';
 	import Shell from '#lib/ui/layout/Shell.svelte';
 	import FontList from '#lib/ui/list/FontList.svelte';
+	import Inspector from '#lib/ui/inspector/Inspector.svelte';
+	import Glyphs from '#lib/ui/stage/Glyphs.svelte';
+	import Specimen from '#lib/ui/stage/Specimen.svelte';
+	import Tester from '#lib/ui/stage/Tester.svelte';
 	import ThemeSwitch from '#lib/ui/ThemeSwitch.svelte';
 
-	// Stage and inspector are placeholders until issues 010-012.
-	let view = $state<'specimen' | 'glyphs'>('specimen');
+	let view = $state<'specimen' | 'tester' | 'glyphs'>('specimen');
 	let font = $derived(browse.current);
+
+	let views = $state<HTMLElement>();
+	// Keep the scroll position when the font changes, not when the view changes.
+	$effect(() => {
+		void view;
+		views?.parentElement?.scrollTo({ top: 0 });
+	});
+
+	let loadedMeta = $state<FontMeta>();
+	// Hide the meta of the previous font while the new one loads.
+	let meta = $derived(loadedMeta?.slug === font?.slug ? loadedMeta : undefined);
+
+	$effect(() => {
+		if (!font) return;
+		// The subset is small and shows first, also when the list is not visible (mobile).
+		loadSubset(font.slug);
+		loadFull(font.slug).catch(() => {});
+		loadMeta(font.slug)
+			.then((m) => (loadedMeta = m))
+			.catch(() => {});
+	});
 </script>
 
 <svelte:head>
@@ -37,20 +64,40 @@
 			bind:value={view}
 			options={[
 				{ value: 'specimen', label: 'Specimen' },
+				{ value: 'tester', label: 'Tester' },
 				{ value: 'glyphs', label: 'Glyphs' }
 			]}
 		/>
 	{/snippet}
 
 	{#snippet stage()}
-		<p class="placeholder" style:font-family="'{font?.slug} subset', var(--font-ui)">
-			{font?.name}
-		</p>
+		{#if font}
+			{@const family = fontStack(font.slug)}
+			<div
+				bind:this={views}
+				class="views"
+				style:font-family={family}
+				style:font-feature-settings={settings.featureSettings}
+				style:font-variation-settings={settings.variationSettings}
+				style:font-weight={settings.font.weight}
+				style:font-style={settings.font.italic ? 'italic' : undefined}
+			>
+				{#if view === 'specimen'}
+					<Specimen {family} metrics={meta?.metrics} />
+				{:else if view === 'tester'}
+					<Tester />
+				{:else}
+					<Glyphs charset={meta?.charset} />
+				{/if}
+			</div>
+		{/if}
 	{/snippet}
 
 	{#snippet inspector()}
 		<div class="inspector">
-			<p class="label">Settings for {font?.name}</p>
+			{#if font}
+				<Inspector {font} {meta} />
+			{/if}
 			<div class="theme">
 				<ThemeSwitch />
 			</div>
@@ -90,11 +137,6 @@
 				color: var(--text);
 			}
 		}
-	}
-
-	.placeholder {
-		font-size: clamp(2.5rem, 8vw, 6rem);
-		color: var(--ink);
 	}
 
 	.inspector {
