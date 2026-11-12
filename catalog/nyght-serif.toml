@@ -1,0 +1,8 @@
+name = "Nyght Serif"
+category = "serif"
+source = "https://www.tunera.xyz/fonts/nyght-serif"
+description = "Nyght Serif by Maksym Kobuzan is a spiritual successor to the famous Futura typeface."
+
+[[designers]]
+name = "Maksym Kobuzan"
+url = "https://www.behance.net/mkobuzan"

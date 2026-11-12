@@ -1,0 +1,8 @@
+[project]
+name = "styxtype-pipeline"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "brotli>=1.2.1",
+    "fonttools>=4.68.0",
+]

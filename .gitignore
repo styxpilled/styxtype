@@ -29,3 +29,11 @@ CLAUDE.md
 
 # Font sources (not redistributed through git)
 /fonts/
+
+# Python
+.venv/
+__pycache__/
+
+# Font pipeline output
+/src/lib/generated/
+/static/fonts/

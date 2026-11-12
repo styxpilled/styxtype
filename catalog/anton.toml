@@ -1,0 +1,7 @@
+name = "Anton"
+category = "display"
+tags = ["condensed"]
+source = "https://github.com/googlefonts/AntonFont"
+
+[[designers]]
+name = "Vernon Adams"
