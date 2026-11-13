@@ -40,5 +40,3 @@ pnpm run deploy
 
 This builds the site and uploads `build/` to Cloudflare Pages with wrangler. Cloudflare does not
 build. Log in first with `pnpm exec wrangler login`.
-
-The v3 code is in `legacy/` for reference only.
