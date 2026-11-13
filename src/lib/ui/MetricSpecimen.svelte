@@ -75,11 +75,12 @@
 		line-height: 1.6;
 	}
 
-	/* Text starts after the label gutter and clips when it is too long. */
+	/* Text starts after the label gutter and scrolls when it is too long. */
 	p {
 		position: relative;
 		margin-left: var(--gutter);
-		overflow: hidden;
+		overflow: auto hidden;
+		scrollbar-width: none;
 		white-space: nowrap;
 	}
 

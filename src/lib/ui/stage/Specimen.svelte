@@ -61,13 +61,13 @@
 		display: grid;
 		/* Without minmax, nowrap lines make the column wider than the stage. */
 		grid-template-columns: minmax(0, 1fr);
-		gap: var(--space-7);
-		padding-bottom: var(--space-7);
+		gap: var(--space-5);
+		padding: 0 var(--space-3) var(--space-5);
 		color: var(--ink);
 	}
 
 	section + section {
-		padding-top: var(--space-6);
+		padding-top: var(--space-4);
 		border-top: 1px solid var(--border);
 	}
 
@@ -88,17 +88,14 @@
 		color: var(--text-faint);
 	}
 
-	/* Clip long lines*/
-	section {
-		/* TODO: let lines scroll on mobile / maybe on desktop with a smaller scrollbar, only horizontally */
-		overflow: hidden;
-		/*overflow-x: scroll;*/
-		/*overflow-y: visible;*/
-	}
-
+	/* Long lines scroll. The padding keeps tall glyphs from being clipped. */
 	.line {
 		line-height: 1.35;
 		white-space: nowrap;
+		overflow: auto hidden;
+		scrollbar-width: none;
+		padding-block: 0.25em;
+		margin-block: -0.25em;
 	}
 
 	.marks p {

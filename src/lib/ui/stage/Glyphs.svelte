@@ -198,7 +198,7 @@
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(3.5rem, 1fr));
 		gap: 1px;
-		margin-bottom: var(--space-7);
+		margin-bottom: var(--space-5);
 		border: 1px solid var(--border);
 		border-radius: var(--radius-control);
 		overflow: hidden;

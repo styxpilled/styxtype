@@ -67,12 +67,12 @@
 		display: grid;
 		/* Without minmax, nowrap lines make the column wider than the stage. */
 		grid-template-columns: minmax(0, 1fr);
-		gap: var(--space-6);
-		padding-bottom: var(--space-7);
+		gap: var(--space-4);
+		padding-bottom: var(--space-5);
 	}
 
 	section + section {
-		padding-top: var(--space-6);
+		padding-top: var(--space-4);
 		border-top: 1px solid var(--border);
 	}
 
@@ -111,7 +111,7 @@
 	.excerpt {
 		display: grid;
 		justify-items: start;
-		gap: var(--space-5);
+		gap: var(--space-3);
 		color: var(--ink);
 
 		p {

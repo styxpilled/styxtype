@@ -21,7 +21,10 @@
 	let drag = $state<{ start: number; offset: number } | null>(null);
 	let sheet = $state<HTMLElement>();
 
+	// The whole sheet head drags and toggles, except its other buttons.
 	function onpointerdown(e: PointerEvent) {
+		const button = (e.target as Element).closest('button');
+		if (button && !button.classList.contains('handle')) return;
 		(e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
 		drag = { start: e.clientY, offset: 0 };
 	}
@@ -68,15 +71,22 @@
 		<div class="list-head">
 			{@render brand()}
 		</div>
-		<div class="sheet-head">
+		<div
+			class="sheet-head"
+			role="presentation"
+			{onpointerdown}
+			{onpointermove}
+			{onpointerup}
+			onpointercancel={() => (drag = null)}
+		>
+			<!-- Pointer taps toggle through the sheet head. A click with detail 0 is a key press. -->
 			<button
 				class="handle"
 				aria-label={listOpen ? 'Collapse font list' : 'Expand font list'}
 				aria-expanded={listOpen}
-				{onpointerdown}
-				{onpointermove}
-				{onpointerup}
-				onpointercancel={() => (drag = null)}
+				onclick={(e) => {
+					if (e.detail === 0) listOpen = !listOpen;
+				}}
 			></button>
 			{@render peek()}
 		</div>
@@ -87,7 +97,9 @@
 
 	<main class="panel stage" style:--toolbar-height={toolbarHeight ? `${toolbarHeight}px` : null}>
 		<div class="toolbar" bind:offsetHeight={toolbarHeight}>
-			{@render toolbar()}
+			<div class="toolbar-scroll">
+				{@render toolbar()}
+			</div>
 		</div>
 		<div class="stage-actions">
 			{@render inspectorButton()}
@@ -185,7 +197,7 @@
 		flex: 1;
 		/* The toolbar floats over the top, so content scrolls up beside it. */
 		margin-top: var(--stage-margin);
-		padding: var(--toolbar-height, 3.5rem) var(--stage-pad) var(--stage-pad);
+		padding: calc(var(--toolbar-height, 3.5rem) - var(--space-3)) var(--stage-pad) var(--stage-pad);
 	}
 
 	.inspector-body {
@@ -235,17 +247,53 @@
 		position: absolute;
 		top: 0;
 		z-index: 2;
-		padding: var(--space-3);
 		background: var(--surface);
 	}
 
+	.stage-actions {
+		padding: var(--space-3);
+	}
+
+	/* Not scrolling itself, so the inverted corners outside it stay visible. */
 	.toolbar {
 		left: 0;
+		display: flex;
 		max-width: 100%;
 		border-bottom-right-radius: var(--radius-panel);
+
+		/* Inverted corners: below the left end and right of the top end. */
+		&::before,
+		&::after {
+			content: '';
+			position: absolute;
+			width: var(--radius-panel);
+			height: var(--radius-panel);
+			background: radial-gradient(
+				circle at 100% 100%,
+				transparent calc(var(--radius-panel) - 0.5px),
+				var(--surface) calc(var(--radius-panel) + 0.5px)
+			);
+			pointer-events: none;
+		}
+
+		/* Offset to the edges of the scrolling content, not the panel. */
+		&::before {
+			top: 100%;
+			left: var(--stage-pad);
+		}
+
+		&::after {
+			top: var(--stage-margin);
+			left: 100%;
+		}
+	}
+
+	.toolbar-scroll {
 		display: flex;
 		align-items: center;
 		gap: var(--space-2);
+		min-width: 0;
+		padding: var(--space-3);
 		overflow-x: auto;
 		scrollbar-width: none;
 
@@ -368,6 +416,15 @@
 			--stage-pad: var(--space-1);
 		}
 
+		.toolbar {
+			border-radius: 0;
+
+			&::before,
+			&::after {
+				display: none;
+			}
+		}
+
 		.list,
 		.inspector {
 			position: fixed;
@@ -404,6 +461,8 @@
 			align-items: stretch;
 			height: var(--peek);
 			padding: 0 var(--space-3) var(--space-2);
+			cursor: grab;
+			touch-action: none;
 		}
 
 		.handle {
@@ -415,7 +474,6 @@
 			border: 0;
 			background: none;
 			cursor: grab;
-			touch-action: none;
 
 			&::before {
 				content: '';

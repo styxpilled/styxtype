@@ -6,6 +6,7 @@
 	import Menu from '#lib/ui/menu/Menu.svelte';
 	import { menuTrigger } from '#lib/ui/menu/trigger.ts';
 	import { onMount } from 'svelte';
+	import { SvelteSet } from 'svelte/reactivity';
 	import Chip from './Chip.svelte';
 
 	let menu = $state<ReturnType<typeof Menu>>();
@@ -33,6 +34,8 @@
 			{ key: 'licenses', label: 'License', values: unique(data.map((d) => d.license)) }
 		] as const;
 	});
+	const collapsedFilters = new SvelteSet<string>();
+
 	let extraCount = $derived(
 		browse.tags.length + browse.scripts.length + browse.properties.length + browse.licenses.length
 	);
@@ -111,17 +114,30 @@
 <div id="more-filters" class="panel popover" popover>
 	{#each filterGroups as group (group.key)}
 		{#if group.values.length}
-			<h3 class="label">{group.label}</h3>
-			<div class="chips">
-				{#each group.values as value (value)}
-					<Chip
-						pressed={browse[group.key].includes(value)}
-						onclick={() => (browse[group.key] = toggle(browse[group.key], value))}
-					>
-						{value}
-					</Chip>
-				{/each}
-			</div>
+			{@const open = !collapsedFilters.has(group.key)}
+			<h3 class="group">
+				<button
+					class="label"
+					aria-expanded={open}
+					onclick={() =>
+						open ? collapsedFilters.add(group.key) : collapsedFilters.delete(group.key)}
+				>
+					<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 4l4 4-4 4" /></svg>
+					{group.label}
+				</button>
+			</h3>
+			{#if open}
+				<div class="chips">
+					{#each group.values as value (value)}
+						<Chip
+							pressed={browse[group.key].includes(value)}
+							onclick={() => (browse[group.key] = toggle(browse[group.key], value))}
+						>
+							{value}
+						</Chip>
+					{/each}
+				</div>
+			{/if}
 		{/if}
 	{/each}
 	{#if !browse.filterData}
@@ -157,7 +173,10 @@
 						aria-label={f.name}
 						title={f.name}
 						onclick={() => (browse.selected = f.slug)}
-						{@attach menuTrigger((x, y) => openMenu(f, x, y))}
+						{@attach menuTrigger(
+							(x, y) => openMenu(f, x, y),
+							() => browse.togglePin(f.slug)
+						)}
 					>
 						<svg aria-hidden="true" style:width="{f.name_width}em">
 							<use href="/fonts/names.svg#{f.slug}" />
@@ -218,12 +237,12 @@
 		padding: var(--space-3);
 		color: var(--text);
 
-		h3:not(:first-child) {
-			margin-top: var(--space-3);
-		}
+		.group {
+			margin: var(--space-2) 0 var(--space-1);
 
-		h3 {
-			margin-bottom: var(--space-2);
+			&:first-child {
+				margin-top: 0;
+			}
 		}
 	}
 
@@ -291,6 +310,9 @@
 		font-size: 1.375rem;
 		color: var(--ink);
 		cursor: pointer;
+		/* A long press pins, so no iOS callout or selection. */
+		-webkit-touch-callout: none;
+		user-select: none;
 
 		svg {
 			display: block;
