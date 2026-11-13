@@ -142,7 +142,7 @@
 				class:below={line.below}
 				style:top="{y(line.value)}px"
 			>
-				<span class="num">{line.label}</span>
+				<span class="ui num">{line.label}</span>
 			</div>
 		{/each}
 
@@ -189,14 +189,14 @@
 	</div>
 
 	<div class="info">
-		<div class="head">
+		<div class="head ui">
 			<span class="num">U+{code}</span>
 			<button class="close" aria-label="Close glyph" onclick={onclose}>
 				<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" /></svg>
 			</button>
 		</div>
 
-		<dl class="values num">
+		<dl class="values ui num">
 			<div>
 				<dt>Advance</dt>
 				<dd>{values.advance ?? '-'}</dd>
@@ -220,7 +220,7 @@
 				<li>
 					<button aria-pressed={!current} onclick={() => (alternate = null)}>
 						<span class="alt-glyph">{char}</span>
-						<span class="tag">Default</span>
+						<span class="tag ui">Default</span>
 					</button>
 				</li>
 				{#each alternates as a (`${a.tag} ${a.n}`)}
@@ -232,7 +232,7 @@
 						>
 							<span class="alt-glyph" style:font-feature-settings={`"${a.tag}" ${a.n}`}>{char}</span
 							>
-							<span class="tag">{a.tag}{a.n > 1 ? ` ${a.n}` : ''}</span>
+							<span class="tag ui">{a.tag}{a.n > 1 ? ` ${a.n}` : ''}</span>
 						</button>
 					</li>
 				{/each}
@@ -303,10 +303,7 @@
 			position: absolute;
 			left: 0;
 			bottom: 2px;
-			font-family: var(--font-ui);
 			font-size: var(--text-xs);
-			font-weight: 400;
-			font-style: normal;
 			line-height: 1;
 			white-space: nowrap;
 			color: var(--text-muted);
@@ -342,16 +339,6 @@
 		gap: var(--space-3);
 		padding-top: var(--space-2);
 		font-size: var(--text-sm);
-	}
-
-	.head,
-	.values,
-	.tag {
-		font-family: var(--font-ui);
-		font-weight: 400;
-		font-style: normal;
-		font-stretch: normal;
-		font-variation-settings: normal;
 	}
 
 	.head {

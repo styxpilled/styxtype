@@ -1,7 +1,7 @@
 import type { Component } from 'svelte';
+import Article from './Article.svelte';
 import Flyer from './Flyer.svelte';
 import Poster from './Poster.svelte';
-import Test from './Test.svelte';
 
 export type Role = 'display' | 'body';
 
@@ -115,48 +115,48 @@ export const templates: Template[] = [
 		]
 	},
 	{
-		id: 'test',
-		name: 'Test',
+		id: 'article',
+		name: 'Article',
 		roles: ['display', 'body'],
-		component: Test,
+		component: Article,
 		schemes: [
 			{
-				id: 'paper',
-				name: 'Paper',
+				id: 'newsprint',
+				name: 'Newsprint',
 				colors: {
-					paper: '#ffffff',
-					panel: '#f1f1ef',
-					ink: '#000000',
-					muted: '#5b5b58',
-					rule: '#d4d4d0',
-					accent: '#2438e8',
-					'on-accent': '#ffffff'
+					paper: '#e9e7e1',
+					panel: '#dedbd3',
+					ink: '#1f1d1a',
+					muted: '#5a564f',
+					rule: '#b3aea4',
+					accent: '#8c1c13',
+					'on-accent': '#f4f2ec'
 				}
 			},
 			{
-				id: 'harbour',
-				name: 'Harbour',
+				id: 'rotogravure',
+				name: 'Rotogravure',
 				colors: {
-					paper: '#111839',
-					panel: '#1b2350',
-					ink: '#f0f2ff',
-					muted: '#9ca4d4',
-					rule: '#2d3668',
-					accent: '#ffd23f',
-					'on-accent': '#111839'
+					paper: '#e8d9b8',
+					panel: '#ddcba5',
+					ink: '#3d2414',
+					muted: '#664630',
+					rule: '#b89f78',
+					accent: '#7a3b1c',
+					'on-accent': '#f3e9d4'
 				}
 			},
 			{
-				id: 'tomato',
-				name: 'Tomato',
+				id: 'slate',
+				name: 'Slate',
 				colors: {
-					paper: '#ff5a36',
-					panel: '#ff7452',
-					ink: '#1c0700',
-					muted: '#6e200d',
-					rule: '#e4441f',
-					accent: '#ffffff',
-					'on-accent': '#d63a17'
+					paper: '#232a33',
+					panel: '#2c343f',
+					ink: '#e9e6df',
+					muted: '#a9adb3',
+					rule: '#4a525d',
+					accent: '#e0a43a',
+					'on-accent': '#232a33'
 				}
 			}
 		]

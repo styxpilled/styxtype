@@ -39,7 +39,7 @@
 		height: 1rem;
 		margin: 0;
 		border-radius: var(--radius-full);
-		background: var(--border-strong);
+		background: var(--text-faint);
 		appearance: none;
 		cursor: pointer;
 		transition: background-color var(--duration);

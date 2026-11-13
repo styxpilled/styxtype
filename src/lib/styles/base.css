@@ -73,6 +73,15 @@ a {
 	box-shadow: var(--shadow-panel);
 }
 
+/* UI text inside specimen areas, which set weight, style, features and axes. */
+.ui {
+	font-family: var(--font-ui);
+	font-weight: 400;
+	font-style: normal;
+	font-feature-settings: normal;
+	font-variation-settings: normal;
+}
+
 .label {
 	font-size: var(--text-xs);
 	font-weight: 500;

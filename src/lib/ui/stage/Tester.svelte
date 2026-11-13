@@ -22,7 +22,7 @@
 	<section aria-label="Waterfall">
 		{#each sizes as size (size)}
 			<label class="row">
-				<span class="size num">{size}</span>
+				<span class="size ui num">{size}</span>
 				<input
 					type="text"
 					bind:value={line}
@@ -83,7 +83,6 @@
 	}
 
 	.size {
-		font-family: var(--font-ui);
 		font-size: var(--text-xs);
 		color: var(--text-faint);
 	}

@@ -1,13 +1,18 @@
 import { browse } from '#lib/browse.svelte.ts';
-import { featureCss, variationCss, type Tuned } from '#lib/settings.svelte.ts';
+import { cleanTuned, featureCss, isTuned, variationCss, type Tuned } from '#lib/settings.svelte.ts';
 import { templates, type Role } from '#lib/templates/index.ts';
 
 const untuned = (): Tuned => ({ features: {}, axes: {} });
 
 export type Flow = 'inspect' | 'design';
 
+export const views = ['specimen', 'tester', 'glyphs'] as const;
+export type View = (typeof views)[number];
+
 class Design {
 	flow = $state<Flow>('inspect');
+	/** The neutral flow view. */
+	view = $state<View>('specimen');
 	templateId = $state(templates[0].id);
 	/** Scheme per template, so a switch back keeps the choice. */
 	schemes = $state<Record<string, string>>({});
@@ -40,6 +45,19 @@ class Design {
 	css(role: Role) {
 		const t = this.tuned(role);
 		return { features: featureCss(t), variations: variationCss(t) };
+	}
+
+	snapshot() {
+		const tuned = Object.fromEntries(Object.entries(this.#tuned).filter(([, t]) => isTuned(t)));
+		const uppercase = Object.values(this.uppercase).some(Boolean) ? this.uppercase : undefined;
+		return { tuned: Object.keys(tuned).length ? tuned : undefined, uppercase };
+	}
+
+	restore(data: Partial<ReturnType<Design['snapshot']>>) {
+		for (const [key, t] of Object.entries(data.tuned ?? {})) this.#tuned[key] = cleanTuned(t);
+		for (const role of ['display', 'body'] as const) {
+			if (data.uppercase?.[role] === true) this.uppercase[role] = true;
+		}
 	}
 
 	togglePin(role: Role) {

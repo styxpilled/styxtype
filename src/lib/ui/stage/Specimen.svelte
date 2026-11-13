@@ -20,7 +20,8 @@
 </script>
 
 <div class="sheet" bind:clientWidth={width}>
-	<section class="hero">
+	<!-- Keeps its height while the metrics load, so the page does not shift. -->
+	<section class="hero" style:min-height="{heroSize * 1.6}px">
 		{#if metrics}
 			<MetricSpecimen
 				{family}
@@ -41,7 +42,7 @@
 	<section aria-label="Pangrams">
 		{#each sizes as size, i (size)}
 			<div class="row">
-				<span class="size num">{size}</span>
+				<span class="size ui num">{size}</span>
 				<p class="line" style:font-size="{size}px">{texts.pangrams[i]}</p>
 			</div>
 		{/each}
@@ -83,7 +84,6 @@
 	}
 
 	.size {
-		font-family: var(--font-ui);
 		font-size: var(--text-xs);
 		color: var(--text-faint);
 	}

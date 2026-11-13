@@ -50,7 +50,7 @@
 			class:below={line.below}
 			style:top="{line.y}px"
 		>
-			<span class="num">{line.name} {line.value}</span>
+			<span class="ui num">{line.name} {line.value}</span>
 		</div>
 	{/each}
 	<p>
@@ -107,7 +107,6 @@
 			position: absolute;
 			left: 0;
 			bottom: 2px;
-			font-family: var(--font-ui);
 			font-size: var(--text-xs);
 			line-height: 1;
 			white-space: nowrap;

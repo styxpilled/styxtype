@@ -28,7 +28,7 @@
 	}
 </script>
 
-<div class="segmented" role="radiogroup" aria-label={label} bind:this={group}>
+<div class="segmented ui" role="radiogroup" aria-label={label} bind:this={group}>
 	{#each options as option, i (option.value)}
 		<label>
 			<input
@@ -48,9 +48,7 @@
 </div>
 
 <style>
-	/* Also inside specimen text, which sets its own font. */
 	.segmented {
-		font-family: var(--font-ui);
 		display: inline-flex;
 		max-width: 100%;
 		overflow-x: auto;

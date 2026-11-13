@@ -157,7 +157,7 @@
 			</div>
 		{/if}
 
-		<p class="count label num">{chars.length} characters</p>
+		<p class="count ui label num">{chars.length} characters</p>
 		<ul class="grid" bind:this={grid}>
 			{#each chars as { cp, char, code, key } (cp)}
 				<li>
@@ -190,7 +190,6 @@
 	}
 
 	.count {
-		font-family: var(--font-ui);
 		margin-bottom: var(--space-3);
 	}
 

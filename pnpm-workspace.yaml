@@ -1,0 +1,4 @@
+allowBuilds:
+  # Not needed: the site is static, with no Pages Functions.
+  esbuild: false
+  workerd: false
